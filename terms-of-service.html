@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5JQ32785');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Jackal AI</title>
+  <meta name="description" content="Jackal AI Terms of Service. Governed by the laws of Western Australia, Australia.">
+  <link rel="icon" type="image/png" href="brandmark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       CSS VARIABLES
+    =========================== */
+    :root {
+      --graphite:    #111111;
+      --iron:        #2A2A28;
+      --slate:       #71706C;
+      --dust:        #B8A88E;
+      --sandstone:   #E5D5BE;
+      --cloud:       #F5F1EB;
+      --white:       #FAFAF7;
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FCD34D;
+      --amber-rgb:   245, 158, 11;
+      --bg:           #111111;
+      --text-primary: #FAFAF7;
+      --text-body:    #E5D5BE;
+      --text-muted:   #B8A88E;
+      --accent:       #F59E0B;
+      --accent-rgb:   245, 158, 11;
+      --radius:    8px;
+      --radius-lg: 16px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Archivo Black', sans-serif; line-height: 1.1; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ::selection { background: var(--amber); color: #000; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--graphite); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--amber), var(--amber-dark));
+      border-radius: 3px;
+    }
+
+    /* ===========================
+       SCROLL PROGRESS
+    =========================== */
+    #scrollProgress {
+      position: fixed; top: 0; left: 0;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--amber-dark), var(--amber), var(--amber-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ===========================
+       STARSCAPE
+    =========================== */
+    #starscape {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .section-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    #navbar {
+      position: fixed; top: 12px; left: 0; right: 0;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-inner {
+      max-width: 100%; margin: 0 auto;
+      padding: 14px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #navbar.scrolled .nav-inner {
+      max-width: 840px;
+      background: rgba(17,17,17,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 100px;
+      padding: 10px 24px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+    .nav-logo img { height: 30px; width: auto; }
+    .nav-wordmark {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white);
+      white-space: nowrap;
+    }
+    .nav-wordmark sup {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 0.55em; color: var(--amber);
+      vertical-align: super; margin-left: 1px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif; font-weight: 500;
+      font-size: 0.875rem; color: var(--text-body);
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--amber) !important; color: #000 !important;
+      padding: 8px 18px !important; border-radius: var(--radius) !important;
+      font-weight: 600 !important; font-size: 0.875rem !important;
+      transition: box-shadow 0.25s ease !important;
+    }
+    .nav-cta:hover { box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.5) !important; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 12px 20px; }
+    }
+
+    /* ===========================
+       HAMBURGER & MOBILE NAV
+    =========================== */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 4px; z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(11,11,11,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 36px; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile.open { display: flex; opacity: 1; pointer-events: auto; }
+    .nav-mobile a {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      color: var(--white); text-transform: uppercase; letter-spacing: 0.04em;
+      transition: color 0.2s ease;
+    }
+    .nav-mobile a:hover { color: var(--amber); }
+    .nav-mobile .mob-cta {
+      background: var(--amber); color: #000 !important;
+      padding: 14px 36px; border-radius: var(--radius);
+      font-size: clamp(1rem, 3vw, 1.4rem) !important;
+    }
+    @media (max-width: 768px) { .nav-hamburger { display: flex; } }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #legal-hero {
+      position: relative; z-index: 1;
+      padding: 180px 64px 80px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow .section-label { margin: 0; }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: var(--amber); opacity: 0.7;
+    }
+    .hero-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--slate);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .hero-meta-item .dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--amber);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    .hero-divider {
+      max-width: 1100px; margin: 48px auto 0;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    @media (max-width: 768px) {
+      #legal-hero { padding: 160px 24px 60px; }
+    }
+
+    /* ===========================
+       LEGAL LAYOUT
+    =========================== */
+    .legal-wrap {
+      position: relative; z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 64px 120px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ===========================
+       TOC
+    =========================== */
+    .legal-toc {
+      position: sticky;
+      top: 100px;
+    }
+    .toc-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .toc-nav a {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--slate);
+      padding: 5px 0 5px 12px;
+      border-left: 2px solid rgba(255,255,255,0.06);
+      margin-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      line-height: 1.4;
+    }
+    .toc-nav a:hover { color: var(--text-muted); border-color: rgba(245,158,11,0.3); }
+    .toc-nav a.active { color: var(--amber); border-color: var(--amber); }
+    .toc-back {
+      display: flex; align-items: center; gap: 7px;
+      margin-top: 28px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--slate);
+      transition: color 0.2s ease;
+    }
+    .toc-back:hover { color: var(--text-muted); }
+    .toc-back svg { flex-shrink: 0; }
+
+    /* ===========================
+       LEGAL DOCUMENT
+    =========================== */
+    .legal-doc { min-width: 0; }
+
+    .legal-section {
+      padding-bottom: 52px;
+      margin-bottom: 52px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .legal-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .section-num {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      opacity: 0.8;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .section-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .legal-body p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.925rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .legal-body p:last-child { margin-bottom: 0; }
+
+    .legal-body ul, .legal-body ol {
+      margin: 14px 0 16px 20px;
+    }
+    .legal-body li {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.925rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 6px;
+    }
+    .legal-body li::marker { color: var(--amber); }
+
+    .legal-body strong {
+      color: var(--sandstone);
+      font-weight: 600;
+    }
+
+    .legal-body a {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s ease;
+    }
+    .legal-body a:hover { opacity: 0.75; }
+
+    .info-block {
+      background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.15);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+    .info-block p {
+      font-size: 0.875rem !important;
+      color: var(--dust) !important;
+      margin-bottom: 0 !important;
+    }
+    .info-block strong { color: var(--amber) !important; }
+
+    .detail-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-label {
+      color: var(--slate);
+      font-weight: 500;
+      flex-shrink: 0;
+      min-width: 140px;
+    }
+    .detail-value { color: var(--text-body); }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 32px 40px;
+      position: relative; z-index: 1;
+    }
+    .foot-inner { max-width: 1100px; margin: 0 auto; }
+    .foot-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .foot-brand-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+    .foot-brand-logo img { height: 26px; }
+    .foot-wordmark {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .foot-wordmark sup {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 0.52em; color: var(--amber);
+      vertical-align: super; margin-left: 1px;
+    }
+    .foot-tagline { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .foot-col h4 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 14px;
+    }
+    .foot-col a {
+      display: block; font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 10px; transition: color 0.2s ease;
+    }
+    .foot-col a:hover { color: var(--text-body); }
+    .foot-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 14px;
+    }
+    .foot-loc, .foot-copy { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--slate); }
+    .foot-legal { display: flex; gap: 18px; }
+    .foot-legal a { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--slate); transition: color 0.2s ease; }
+    .foot-legal a:hover { color: var(--text-muted); }
+    .foot-legal a.current { color: var(--amber); }
+    @media (max-width: 768px) {
+      .foot-top { grid-template-columns: 1fr 1fr; }
+      .foot-brand { grid-column: span 2; }
+      .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .foot-top { grid-template-columns: 1fr; }
+      .foot-brand { grid-column: span 1; }
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      .legal-wrap {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 40px 32px 80px;
+      }
+      .legal-toc {
+        position: static;
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .toc-nav { display: flex; flex-wrap: wrap; gap: 4px 0; }
+      .toc-nav a {
+        border-left: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 6px 10px 6px 0;
+        margin-right: 16px;
+      }
+      .toc-nav a.active { color: var(--amber); border-color: var(--amber); }
+      .toc-back { display: none; }
+    }
+    @media (max-width: 480px) {
+      .legal-wrap { padding: 32px 20px 64px; }
+      .section-header { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JQ32785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="scrollProgress"></div>
+  <canvas id="starscape"></canvas>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="brandmark.png" alt="Jackal">
+        <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="index.html#cta" class="nav-cta">Hear a demo call</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#how-it-works" onclick="closeMobileNav()">How It Works</a>
+    <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="index.html#cta" class="mob-cta" onclick="closeMobileNav()">Hear a demo call</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="legal-hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow reveal">
+        <span class="section-label">Legal</span>
+        <div class="hero-eyebrow-line"></div>
+      </div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">Terms of Service</h1>
+      <div class="hero-meta reveal" style="transition-delay:0.2s">
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          Last updated 26/01/26
+        </div>
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          Western Australia, Australia
+        </div>
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          ~6 min read
+        </div>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- ===================== CONTENT ===================== -->
+  <div class="legal-wrap">
+
+    <!-- TOC -->
+    <aside class="legal-toc">
+      <span class="toc-label">Contents</span>
+      <nav class="toc-nav">
+        <a href="#s1">1. Who We Are</a>
+        <a href="#s2">2. What We Do</a>
+        <a href="#s3">3. No Guaranteed Results</a>
+        <a href="#s4">4. Client Responsibilities</a>
+        <a href="#s5">5. Fees, Billing &amp; Payments</a>
+        <a href="#s6">6. Australian Consumer Law</a>
+        <a href="#s7">7. Refunds &amp; Cancellations</a>
+        <a href="#s8">8. Third-Party Platforms</a>
+        <a href="#s9">9. Intellectual Property</a>
+        <a href="#s10">10. Confidentiality</a>
+        <a href="#s11">11. Limitation of Liability</a>
+        <a href="#s12">12. Testimonials</a>
+        <a href="#s13">13. Termination</a>
+        <a href="#s14">14. Governing Law</a>
+        <a href="#s15">15. Changes to These Terms</a>
+        <a href="#s16">16. Contact &amp; Complaints</a>
+      </nav>
+      <a href="index.html" class="toc-back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </aside>
+
+    <!-- DOCUMENT -->
+    <main class="legal-doc">
+
+      <div class="legal-section reveal" style="padding-bottom:36px;margin-bottom:36px;">
+        <div class="legal-body">
+          <p>These Terms of Service govern your use of this website and any services provided by Jackal AI trading as Jackal AI ("we", "us", "our").</p>
+          <p>By accessing our website or engaging our services, you agree to these terms.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s1">
+        <div class="section-header">
+          <span class="section-num">01 —</span>
+          <h2 class="section-title">Who We Are</h2>
+        </div>
+        <div class="legal-body">
+          <div class="detail-row"><span class="detail-label">Business name</span><span class="detail-value">[Business Legal Name]</span></div>
+          <div class="detail-row"><span class="detail-label">Trading as</span><span class="detail-value">[Business Name]</span></div>
+          <div class="detail-row"><span class="detail-label">ABN</span><span class="detail-value">[ABN]</span></div>
+          <div class="detail-row"><span class="detail-label">Location</span><span class="detail-value">Western Australia, Australia</span></div>
+          <div class="detail-row"><span class="detail-label">Contact</span><span class="detail-value">[email address] | [phone number]</span></div>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s2">
+        <div class="section-header">
+          <span class="section-num">02 —</span>
+          <h2 class="section-title">What We Do</h2>
+        </div>
+        <div class="legal-body">
+          <p>We provide AI-powered services, automation systems, consulting, and related implementation services for businesses.</p>
+          <p>Our services may include strategy, setup, configuration, optimisation, and ongoing support. Unless explicitly stated in writing, we do not provide legal, accounting, financial, or compliance advice.</p>
+          <p>You remain responsible for how our services are used within your business.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s3">
+        <div class="section-header">
+          <span class="section-num">03 —</span>
+          <h2 class="section-title">No Guaranteed Results</h2>
+        </div>
+        <div class="legal-body">
+          <p>We do not guarantee specific outcomes.</p>
+          <p>Any examples, scenarios, figures, case studies, or performance references shown on this website or discussed with you are illustrative only. Results vary based on factors outside our control, including your business model, staff, systems, customers, and market conditions.</p>
+          <p>We make no promises regarding revenue, leads, conversions, cost savings, performance improvements, or business growth.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s4">
+        <div class="section-header">
+          <span class="section-num">04 —</span>
+          <h2 class="section-title">Client Responsibilities</h2>
+        </div>
+        <div class="legal-body">
+          <p>To deliver services effectively, you agree to:</p>
+          <ul>
+            <li>Provide accurate and complete information</li>
+            <li>Grant timely access to systems, accounts, or platforms where required</li>
+            <li>Respond within reasonable timeframes</li>
+            <li>Ensure your own compliance with applicable laws and third-party terms</li>
+          </ul>
+          <p>Delays caused by missing information or access may affect timelines and outcomes.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s5">
+        <div class="section-header">
+          <span class="section-num">05 —</span>
+          <h2 class="section-title">Fees, Billing, and Payments</h2>
+        </div>
+        <div class="legal-body">
+          <ul>
+            <li>All prices are in Australian dollars unless stated otherwise</li>
+            <li>Setup fees, ongoing fees, and billing cycles are disclosed before engagement</li>
+            <li>Payments must be made on time as agreed</li>
+            <li>Late payments may result in paused services or termination</li>
+          </ul>
+          <p>We reserve the right to recover reasonable costs associated with unpaid invoices.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s6">
+        <div class="section-header">
+          <span class="section-num">06 —</span>
+          <h2 class="section-title">Australian Consumer Law</h2>
+        </div>
+        <div class="legal-body">
+          <p>Our services come with guarantees that cannot be excluded under Australian Consumer Law.</p>
+          <p>Where permitted, our liability for a failure to comply with a consumer guarantee is limited to, at our discretion:</p>
+          <ul>
+            <li>Supplying the services again, or</li>
+            <li>Refunding the cost of the affected services</li>
+          </ul>
+          <p>Nothing in these terms excludes rights you are entitled to under Australian law.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s7">
+        <div class="section-header">
+          <span class="section-num">07 —</span>
+          <h2 class="section-title">Refunds and Cancellations</h2>
+        </div>
+        <div class="legal-body">
+          <div class="legal-subsection" style="margin-top:0;padding-top:0;border-top:none;">
+            <h3 class="subsection-title">Refunds</h3>
+            <ul>
+              <li>We do not offer refunds for change of mind</li>
+              <li>Setup fees and custom work are non-refundable once commenced</li>
+              <li>Refunds are considered only where required by law</li>
+            </ul>
+          </div>
+          <div class="legal-subsection">
+            <h3 class="subsection-title">Cancellations</h3>
+            <ul>
+              <li>Ongoing services may be cancelled with the required notice period stated in your agreement</li>
+              <li>Any outstanding fees remain payable</li>
+              <li>Access to systems or deliverables may be removed after cancellation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s8">
+        <div class="section-header">
+          <span class="section-num">08 —</span>
+          <h2 class="section-title">Third-Party Platforms and Tools</h2>
+        </div>
+        <div class="legal-body">
+          <p>Our services rely on third-party platforms, software, and infrastructure.</p>
+          <p>We are not responsible for:</p>
+          <ul>
+            <li>Outages, errors, or downtime</li>
+            <li>Pricing changes or feature removals</li>
+            <li>Policy or terms changes by third parties</li>
+          </ul>
+          <p>You agree to comply with all applicable third-party terms when using services delivered through those platforms.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s9">
+        <div class="section-header">
+          <span class="section-num">09 —</span>
+          <h2 class="section-title">Intellectual Property</h2>
+        </div>
+        <div class="legal-body">
+          <div class="legal-subsection" style="margin-top:0;padding-top:0;border-top:none;">
+            <h3 class="subsection-title">Our Intellectual Property</h3>
+            <p>All systems, workflows, frameworks, prompts, documentation, and materials we create remain our intellectual property unless explicitly transferred in writing.</p>
+            <p>You are granted a limited, non-transferable licence to use deliverables for your internal business purposes only.</p>
+          </div>
+          <div class="legal-subsection">
+            <h3 class="subsection-title">Your Intellectual Property</h3>
+            <p>You retain ownership of your data, content, and materials. You grant us a limited licence to use them solely to deliver our services.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s10">
+        <div class="section-header">
+          <span class="section-num">10 —</span>
+          <h2 class="section-title">Confidentiality</h2>
+        </div>
+        <div class="legal-body">
+          <p>Both parties agree to keep confidential information private and use it only for the purposes of providing or receiving services.</p>
+          <p>Confidentiality does not apply to information that:</p>
+          <ul>
+            <li>Is already public</li>
+            <li>Was lawfully obtained elsewhere</li>
+            <li>Must be disclosed by law</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s11">
+        <div class="section-header">
+          <span class="section-num">11 —</span>
+          <h2 class="section-title">Limitation of Liability</h2>
+        </div>
+        <div class="legal-body">
+          <p>To the maximum extent permitted by law:</p>
+          <ul>
+            <li>We are not liable for indirect, incidental, or consequential loss</li>
+            <li>Our total liability is limited to the fees paid by you in the previous 3 months for the affected services</li>
+          </ul>
+          <p>This limitation applies whether liability arises in contract, tort, or otherwise.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s12">
+        <div class="section-header">
+          <span class="section-num">12 —</span>
+          <h2 class="section-title">Testimonials and Marketing Content</h2>
+        </div>
+        <div class="legal-body">
+          <p>Testimonials and reviews reflect individual experiences only.</p>
+          <p>They do not represent typical results and should not be relied on as a promise of performance or outcomes.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s13">
+        <div class="section-header">
+          <span class="section-num">13 —</span>
+          <h2 class="section-title">Termination</h2>
+        </div>
+        <div class="legal-body">
+          <p>We may suspend or terminate services immediately if:</p>
+          <ul>
+            <li>These terms are breached</li>
+            <li>Fees remain unpaid</li>
+            <li>Services are misused or used unlawfully</li>
+          </ul>
+          <p>Termination does not affect accrued payment obligations or surviving clauses.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s14">
+        <div class="section-header">
+          <span class="section-num">14 —</span>
+          <h2 class="section-title">Governing Law</h2>
+        </div>
+        <div class="legal-body">
+          <p>These terms are governed by the laws of Western Australia.</p>
+          <p>You submit to the exclusive jurisdiction of the courts of Western Australia.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s15">
+        <div class="section-header">
+          <span class="section-num">15 —</span>
+          <h2 class="section-title">Changes to These Terms</h2>
+        </div>
+        <div class="legal-body">
+          <p>We may update these terms from time to time. The latest version will always be published on our website and applies from the date shown.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s16">
+        <div class="section-header">
+          <span class="section-num">16 —</span>
+          <h2 class="section-title">Contact and Complaints</h2>
+        </div>
+        <div class="legal-body">
+          <p>If you have questions or concerns, contact us at:</p>
+          <div class="info-block">
+            <p><strong>Jackal AI</strong><br>[email address]</p>
+          </div>
+          <p>We aim to resolve issues fairly and promptly.</p>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <div class="foot-brand-logo">
+            <img src="brandmark.png" alt="Jackal">
+            <span class="foot-wordmark">JACKAL<sup>AI</sup></span>
+          </div>
+          <p class="foot-tagline">Your calls answered.<br>Your jobs booked.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="index.html#cta">Contact</a>
+          <a href="https://www.linkedin.com/in/jack-alexander-0b898a192" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="foot-loc">Perth, Western Australia</span>
+        <span class="foot-copy">© 2026 Jackal AI. All rights reserved.</span>
+        <div class="foot-legal">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms-of-service.html" class="current">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===========================
+    // SCROLL PROGRESS
+    // ===========================
+    const scrollBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      scrollBar.style.width = (p * 100) + '%';
+    }, { passive: true });
+
+    // ===========================
+    // NAVBAR
+    // ===========================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ===========================
+    // STARSCAPE
+    // ===========================
+    (function () {
+      const canvas = document.getElementById('starscape');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      const COUNT = 180;
+      function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      for (let i = 0; i < COUNT; i++) {
+        stars.push({
+          x: Math.random(), y: Math.random(),
+          r: Math.random() * 1.1 + 0.2,
+          dx: (Math.random() - 0.5) * 0.00008,
+          dy: (Math.random() - 0.5) * 0.00008,
+          twinkleSpeed: Math.random() * 0.012 + 0.004,
+          twinklePhase: Math.random() * Math.PI * 2,
+          baseOpacity: Math.random() * 0.5 + 0.15,
+        });
+      }
+      function draw(t) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(s => {
+          s.x += s.dx; s.y += s.dy;
+          if (s.x < 0) s.x = 1; if (s.x > 1) s.x = 0;
+          if (s.y < 0) s.y = 1; if (s.y > 1) s.y = 0;
+          const twinkle = Math.sin(t * s.twinkleSpeed + s.twinklePhase);
+          const op = s.baseOpacity + twinkle * 0.18;
+          ctx.beginPath();
+          ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(250,250,247,${Math.max(0, op)})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    })();
+
+    // ===========================
+    // REVEAL ON SCROLL
+    // ===========================
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // ===========================
+    // TOC ACTIVE SECTION
+    // ===========================
+    const tocLinks = document.querySelectorAll('.toc-nav a');
+    const sections = document.querySelectorAll('.legal-section');
+    const tocObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tocLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.toc-nav a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => tocObs.observe(s));
+
+    // ===========================
+    // MOBILE NAV
+    // ===========================
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('navMobile');
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.addEventListener('click', (e) => { if (e.target === mobileNav) closeMobileNav(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
+  </script>
+
+</body>
+</html>

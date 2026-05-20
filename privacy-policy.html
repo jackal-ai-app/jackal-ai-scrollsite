@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5JQ32785');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Jackal AI</title>
+  <meta name="description" content="Jackal AI Privacy Policy. How we collect, use, and protect your personal information under the Privacy Act 1988 (Cth).">
+  <link rel="icon" type="image/png" href="brandmark.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       CSS VARIABLES
+    =========================== */
+    :root {
+      --graphite:    #111111;
+      --iron:        #2A2A28;
+      --slate:       #71706C;
+      --dust:        #B8A88E;
+      --sandstone:   #E5D5BE;
+      --cloud:       #F5F1EB;
+      --white:       #FAFAF7;
+      --amber:       #F59E0B;
+      --amber-dark:  #D97706;
+      --amber-light: #FCD34D;
+      --amber-rgb:   245, 158, 11;
+      --bg:           #111111;
+      --text-primary: #FAFAF7;
+      --text-body:    #E5D5BE;
+      --text-muted:   #B8A88E;
+      --accent:       #F59E0B;
+      --accent-rgb:   245, 158, 11;
+      --radius:    8px;
+      --radius-lg: 16px;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Archivo Black', sans-serif; line-height: 1.1; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ::selection { background: var(--amber); color: #000; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--graphite); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--amber), var(--amber-dark));
+      border-radius: 3px;
+    }
+
+    /* ===========================
+       SCROLL PROGRESS
+    =========================== */
+    #scrollProgress {
+      position: fixed; top: 0; left: 0;
+      height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--amber-dark), var(--amber), var(--amber-light));
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ===========================
+       STARSCAPE
+    =========================== */
+    #starscape {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .section-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: block;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    #navbar {
+      position: fixed; top: 12px; left: 0; right: 0;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-inner {
+      max-width: 100%; margin: 0 auto;
+      padding: 14px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #navbar.scrolled .nav-inner {
+      max-width: 840px;
+      background: rgba(17,17,17,0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 100px;
+      padding: 10px 24px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+    .nav-logo img { height: 30px; width: auto; }
+    .nav-wordmark {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.05rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white);
+      white-space: nowrap;
+    }
+    .nav-wordmark sup {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 0.55em; color: var(--amber);
+      vertical-align: super; margin-left: 1px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif; font-weight: 500;
+      font-size: 0.875rem; color: var(--text-body);
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--amber) !important; color: #000 !important;
+      padding: 8px 18px !important; border-radius: var(--radius) !important;
+      font-weight: 600 !important; font-size: 0.875rem !important;
+      transition: box-shadow 0.25s ease !important;
+    }
+    .nav-cta:hover { box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.5) !important; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 12px 20px; }
+    }
+
+    /* ===========================
+       HAMBURGER & MOBILE NAV
+    =========================== */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; background: none; border: none; cursor: pointer;
+      padding: 4px; z-index: 1100;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(11,11,11,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 36px; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-mobile.open { display: flex; opacity: 1; pointer-events: auto; }
+    .nav-mobile a {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      color: var(--white); text-transform: uppercase; letter-spacing: 0.04em;
+      transition: color 0.2s ease;
+    }
+    .nav-mobile a:hover { color: var(--amber); }
+    .nav-mobile .mob-cta {
+      background: var(--amber); color: #000 !important;
+      padding: 14px 36px; border-radius: var(--radius);
+      font-size: clamp(1rem, 3vw, 1.4rem) !important;
+    }
+    @media (max-width: 768px) { .nav-hamburger { display: flex; } }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #legal-hero {
+      position: relative; z-index: 1;
+      padding: 180px 64px 80px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow .section-label { margin: 0; }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: var(--amber); opacity: 0.7;
+    }
+    .hero-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--slate);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .hero-meta-item .dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--amber);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    .hero-divider {
+      max-width: 1100px; margin: 48px auto 0;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    @media (max-width: 768px) {
+      #legal-hero { padding: 160px 24px 60px; }
+    }
+
+    /* ===========================
+       LEGAL LAYOUT
+    =========================== */
+    .legal-wrap {
+      position: relative; z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 64px 120px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ===========================
+       TOC
+    =========================== */
+    .legal-toc {
+      position: sticky;
+      top: 100px;
+    }
+    .toc-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .toc-nav a {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--slate);
+      padding: 5px 0 5px 12px;
+      border-left: 2px solid rgba(255,255,255,0.06);
+      margin-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      line-height: 1.4;
+    }
+    .toc-nav a:hover { color: var(--text-muted); border-color: rgba(245,158,11,0.3); }
+    .toc-nav a.active { color: var(--amber); border-color: var(--amber); }
+    .toc-back {
+      display: flex; align-items: center; gap: 7px;
+      margin-top: 28px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--slate);
+      transition: color 0.2s ease;
+    }
+    .toc-back:hover { color: var(--text-muted); }
+    .toc-back svg { flex-shrink: 0; }
+
+    /* ===========================
+       LEGAL DOCUMENT
+    =========================== */
+    .legal-doc { min-width: 0; }
+
+    .legal-section {
+      padding-bottom: 52px;
+      margin-bottom: 52px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .legal-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .section-num {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      color: var(--amber);
+      opacity: 0.8;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .section-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .legal-body p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.925rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .legal-body p:last-child { margin-bottom: 0; }
+
+    .legal-body ul, .legal-body ol {
+      margin: 14px 0 16px 20px;
+    }
+    .legal-body li {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.925rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 6px;
+    }
+    .legal-body li::marker { color: var(--amber); }
+
+    .legal-body strong {
+      color: var(--sandstone);
+      font-weight: 600;
+    }
+
+    .legal-body a {
+      color: var(--amber);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s ease;
+    }
+    .legal-body a:hover { opacity: 0.75; }
+
+    /* Sub-sections (3.1, 3.2 etc) */
+    .legal-subsection {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .subsection-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.92rem;
+      color: var(--sandstone);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .subsection-title::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--amber);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* Sub-sub-sections (3.1.1 etc) */
+    .legal-subsubsection {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius);
+      border-left: 2px solid rgba(245,158,11,0.2);
+    }
+    .subsubsection-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.82rem;
+      color: var(--dust);
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .info-block {
+      background: rgba(245,158,11,0.06);
+      border: 1px solid rgba(245,158,11,0.15);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+    .info-block p {
+      font-size: 0.875rem !important;
+      color: var(--dust) !important;
+      margin-bottom: 8px !important;
+    }
+    .info-block p:last-child { margin-bottom: 0 !important; }
+    .info-block strong { color: var(--amber) !important; }
+
+    /* Provider cards */
+    .provider-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 16px 0;
+    }
+    .provider-name {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.82rem;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .provider-card p {
+      font-size: 0.875rem !important;
+      margin-bottom: 10px !important;
+    }
+    .provider-card a {
+      font-size: 0.82rem;
+      color: var(--amber) !important;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 32px 40px;
+      position: relative; z-index: 1;
+    }
+    .foot-inner { max-width: 1100px; margin: 0 auto; }
+    .foot-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .foot-brand-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+    .foot-brand-logo img { height: 26px; }
+    .foot-wordmark {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .foot-wordmark sup {
+      font-family: 'Outfit', sans-serif; font-weight: 300;
+      font-size: 0.52em; color: var(--amber);
+      vertical-align: super; margin-left: 1px;
+    }
+    .foot-tagline { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .foot-col h4 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--white); margin-bottom: 14px;
+    }
+    .foot-col a {
+      display: block; font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 10px; transition: color 0.2s ease;
+    }
+    .foot-col a:hover { color: var(--text-body); }
+    .foot-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 14px;
+    }
+    .foot-loc, .foot-copy { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--slate); }
+    .foot-legal { display: flex; gap: 18px; }
+    .foot-legal a { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--slate); transition: color 0.2s ease; }
+    .foot-legal a:hover { color: var(--text-muted); }
+    .foot-legal a.current { color: var(--amber); }
+    @media (max-width: 768px) {
+      .foot-top { grid-template-columns: 1fr 1fr; }
+      .foot-brand { grid-column: span 2; }
+      .foot-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+    }
+    @media (max-width: 480px) {
+      .foot-top { grid-template-columns: 1fr; }
+      .foot-brand { grid-column: span 1; }
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      .legal-wrap {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 40px 32px 80px;
+      }
+      .legal-toc {
+        position: static;
+        margin-bottom: 48px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .toc-nav { display: flex; flex-wrap: wrap; gap: 4px 0; }
+      .toc-nav a {
+        border-left: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        padding: 6px 10px 6px 0;
+        margin-right: 16px;
+      }
+      .toc-nav a.active { color: var(--amber); border-color: var(--amber); }
+      .toc-back { display: none; }
+    }
+    @media (max-width: 480px) {
+      .legal-wrap { padding: 32px 20px 64px; }
+      .section-header { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JQ32785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="scrollProgress"></div>
+  <canvas id="starscape"></canvas>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="brandmark.png" alt="Jackal">
+        <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="about.html">About</a>
+        <a href="index.html#cta" class="nav-cta">Hear a demo call</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html#how-it-works" onclick="closeMobileNav()">How It Works</a>
+    <a href="index.html#pricing" onclick="closeMobileNav()">Pricing</a>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="index.html#cta" class="mob-cta" onclick="closeMobileNav()">Hear a demo call</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="legal-hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow reveal">
+        <span class="section-label">Legal</span>
+        <div class="hero-eyebrow-line"></div>
+      </div>
+      <h1 class="hero-title reveal" style="transition-delay:0.1s">Privacy Policy</h1>
+      <div class="hero-meta reveal" style="transition-delay:0.2s">
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          Last updated 26/01/26
+        </div>
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          Privacy Act 1988 (Cth)
+        </div>
+        <div class="hero-meta-item">
+          <span class="dot"></span>
+          ~8 min read
+        </div>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- ===================== CONTENT ===================== -->
+  <div class="legal-wrap">
+
+    <!-- TOC -->
+    <aside class="legal-toc">
+      <span class="toc-label">Contents</span>
+      <nav class="toc-nav">
+        <a href="#s1">1. Overview &amp; Scope</a>
+        <a href="#s2">2. Our Role</a>
+        <a href="#s3">3. Information We Collect</a>
+        <a href="#s4">4. Use of Information</a>
+        <a href="#s5">5. Retention</a>
+        <a href="#s6">6. Overseas Processing</a>
+        <a href="#s7">7. Service Providers</a>
+        <a href="#s8">8. Sharing Information</a>
+        <a href="#s9">9. Call Recording</a>
+        <a href="#s10">10. Right to Deletion</a>
+        <a href="#s11">11. Changes to This Policy</a>
+        <a href="#s12">12. Contact Us</a>
+      </nav>
+      <a href="index.html" class="toc-back">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 2.5L4 7l4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to home
+      </a>
+    </aside>
+
+    <!-- DOCUMENT -->
+    <main class="legal-doc">
+
+      <div class="legal-section reveal" id="s1">
+        <div class="section-header">
+          <span class="section-num">01 —</span>
+          <h2 class="section-title">Overview and Scope</h2>
+        </div>
+        <div class="legal-body">
+          <p>Jackal AI ("we", "us", "our") respects your privacy and is committed to protecting personal information in accordance with the <strong>Privacy Act 1988 (Cth)</strong> and the <strong>Australian Privacy Principles (APPs)</strong>.</p>
+          <p>This Privacy Policy explains how we collect, use, disclose, and protect personal information when you use our website, products, and services.</p>
+          <p>Protecting your personal information is a priority for Jackal AI. This Privacy Policy applies to Jackal AI and governs how we collect, use, and handle personal information through our website, applications, and services. Jackal AI provides AI-powered voice systems, automation, and related business services.</p>
+          <p>By using our website or services, you consent to the data practices described in this Privacy Policy.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s2">
+        <div class="section-header">
+          <span class="section-num">02 —</span>
+          <h2 class="section-title">Our Role: Controller and Processor</h2>
+        </div>
+        <div class="legal-body">
+          <p>For our website, direct enquiries, marketing activities, and self-serve sign-ups, Jackal AI acts as a <strong>data controller</strong> for the purposes of Australian privacy law.</p>
+          <p>Where Jackal AI provides services to business customers that involve processing personal information on their behalf (including call handling, transcription, and automation services), Jackal AI acts as a <strong>data processor</strong> and processes information strictly in accordance with customer instructions and applicable agreements.</p>
+          <p>Where we act as a processor, any applicable data processing agreement will prevail in the event of inconsistency with this Privacy Policy.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s3">
+        <div class="section-header">
+          <span class="section-num">03 —</span>
+          <h2 class="section-title">Collection of Personal Information</h2>
+        </div>
+        <div class="legal-body">
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">3.1 Personal Information</h3>
+            <p>To provide our services, we may collect personal information that can be used to identify or contact you, including but not limited to:</p>
+            <ul>
+              <li>Name</li>
+              <li>Email address</li>
+              <li>Phone number</li>
+              <li>Business details</li>
+              <li>Address, city, state, and postcode</li>
+              <li>Account and billing information</li>
+            </ul>
+            <p>We collect personal information that you provide directly (for example, when you contact us, sign up for services, or make a purchase), as well as information collected automatically.</p>
+            <p>We may use this information to communicate with you about our services, deliver requested services, provide updates, and send marketing communications. You may opt out of marketing communications at any time using the unsubscribe mechanism provided.</p>
+
+            <div class="legal-subsubsection">
+              <p class="subsubsection-title">3.1.1 — AI Voice and Communications Data</p>
+              <p>If you enable AI voice features or connect telephony services, we may receive call audio, call recordings, transcripts, call metadata, and interaction logs ("Communications Data").</p>
+              <p>Communications Data is used to deliver services, maintain system functionality, improve reliability and safety, and provide customer support. Business customers are responsible for ensuring appropriate notices and consents are obtained from callers before enabling call recording or processing.</p>
+              <p>We may use Communications Data in aggregated or de-identified form to improve and enhance our services, provided it does not identify individual users.</p>
+            </div>
+
+            <div class="legal-subsubsection" style="margin-top:16px;">
+              <p class="subsubsection-title">3.1.2 — Sensitive Information</p>
+              <p>We do not intentionally collect sensitive personal information unless it is reasonably necessary for service delivery and you have expressly provided it, and where required by law, given consent.</p>
+            </div>
+          </div>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">3.2 Usage Data</h3>
+            <p>We may collect information about how our website and services are accessed and used ("Usage Data"). This may include IP address, browser type and version, pages visited, time and date of visits, time spent on pages, device identifiers, and diagnostic data.</p>
+            <p>When accessing our services via a mobile device, we may also collect device type, operating system, mobile browser type, and similar technical information.</p>
+          </div>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">3.3 Location Data</h3>
+            <p>Where permitted by your device settings, we may collect approximate location information to support service functionality and improve user experience. You can enable or disable location services at any time through your device settings.</p>
+          </div>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">3.4 Cookies and Tracking Technologies</h3>
+            <p>We use cookies and similar technologies to operate and improve our website and services. Cookies may be session-based or persistent and help us remember preferences, improve security, analyse usage, and deliver relevant content.</p>
+            <p>You can configure your browser to refuse cookies or notify you when cookies are used. Some parts of our website may not function correctly if cookies are disabled.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s4">
+        <div class="section-header">
+          <span class="section-num">04 —</span>
+          <h2 class="section-title">Use of Personal Information</h2>
+        </div>
+        <div class="legal-body">
+          <p>We collect and use personal information for purposes including:</p>
+          <ul>
+            <li><strong>Providing and maintaining our services</strong></li>
+            <li><strong>Managing accounts, subscriptions, and billing</strong></li>
+            <li><strong>Communicating service updates and operational notices</strong></li>
+            <li><strong>Providing customer support</strong></li>
+            <li><strong>Analysing and improving service performance</strong></li>
+            <li><strong>Monitoring usage and detecting technical issues</strong></li>
+            <li><strong>Enforcing contractual rights and obligations</strong></li>
+            <li><strong>Sending marketing communications where permitted</strong></li>
+            <li><strong>Complying with legal and regulatory obligations</strong></li>
+          </ul>
+          <p>We only use personal information where it is reasonably necessary for our business operations or as otherwise permitted by law.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s5">
+        <div class="section-header">
+          <span class="section-num">05 —</span>
+          <h2 class="section-title">Retention of Information</h2>
+        </div>
+        <div class="legal-body">
+          <p>We retain personal information only for as long as necessary to fulfil the purposes described in this Privacy Policy, comply with legal obligations, resolve disputes, and enforce agreements.</p>
+          <p>Usage Data is generally retained for shorter periods unless required for security, functionality improvements, or legal compliance. Where practicable, we anonymise or aggregate information instead of retaining identifiable data.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s6">
+        <div class="section-header">
+          <span class="section-num">06 —</span>
+          <h2 class="section-title">International and Overseas Data Processing</h2>
+        </div>
+        <div class="legal-body">
+          <p>Personal information may be stored or processed on servers located outside Australia, including by third-party Service Providers.</p>
+          <p>Where personal information is transferred or processed overseas, we take reasonable steps to ensure that recipients handle personal information in a manner consistent with Australian privacy requirements. However, we are not responsible for the privacy practices of third-party providers once information is handled by their systems.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s7">
+        <div class="section-header">
+          <span class="section-num">07 —</span>
+          <h2 class="section-title">Service Providers</h2>
+        </div>
+        <div class="legal-body">
+          <p>We may engage third-party companies and individuals ("Service Providers") to facilitate our services, provide services on our behalf, perform service-related tasks, or assist us in analysing how our services are used.</p>
+          <p>These Service Providers may have access to personal information only to the extent required to perform these functions on our behalf. They are contractually obligated to handle personal information in a manner consistent with applicable privacy laws and not to disclose or use it for any other purpose.</p>
+          <p>You may request an up-to-date list of our third-party Service Providers by contacting us at <a href="mailto:hello@jackalai.app">hello@jackalai.app</a>.</p>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">A. Analytics</h3>
+            <p>We may use third-party analytics services to monitor and analyse the use of our website and services.</p>
+            <div class="provider-card">
+              <p class="provider-name">Google Analytics</p>
+              <p>Google Analytics is a web analytics service provided by Google LLC that tracks and reports website traffic and usage behaviour. Google Analytics uses cookies and similar technologies to collect information about how users interact with websites. Information collected by Google Analytics may be transmitted to and stored on servers outside Australia. Google's use of this information is governed by its own privacy policies.</p>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">View Google's Privacy Policy →</a>
+            </div>
+          </div>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">B. AI Voice Platform</h3>
+            <p>We use third-party AI voice and call-handling platforms, including Retell AI, to deliver automated call answering, call routing, transcription, and related services.</p>
+            <div class="provider-card">
+              <p class="provider-name">Retell AI</p>
+              <p>Retell AI provides AI-powered voice technology that may record, transcribe, analyse, or process phone calls for the purpose of delivering our services. Call data processed through Retell AI is handled in accordance with Retell AI's own privacy policy and legal terms. We do not control how Retell AI stores, secures, or processes information once it is handled by their systems.</p>
+              <a href="https://www.retellai.com/legal/privacy-policy" target="_blank" rel="noopener">View Retell AI's Privacy Policy →</a>
+            </div>
+          </div>
+
+          <div class="legal-subsection">
+            <h3 class="subsection-title">C. Payments</h3>
+            <p>Where we provide paid products or services, we use third-party payment processors to process payments securely. We do not store or process payment card details ourselves.</p>
+            <div class="provider-card">
+              <p class="provider-name">Stripe</p>
+              <p>Payments may be processed by Stripe, Inc. Stripe handles payment information in accordance with its own privacy policy.</p>
+              <a href="https://stripe.com/privacy" target="_blank" rel="noopener">View Stripe's Privacy Policy →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s8">
+        <div class="section-header">
+          <span class="section-num">08 —</span>
+          <h2 class="section-title">Sharing Information with Third Parties</h2>
+        </div>
+        <div class="legal-body">
+          <p>Jackal AI does not sell, rent, or lease customer lists or personal information to third parties.</p>
+          <p>We may share personal information with trusted third-party partners where necessary to:</p>
+          <ul>
+            <li>Perform statistical analysis</li>
+            <li>Provide customer support</li>
+            <li>Deliver services</li>
+            <li>Operate and maintain our systems</li>
+            <li>Communicate with users</li>
+          </ul>
+          <p>All such third parties are required to maintain the confidentiality of personal information and are prohibited from using it for any purpose other than providing services to Jackal AI.</p>
+          <p>We may disclose personal information without notice where required to do so by law, or where we reasonably believe disclosure is necessary to:</p>
+          <ul>
+            <li>Comply with legal obligations or lawful requests</li>
+            <li>Protect and defend the rights or property of Jackal AI</li>
+            <li>Prevent or investigate unlawful activity</li>
+            <li>Protect the personal safety of users or the public</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s9">
+        <div class="section-header">
+          <span class="section-num">09 —</span>
+          <h2 class="section-title">Call Recording</h2>
+        </div>
+        <div class="legal-body">
+          <div class="info-block">
+            <p>Phone calls may be recorded for quality assurance, training, automation, analytics, and service delivery purposes.</p>
+            <p>By continuing a call, you consent to call recording and processing as described in this Privacy Policy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s10">
+        <div class="section-header">
+          <span class="section-num">10 —</span>
+          <h2 class="section-title">Right to Deletion</h2>
+        </div>
+        <div class="legal-body">
+          <p>You may request the deletion of your personal information by contacting us with a verifiable request.</p>
+          <p>Subject to applicable legal exceptions, we will:</p>
+          <ul>
+            <li>Delete personal information from our records; and</li>
+            <li>Take reasonable steps to direct our Service Providers to delete personal information from their records where applicable.</li>
+          </ul>
+          <p>We may be unable to comply with deletion requests where the information is required to:</p>
+          <ul>
+            <li>Fulfil contractual obligations or provide requested services</li>
+            <li>Detect, prevent, or investigate security incidents or unlawful activity</li>
+            <li>Debug or maintain system functionality</li>
+            <li>Comply with legal obligations</li>
+            <li>Maintain records required under Australian law</li>
+            <li>Use information internally in a lawful and reasonable manner consistent with your relationship with us</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s11">
+        <div class="section-header">
+          <span class="section-num">11 —</span>
+          <h2 class="section-title">Changes to This Privacy Policy</h2>
+        </div>
+        <div class="legal-body">
+          <p>We may update this Privacy Policy from time to time to reflect changes to our practices, services, or legal requirements.</p>
+          <p>Where changes are significant, we will take reasonable steps to notify you, including by email, website notice, or service notification.</p>
+          <p>Your continued use of our services after changes take effect constitutes acknowledgment of the updated Privacy Policy. Where required by law, we will obtain your consent to material changes.</p>
+        </div>
+      </div>
+
+      <div class="legal-section reveal" id="s12">
+        <div class="section-header">
+          <span class="section-num">12 —</span>
+          <h2 class="section-title">Contact Us</h2>
+        </div>
+        <div class="legal-body">
+          <p>If you have questions about this policy or how we handle your data, please contact:</p>
+          <div class="info-block">
+            <p><strong>Jackal AI</strong><br>Email: <a href="mailto:hello@jackalai.app">hello@jackalai.app</a><br>Location: Perth, Western Australia</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <div class="foot-brand-logo">
+            <img src="brandmark.png" alt="Jackal">
+            <span class="foot-wordmark">JACKAL<sup>AI</sup></span>
+          </div>
+          <p class="foot-tagline">Your calls answered.<br>Your jobs booked.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Product</h4>
+          <a href="index.html#how-it-works">How It Works</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="index.html#cta">Contact</a>
+          <a href="https://www.linkedin.com/in/jack-alexander-0b898a192" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="foot-loc">Perth, Western Australia</span>
+        <span class="foot-copy">© 2026 Jackal AI. All rights reserved.</span>
+        <div class="foot-legal">
+          <a href="privacy-policy.html" class="current">Privacy</a>
+          <a href="terms-of-service.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===========================
+    // SCROLL PROGRESS
+    // ===========================
+    const scrollBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+      scrollBar.style.width = (p * 100) + '%';
+    }, { passive: true });
+
+    // ===========================
+    // NAVBAR
+    // ===========================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ===========================
+    // STARSCAPE
+    // ===========================
+    (function () {
+      const canvas = document.getElementById('starscape');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      const COUNT = 180;
+      function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      for (let i = 0; i < COUNT; i++) {
+        stars.push({
+          x: Math.random(), y: Math.random(),
+          r: Math.random() * 1.1 + 0.2,
+          dx: (Math.random() - 0.5) * 0.00008,
+          dy: (Math.random() - 0.5) * 0.00008,
+          twinkleSpeed: Math.random() * 0.012 + 0.004,
+          twinklePhase: Math.random() * Math.PI * 2,
+          baseOpacity: Math.random() * 0.5 + 0.15,
+        });
+      }
+      function draw(t) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(s => {
+          s.x += s.dx; s.y += s.dy;
+          if (s.x < 0) s.x = 1; if (s.x > 1) s.x = 0;
+          if (s.y < 0) s.y = 1; if (s.y > 1) s.y = 0;
+          const twinkle = Math.sin(t * s.twinkleSpeed + s.twinklePhase);
+          const op = s.baseOpacity + twinkle * 0.18;
+          ctx.beginPath();
+          ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(250,250,247,${Math.max(0, op)})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      requestAnimationFrame(draw);
+    })();
+
+    // ===========================
+    // REVEAL ON SCROLL
+    // ===========================
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // ===========================
+    // TOC ACTIVE SECTION
+    // ===========================
+    const tocLinks = document.querySelectorAll('.toc-nav a');
+    const sections = document.querySelectorAll('.legal-section');
+    const tocObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          tocLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.toc-nav a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(s => tocObs.observe(s));
+
+    // ===========================
+    // MOBILE NAV
+    // ===========================
+    const hamburger = document.getElementById('navHamburger');
+    const mobileNav = document.getElementById('navMobile');
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileNav.addEventListener('click', (e) => { if (e.target === mobileNav) closeMobileNav(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileNav(); });
+  </script>
+
+</body>
+</html>
