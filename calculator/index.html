@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Missed Call Revenue Calculator — Jackal AI</title>
+  <meta name="description" content="Find out exactly how much revenue your trade business is losing to missed calls every year. Free calculator for Perth tradies." />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg:         #0D0D0D;
+      --card-bg:    #161616;
+      --border:     #2a2a2a;
+      --text:       #F0F0F0;
+      --muted:      #888;
+      --purple:     #814AC8;
+      --cyan:       #3DE0FC;
+      --radius-card: 16px;
+      --radius-el:   8px;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Layout ── */
+    .page-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    /* ── Hero copy ── */
+    h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .subhead {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ── Authority callout ── */
+    .authority {
+      border-left: 3px solid var(--purple);
+      padding: 12px 16px;
+      background: rgba(129, 74, 200, 0.08);
+      border-radius: 0 var(--radius-el) var(--radius-el) 0;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 36px;
+    }
+
+    /* ── Calculator card ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 36px;
+      margin-bottom: 24px;
+    }
+
+    .benchmark {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius-el);
+      border: 1px solid var(--border);
+    }
+
+    /* ── Form ── */
+    .form-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+
+    input[type="number"],
+    select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-el);
+      color: var(--text);
+      font-size: 16px;
+      padding: 12px 14px;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      border-color: var(--purple);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #1e1e1e;
+    }
+
+    /* input with prefix symbol */
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-prefix {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 16px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .input-wrap input {
+      padding-left: 28px;
+    }
+
+    .input-suffix {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 14px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .input-wrap input.has-suffix {
+      padding-right: 36px;
+    }
+
+    /* ── CTA Button ── */
+    .btn-calculate {
+      margin-top: 8px;
+      width: 100%;
+      padding: 16px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-el);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    .btn-calculate:hover {
+      opacity: 0.88;
+    }
+
+    .btn-calculate:active {
+      transform: scale(0.99);
+    }
+
+    /* ── Result section ── */
+    #result-section {
+      display: none;
+    }
+
+    #result-section.visible {
+      display: block;
+    }
+
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .result-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .result-amount {
+      font-size: clamp(44px, 10vw, 72px);
+      font-weight: 900;
+      color: var(--cyan);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .result-sublabel {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .breakdown-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .breakdown-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .breakdown-card .label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .breakdown-card .amount {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Email capture ── */
+    .email-card {
+      background: var(--card-bg);
+      border: 1px solid var(--purple);
+      border-radius: var(--radius-card);
+      padding: 36px;
+    }
+
+    .email-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .email-card .subhead {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .email-form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-el);
+      color: var(--text);
+      font-size: 16px;
+      padding: 12px 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: var(--purple);
+    }
+
+    input::placeholder {
+      color: #555;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--cyan);
+      color: #0D0D0D;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-el);
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      opacity: 0.88;
+    }
+
+    .btn-submit:active:not(:disabled) {
+      transform: scale(0.99);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .privacy-line {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ── Validation error ── */
+    .field-error {
+      font-size: 12px;
+      color: #f87171;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .field-error.visible {
+      display: block;
+    }
+
+    /* ── Thank-you section ── */
+    #thankyou-section {
+      display: none;
+    }
+
+    #thankyou-section.visible {
+      display: block;
+    }
+
+    .thankyou-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 48px 36px;
+      text-align: center;
+    }
+
+    .thankyou-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-card h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .thankyou-card h2 .name-highlight {
+      color: var(--cyan);
+    }
+
+    .thankyou-card p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .page-footer a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .page-footer a:hover {
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .card, .result-card, .email-card, .thankyou-card {
+        padding: 24px 20px;
+      }
+
+      .breakdown-row {
+        grid-template-columns: 1fr;
+      }
+
+      .breakdown-card .amount {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- Hero copy -->
+  <span class="eyebrow">Free Calculator — Perth Tradies</span>
+  <h1>Most Perth tradies are losing $30,000–$80,000/year to missed calls. Find out your number.</h1>
+  <p class="subhead">Takes 60 seconds. Based on your actual job value and call volume — not estimates.</p>
+
+  <div class="authority">
+    Based on conversion data from Australian trades businesses.
+  </div>
+
+  <!-- Calculator inputs -->
+  <div class="card">
+    <p class="benchmark">Most tradies who run this calculator discover they're losing $30,000–$80,000/year.</p>
+
+    <form id="calc-form" novalidate>
+      <div class="form-grid">
+
+        <div class="field">
+          <label for="trade-type">Your trade</label>
+          <select id="trade-type" name="trade_type">
+            <option value="" disabled selected>Select your trade…</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Electrician">Electrician</option>
+            <option value="HVAC / Air Con">HVAC / Air Con</option>
+            <option value="Builder">Builder</option>
+            <option value="Roofer">Roofer</option>
+            <option value="Locksmith">Locksmith</option>
+            <option value="Landscaper">Landscaper</option>
+            <option value="Pest Control">Pest Control</option>
+            <option value="Cleaner">Cleaner</option>
+            <option value="Other trade">Other trade</option>
+          </select>
+          <span class="field-error" id="trade-type-error">Please select your trade.</span>
+        </div>
+
+        <div class="field">
+          <label for="avg-job-value">Average job value</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input
+              type="number"
+              id="avg-job-value"
+              name="avg_job_value"
+              placeholder="350"
+              min="1"
+              step="1"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="missed-calls">Calls missed per week</label>
+          <input
+            type="number"
+            id="missed-calls"
+            name="missed_calls_per_week"
+            placeholder="8"
+            min="1"
+            step="1"
+          />
+        </div>
+
+        <div class="field">
+          <label for="conversion-rate">% of callers who become paying jobs</label>
+          <div class="input-wrap">
+            <input
+              type="number"
+              id="conversion-rate"
+              name="conversion_rate"
+              value="40"
+              min="1"
+              max="100"
+              step="1"
+              class="has-suffix"
+            />
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+
+      </div><!-- /form-grid -->
+
+      <button type="submit" class="btn-calculate">Calculate My Revenue Loss →</button>
+    </form>
+  </div><!-- /card -->
+
+  <!-- Result section (hidden until calculate) -->
+  <div id="result-section">
+
+    <div class="result-card">
+      <p class="result-label">Annual revenue lost to missed calls</p>
+      <p class="result-amount" id="annual-loss-display">$0</p>
+      <p class="result-sublabel">per year in missed revenue</p>
+
+      <div class="breakdown-row">
+        <div class="breakdown-card">
+          <p class="label">Weekly loss</p>
+          <p class="amount" id="weekly-loss-display">$0</p>
+        </div>
+        <div class="breakdown-card">
+          <p class="label">Monthly loss</p>
+          <p class="amount" id="monthly-loss-display">$0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email capture -->
+    <div class="email-card" id="email-section">
+      <h2>Email me my full breakdown + recovery plan</h2>
+      <p class="subhead">See what recovering 60% of those calls is worth — and how Perth tradies are fixing this.</p>
+
+      <form id="email-form" novalidate>
+        <div class="email-form-grid">
+
+          <div class="field">
+            <input
+              type="text"
+              id="first-name"
+              name="first_name"
+              placeholder="First name"
+              autocomplete="given-name"
+            />
+            <span class="field-error" id="name-error">Please enter your first name.</span>
+          </div>
+
+          <div class="field">
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="Email address"
+              autocomplete="email"
+            />
+            <span class="field-error" id="email-error">Please enter a valid email address.</span>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submit-btn">Send My Breakdown →</button>
+
+        </div>
+      </form>
+
+      <p class="privacy-line">No spam. Unsubscribe any time.</p>
+    </div>
+
+  </div><!-- /result-section -->
+
+  <!-- Thank-you section (hidden until email submitted) -->
+  <div id="thankyou-section">
+    <div class="thankyou-card">
+      <div class="thankyou-icon">📬</div>
+      <h2>Check your inbox, <span class="name-highlight" id="thankyou-name"></span>.</h2>
+      <p>Your breakdown is on its way. While you wait — watch this 3-minute demo to see how Perth tradies are recovering those missed calls.</p>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>&copy; 2026 Jackal AI &nbsp;·&nbsp; <a href="https://jackalai.app">jackalai.app</a></p>
+  </footer>
+
+</div><!-- /page-wrap -->
+
+<script>
+  // ─── Config ──────────────────────────────────────────────────────────────
+
+  const WEBHOOK_URL = 'REPLACE_WITH_N8N_WEBHOOK_URL';
+
+  // ─── Calculation logic ───────────────────────────────────────────────────
+
+  function formatAUD(amount) {
+    return new Intl.NumberFormat('en-AU', {
+      style: 'currency',
+      currency: 'AUD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  }
+
+  function calculate(missedCallsPerWeek, avgJobValue, conversionRate) {
+    const weeklyLoss  = missedCallsPerWeek * avgJobValue * (conversionRate / 100);
+    const monthlyLoss = weeklyLoss * 4.33;
+    const annualLoss  = weeklyLoss * 52;
+    const recoveredAmt = Math.round(annualLoss * 0.6);
+    return { weeklyLoss, monthlyLoss, annualLoss, recoveredAmt };
+  }
+
+  // ─── State ───────────────────────────────────────────────────────────────
+
+  let calcResult = null;
+  let isSubmitting = false;
+
+  // ─── Calculator form submission ──────────────────────────────────────────
+
+  const calcForm   = document.getElementById('calc-form');
+  const resultSection = document.getElementById('result-section');
+
+  calcForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const tradeTypeEl    = document.getElementById('trade-type');
+    const tradeTypeError = document.getElementById('trade-type-error');
+    const tradeType      = tradeTypeEl.value;
+
+    const missedCalls    = parseFloat(document.getElementById('missed-calls').value);
+    const avgJobValue    = parseFloat(document.getElementById('avg-job-value').value);
+    const conversionRate = parseFloat(document.getElementById('conversion-rate').value);
+
+    // Reset trade type error
+    tradeTypeError.classList.remove('visible');
+    tradeTypeEl.style.borderColor = '';
+
+    let hasCalcError = false;
+
+    // Validate trade type
+    if (!tradeType) {
+      tradeTypeError.classList.add('visible');
+      tradeTypeEl.style.borderColor = '#f87171';
+      tradeTypeEl.addEventListener('change', function fix() {
+        tradeTypeError.classList.remove('visible');
+        tradeTypeEl.style.borderColor = '';
+        tradeTypeEl.removeEventListener('change', fix);
+      });
+      hasCalcError = true;
+    }
+
+    // Validate numeric inputs — must be positive numbers
+    if (
+      isNaN(missedCalls) || missedCalls <= 0 ||
+      isNaN(avgJobValue) || avgJobValue <= 0 ||
+      isNaN(conversionRate) || conversionRate <= 0 || conversionRate > 100
+    ) {
+      // Highlight empty/invalid fields with a border flash
+      [
+        { el: document.getElementById('missed-calls'),    valid: !isNaN(missedCalls) && missedCalls > 0 },
+        { el: document.getElementById('avg-job-value'),   valid: !isNaN(avgJobValue) && avgJobValue > 0 },
+        { el: document.getElementById('conversion-rate'), valid: !isNaN(conversionRate) && conversionRate > 0 && conversionRate <= 100 },
+      ].forEach(({ el, valid }) => {
+        if (!valid) {
+          el.style.borderColor = '#f87171';
+          el.addEventListener('input', function fix() {
+            el.style.borderColor = '';
+            el.removeEventListener('input', fix);
+          });
+        }
+      });
+      hasCalcError = true;
+    }
+
+    if (hasCalcError) return;
+
+    calcResult = calculate(missedCalls, avgJobValue, conversionRate);
+
+    document.getElementById('annual-loss-display').textContent  = formatAUD(calcResult.annualLoss);
+    document.getElementById('weekly-loss-display').textContent  = formatAUD(calcResult.weeklyLoss);
+    document.getElementById('monthly-loss-display').textContent = formatAUD(calcResult.monthlyLoss);
+
+    resultSection.classList.add('visible');
+
+    // Smooth scroll to result
+    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ─── Email form submission ───────────────────────────────────────────────
+
+  const emailForm  = document.getElementById('email-form');
+  const submitBtn  = document.getElementById('submit-btn');
+  const nameError  = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  emailForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    if (isSubmitting) return;
+
+    const firstName = document.getElementById('first-name').value.trim();
+    const email     = document.getElementById('email-input').value.trim();
+
+    // Reset errors
+    nameError.classList.remove('visible');
+    emailError.classList.remove('visible');
+
+    let hasError = false;
+
+    if (!firstName) {
+      nameError.classList.add('visible');
+      hasError = true;
+    }
+
+    if (!validateEmail(email)) {
+      emailError.classList.add('visible');
+      hasError = true;
+    }
+
+    if (hasError) return;
+
+    // Disable button while submitting
+    isSubmitting = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    // Build payload
+    const tradeType = document.getElementById('trade-type').value;
+    const avgJobValue    = parseFloat(document.getElementById('avg-job-value').value);
+    const missedCalls    = parseFloat(document.getElementById('missed-calls').value);
+    const conversionRate = parseFloat(document.getElementById('conversion-rate').value);
+
+    const payload = {
+      email:                email,
+      name:                 firstName,
+      calculated_amount:    calcResult ? Math.round(calcResult.annualLoss)  : 0,
+      recovered_amount:     calcResult ? calcResult.recoveredAmt             : 0,
+      trade_type:           tradeType  || '',
+      avg_job_value:        avgJobValue,
+      missed_calls_per_week: missedCalls,
+      conversion_rate:      conversionRate,
+      weekly_loss:          calcResult ? Math.round(calcResult.weeklyLoss)  : 0,
+      monthly_loss:         calcResult ? Math.round(calcResult.monthlyLoss) : 0,
+    };
+
+    // Fire webhook — fail silently
+    try {
+      await fetch(WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+    } catch (_err) {
+      // Fail silently — do not block thank-you page
+    }
+
+    // Show thank-you, hide result section
+    document.getElementById('thankyou-name').textContent = firstName;
+
+    resultSection.classList.remove('visible');
+    document.getElementById('thankyou-section').classList.add('visible');
+
+    // Scroll to thank-you
+    document.getElementById('thankyou-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+
+</body>
+</html>

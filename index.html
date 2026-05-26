@@ -694,58 +694,6 @@
     }
 
     /* ===========================
-       HOW IT WORKS
-    =========================== */
-    #how-it-works {
-      position: relative; z-index: 1;
-      padding: 100px 0;
-      background: var(--graphite);
-    }
-    .hiw-wrap {
-      max-width: 1280px; margin: 0 auto; padding: 0 48px;
-      text-align: center;
-    }
-    .hiw-head { margin-bottom: 64px; }
-    .hiw-steps {
-      display: flex; align-items: flex-start;
-      gap: 0; margin-bottom: 56px;
-    }
-    .hiw-step {
-      flex: 1; padding: 0 40px;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .hiw-num {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 3.5rem; line-height: 1;
-      color: var(--amber); margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-    .hiw-step h3 {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--white); margin-bottom: 12px; line-height: 1.3;
-    }
-    .hiw-step p {
-      font-family: 'Outfit', sans-serif; font-size: 0.9rem;
-      color: var(--text-muted); line-height: 1.7;
-    }
-    .hiw-divider {
-      width: 1px;
-      background: rgba(255,255,255,0.08);
-      margin-top: 36px;
-      flex-shrink: 0; align-self: stretch;
-    }
-    .hiw-cta { text-align: center; }
-    @media (max-width: 768px) {
-      .hiw-steps { flex-direction: column; gap: 40px; }
-      .hiw-divider { width: 60px; height: 1px; margin: 0 auto; align-self: auto; }
-      .hiw-step { padding: 0; }
-    }
-    @media (max-width: 520px) {
-      .hiw-wrap { padding: 0 24px; }
-    }
-
-    /* ===========================
        CONSULT CTA BAND — floating amber card
     =========================== */
     #consult-band {
@@ -2068,7 +2016,7 @@
         <a href="#faq">FAQ</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="contact.html" class="nav-cta">Book Free Consult</a>
+        <a href="#" class="nav-cta" onclick="openDemoModal();return false;">Hear a demo call</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -2082,7 +2030,7 @@
     <a href="#faq" onclick="closeMobileNav()">FAQ</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="contact.html" class="nav-mobile-cta" onclick="closeMobileNav();return false;">Book Free Consult</a>
+    <a href="#" class="nav-mobile-cta" onclick="closeMobileNav();openDemoModal();return false;">Hear a demo call</a>
   </div>
 
   <!-- ===================== HERO ===================== -->
@@ -2098,11 +2046,11 @@
         More time.<br><span class="amber">Less bulls#!t.</span>
       </h1>
       <p class="hero-sub reveal rd-2">
-        When you're on the tools, Jackal picks up. Your AI receptionist answers every call 24/7, captures the job details, and books the work &mdash; so you never lose a lead to voicemail again.
+        We get AI working on all the digital jobs you keep putting off. Suddenly there's a lot more getting done &mdash; and you're barely involved.
       </p>
       <div class="hero-btns reveal rd-3">
-        <a href="contact.html" class="btn btn-amber">Book a Free Consult &rarr;</a>
-        <a href="#" class="btn btn-ghost" onclick="openDemoModal();return false;">Hear the Demo</a>
+        <a href="#" class="btn btn-amber" onclick="openDemoModal();return false;">Talk to Our AI</a>
+        <a href="contact.html" class="btn btn-ghost">Book a Free AI Consult &rarr;</a>
       </div>
       <div class="scroll-hint reveal rd-4">
         <span>Scroll to explore</span>
@@ -2217,8 +2165,8 @@
             </div>
           </div>
           <div class="rec-ctas">
-            <a href="contact.html" class="rec-cta-btn">Book a Free Consult &rarr;</a>
-            <a href="#" class="rec-cta-btn rec-cta-ghost" onclick="openDemoModal();return false;">Hear the Demo</a>
+            <a href="#" class="rec-cta-btn" onclick="openDemoModal();return false;">See It In Action</a>
+            <a href="ai-calls.html" class="rec-cta-btn rec-cta-ghost">Learn More &rarr;</a>
           </div>
         </div>
         <!-- Dashboard mockup -->
@@ -2285,45 +2233,13 @@
     </div>
   </section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section id="how-it-works">
-    <div class="hiw-wrap">
-      <div class="hiw-head reveal">
-        <span class="section-label">The Process</span>
-        <h2 class="section-title">UP AND RUNNING<br>IN 3 STEPS.</h2>
-      </div>
-      <div class="hiw-steps">
-        <div class="hiw-step reveal rd-1">
-          <div class="hiw-num">01</div>
-          <h3>Book a Free 30-Min Call</h3>
-          <p>Tell us about your business. We'll confirm Jackal's the right fit and map out exactly how it'll work for your trade.</p>
-        </div>
-        <div class="hiw-divider"></div>
-        <div class="hiw-step reveal rd-2">
-          <div class="hiw-num">02</div>
-          <h3>We Configure Your AI in 48 Hours</h3>
-          <p>You don't touch a thing. We train the receptionist on your services, pricing, and service area. Done in two days.</p>
-        </div>
-        <div class="hiw-divider"></div>
-        <div class="hiw-step reveal rd-3">
-          <div class="hiw-num">03</div>
-          <h3>Never Miss a Call Again</h3>
-          <p>Jackal answers every call 24/7. Job details land in your inbox. Show up Monday with new bookings already waiting.</p>
-        </div>
-      </div>
-      <div class="hiw-cta reveal rd-4">
-        <a href="contact.html" class="btn btn-amber btn-lg">Book Your Free Call &rarr;</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== CONSULT CTA BAND ===================== -->
   <section id="consult-band">
     <div class="band-inner">
       <div class="band-text">
-        <h2>Ready to Stop Losing Jobs<br>to Voicemail?</h2>
+        <h2>Not Sure Where To Start?<br>Talk To Our AI Now.</h2>
       </div>
-      <a href="contact.html" class="band-btn">Book a Free Consult</a>
+      <a href="contact.html" class="band-btn">Get A Free Audit</a>
     </div>
   </section>
 
