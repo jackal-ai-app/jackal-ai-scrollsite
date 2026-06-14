@@ -15,6 +15,9 @@
   <meta property="og:title" content="Websites — Jackal AI">
   <meta property="og:description" content="Cinematic, fast, conversion-focused websites for Australian trades. Built in 30 days. No templates. Found by Google, cited by AI.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jackalai.app/websites">
+  <meta property="og:image" content="https://jackalai.app/assets/og/websites.png">
+  <link rel="canonical" href="https://jackalai.app/websites">
   <link rel="icon" type="image/png" href="brandmark.png">
 
   <script type="application/ld+json">
@@ -78,6 +81,57 @@
           "text": "Template builders are designed for average businesses. They're fine for getting something up fast, but they're slow, visually generic, and structurally weak for AI search. If you want a site that looks different from every competitor in your trade, loads faster, and is engineered to rank — that's what we build."
         }
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "LocalBusiness"],
+    "name": "Jackal AI",
+    "url": "https://jackalai.app",
+    "logo": "https://jackalai.app/logo.png",
+    "description": "AI voice receptionist for Australian trades and service businesses. Answers every call 24/7, books jobs, and sends SMS summaries. From $249/month. ABN 92 509 551 334.",
+    "foundingDate": "2024",
+    "taxID": "92 509 551 334",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Perth",
+      "addressRegion": "WA",
+      "addressCountry": "AU"
+    },
+    "areaServed": { "@type": "Country", "name": "Australia" },
+    "email": "hello@jackalai.app",
+    "sameAs": [
+      "https://www.instagram.com/jackal.ai/",
+      "https://www.facebook.com/people/Jackal-AI/61587872414237/",
+      "https://www.linkedin.com/in/jack-alexander-0b898a192"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Jack Alexander",
+      "sameAs": "https://www.linkedin.com/in/jack-alexander-0b898a192"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Design for Australian Trades",
+    "serviceType": "Web design",
+    "description": "Custom-built, cinematic, conversion-focused websites for Australian trades and service businesses. Built in 30 days. Engineered for Google rankings and AI search citation. No templates.",
+    "provider": { "@type": "Organization", "name": "Jackal AI", "url": "https://jackalai.app" },
+    "areaServed": { "@type": "Country", "name": "Australia" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jackalai.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Websites", "item": "https://jackalai.app/websites" }
     ]
   }
   </script>
@@ -855,6 +909,42 @@
       .foot-top { grid-template-columns: 1fr; }
       .foot-brand { grid-column: span 1; }
     }
+
+    /* ===================== MOBILE STICKY BAR ===================== */
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: var(--iron);
+      border-top: 1px solid rgba(181,168,142,0.2);
+      padding: 10px 16px;
+      gap: 10px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .mobile-sticky { display: flex; }
+      body { padding-bottom: 64px; }
+    }
+    .mobile-sticky.hidden { display: none !important; }
+    .mobile-sticky-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      border-radius: var(--radius);
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      border: none;
+    }
+    .mobile-sticky-primary { background: var(--amber); color: #000; }
+    .mobile-sticky-secondary { background: transparent; color: var(--amber); border: 1.5px solid var(--amber) !important; }
+    @media (prefers-reduced-motion: reduce) { .mobile-sticky-btn { transition: none; } }
   </style>
 </head>
 <body>
@@ -869,15 +959,16 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="brandmark.png" alt="Jackal">
+        <img src="brandmark.png" alt="Jackal AI">
         <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
       </a>
       <div class="nav-links">
         <a href="ai-calls.html">AI Calls</a>
         <a href="websites.html" class="active">Websites</a>
+        <a href="index.html#faq">FAQ</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="contact.html" class="nav-cta">Get a Quote</a>
+        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-nav">Book a free call</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -888,9 +979,10 @@
   <div class="nav-mobile" id="navMobile">
     <a href="ai-calls.html" onclick="closeMobileNav()">AI Calls</a>
     <a href="websites.html" onclick="closeMobileNav()">Websites</a>
+    <a href="index.html#faq" onclick="closeMobileNav()">FAQ</a>
     <a href="about.html" onclick="closeMobileNav()">About</a>
     <a href="contact.html" onclick="closeMobileNav()">Contact</a>
-    <a href="contact.html" class="nav-mobile-cta" onclick="closeMobileNav()">Get a Quote</a>
+    <a href="javascript:void(0)" class="nav-mobile-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-nav" onclick="closeMobileNav()">Book a free call</a>
   </div>
 
   <!-- ===================== HERO ===================== -->
@@ -909,7 +1001,7 @@
       </p>
       <div class="hero-btns reveal rd-3">
         <a href="#showcase" class="btn btn-amber btn-lg">See the work &darr;</a>
-        <a href="contact.html" class="btn btn-ghost btn-lg">Get a quote</a>
+        <a href="javascript:void(0)" class="btn btn-ghost btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-hero">Book a discovery call</a>
       </div>
       <div class="scroll-hint reveal rd-4">
         <span class="scroll-hint-text">Scroll to explore</span>
@@ -924,9 +1016,9 @@
 
       <!-- Left: asymmetric photo collage -->
       <div class="clients-collage reveal">
-        <img class="collage-img collage-a" src="assets/client-a.jpg" alt="Happy business owner client" loading="lazy">
-        <img class="collage-img collage-b" src="assets/client-b.jpg" alt="Satisfied business owner client" loading="lazy">
-        <img class="collage-img collage-c" src="assets/client-c.jpg" alt="Confident entrepreneur client" loading="lazy">
+        <img class="collage-img collage-a" src="assets/client-a.jpg" alt="Trades business owner — Jackal AI web design client" loading="lazy">
+        <img class="collage-img collage-b" src="assets/client-b.jpg" alt="Australian tradie client — Jackal AI website project" loading="lazy">
+        <img class="collage-img collage-c" src="assets/client-c.jpg" alt="Australian service business owner — Jackal AI client" loading="lazy">
       </div>
 
       <!-- Right: SEO / GEO / AI search copy -->
@@ -941,7 +1033,7 @@
         <p class="reveal rd-3">Google still matters. But AI systems like ChatGPT, Perplexity, and Google's AI Overviews now answer questions before anyone sees a results page. If your business isn't structured for both, you're invisible to the fastest-growing discovery channel in search history.</p>
         <p class="reveal rd-4">Every site we build is engineered for three layers of visibility — technical SEO that earns Google rankings, structured semantic data that gets your business cited by AI, and GEO signals that put your name in the answer when someone asks who to call in your city.</p>
         <div class="reveal rd-5">
-          <a href="contact.html" class="btn btn-amber btn-lg">Get Found Everywhere &rarr;</a>
+          <a href="javascript:void(0)" class="btn btn-amber btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-seo-band">Book a discovery call &rarr;</a>
         </div>
       </div>
 
@@ -981,7 +1073,7 @@
             </div>
             <div class="case-actions">
               <a href="https://kelecec.vercel.app" target="_blank" rel="noopener" class="case-view-btn">View live site &rarr;</a>
-              <a href="contact.html" class="case-want-link">Want one like this?</a>
+              <a href="javascript:void(0)" class="case-want-link" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-casestudy">Want one like this?</a>
             </div>
           </div>
           <div class="case-preview">
@@ -1023,7 +1115,7 @@
               </div>
             </div>
             <div class="case-actions">
-              <a href="contact.html" class="case-view-btn">Get yours &rarr;</a>
+              <a href="javascript:void(0)" class="case-view-btn" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-portfolio">Book a discovery call &rarr;</a>
             </div>
           </div>
           <div class="case-preview">
@@ -1088,7 +1180,7 @@
         </div>
       </div>
       <div class="hiw-cta reveal rd-6">
-        <a href="contact.html" class="btn btn-amber btn-lg">Book a Discovery Call &rarr;</a>
+        <a href="javascript:void(0)" class="btn btn-amber btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-process">Book a discovery call &rarr;</a>
       </div>
     </div>
   </section>
@@ -1184,7 +1276,7 @@
         <h2>Your business deserves<br>a site that wins.</h2>
         <p>Ready in 30 days. No templates. No compromise.</p>
       </div>
-      <a href="contact.html" class="btn btn-dark btn-lg">Get your site built &rarr;</a>
+      <a href="javascript:void(0)" class="btn btn-dark btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-final-cta">Book a discovery call &rarr;</a>
     </div>
   </section>
 
@@ -1194,7 +1286,7 @@
       <div class="foot-top">
         <div class="foot-brand">
           <div class="foot-brand-logo">
-            <img src="brandmark.png" alt="Jackal">
+            <img src="brandmark.png" alt="Jackal AI">
             <span class="foot-wordmark">JACKAL<sup>AI</sup></span>
           </div>
           <p class="foot-tagline">More time. Less bullsh*t.</p>
@@ -1314,6 +1406,28 @@
     function closeMobileNav() { hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); mobileNav.classList.remove('open'); document.body.style.overflow=''; }
     hamburger.addEventListener('click', () => hamburger.classList.contains('open') ? closeMobileNav() : openMobileNav());
     document.addEventListener('keydown', e => { if (e.key==='Escape' && mobileNav.classList.contains('open')) closeMobileNav(); });
+
+    // Mobile sticky bar
+    (function () {
+      var bar = document.getElementById('mobileStickyBar');
+      if (!bar) return;
+      function toggle() { bar.classList.toggle('hidden', window.scrollY < 300); }
+      toggle();
+      window.addEventListener('scroll', toggle, { passive: true });
+    })();
+  </script>
+
+  <!-- ===================== MOBILE STICKY BAR ===================== -->
+  <div class="mobile-sticky hidden" id="mobileStickyBar">
+    <a href="javascript:void(0)" class="mobile-sticky-btn mobile-sticky-primary" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-sticky">Book a discovery call</a>
+    <a href="ai-calls.html" class="mobile-sticky-btn mobile-sticky-secondary">Hear the AI</a>
+  </div>
+
+  <!-- ===================== CAL.COM EMBED ===================== -->
+  <script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.loaded = true; cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.handle = function (name, e) { p(cal, [name, e]); }; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "15min", {origin:"https://cal.com"});
+  Cal.ns["15min"]("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#F59E0B"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
 </body>
 </html>

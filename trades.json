@@ -1,0 +1,352 @@
+{
+  "trades": [
+    {
+      "slug": "plumbers",
+      "label": "Plumbers",
+      "singular": "plumber",
+      "eyebrow": "AI Receptionist · Australian Plumbers",
+      "h1": "Plumbing Jobs Don’t Wait. Your AI Receptionist Doesn’t Either.",
+      "metaTitle": "AI Receptionist for Plumbers | Never Miss a Callout | Jackal AI",
+      "metaDescription": "Jackal AI answers your plumbing calls 24/7 — burst pipes, blocked drains, hot water emergencies. Captures the details, books the job, texts you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Plumbers — Never Miss a Callout",
+      "heroSub": "Burst pipe at 11pm. Blocked drain on a Sunday. Jackal answers in under a second, captures the details, books the job — while you’re on another site or flat out asleep.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "Emergency callouts go to whoever picks up first.",
+          "body": "You’re the fourth number they called. The first three didn’t answer. Neither did you. That burst pipe job — $800 minimum — just went to the plumber who had an AI answering. It doesn’t have to."
+        },
+        {
+          "n": "02",
+          "heading": "You can’t take a call from under a house.",
+          "body": "You’re in a crawl space. Under a sink. Elbows-deep in a drain. Phone rings, you can’t get to it. By the time you call back, they’ve found someone else. Jackal picks up while your hands are full."
+        },
+        {
+          "n": "03",
+          "heading": "Not every call is urgent — but every call needs an answer.",
+          "body": "Jackal captures the urgency level so you know what needs a call back in 10 minutes and what can wait until you’re off site. No more burning the end of your day returning calls that sorted themselves."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "You’re on a job", "body": "A homeowner calls about a burst pipe at 11pm. You’re asleep, or still on another site." },
+        { "n": "02", "title": "Jackal answers", "body": "Your AI receptionist picks up, captures their name, address, what’s happening, and the urgency level." },
+        { "n": "03", "title": "Job’s booked", "body": "Slot lands in your calendar. You get an SMS with everything you need. Customer thinks they spoke to your receptionist." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle after-hours emergency plumbing calls?",
+          "a": "That’s exactly where it earns its keep. Jackal answers 24/7 including weekends and public holidays — captures the caller’s details, flags the urgency, and books the job or sends you an immediate alert. Emergency callouts are your highest-value work. You shouldn’t be losing them to voicemail."
+        },
+        {
+          "q": "What does the AI say when someone calls about a burst pipe?",
+          "a": "It stays calm, captures the caller’s name, address, and what’s happening, and flags it as urgent in your calendar. If you’re set up for emergency dispatch, it can provide your on-call details or trigger a priority alert to your phone."
+        },
+        {
+          "q": "Will it quote prices for my plumbing jobs?",
+          "a": "Only if you want it to. Most plumbers configure it to capture the details and book a time — quoting stays with you. It will never make up a price or commit you to anything you haven’t approved."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Plumbers",
+      "schemaAudience": "Plumbing businesses"
+    },
+    {
+      "slug": "electricians",
+      "label": "Electricians",
+      "singular": "electrician",
+      "eyebrow": "AI Receptionist · Australian Electricians",
+      "h1": "Every Electrical Call Answered. Even the Ones at Midnight.",
+      "metaTitle": "AI Receptionist for Electricians | Never Miss a Callout | Jackal AI",
+      "metaDescription": "Jackal AI answers your electrical calls 24/7 — power outages, faults, after-hours emergencies. Captures details, books the job, sends you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Electricians — 24/7 Call Answering",
+      "heroSub": "Power’s out. It’s 9pm. Someone’s panicking. Jackal picks up, gets the details, and has it in your calendar before you even know the call came in.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "Power faults don’t happen between 9 and 5.",
+          "body": "A switchboard fault on a Friday night is your best-paying job of the week — if you answer. Most electricians don’t. Jackal does, every time, in under a second."
+        },
+        {
+          "n": "02",
+          "heading": "Callers want to know you’re licensed. The AI handles that.",
+          "body": "Jackal is configured with your licence number, coverage area, and the reassurances customers need. It answers their first questions before they even think about calling someone else."
+        },
+        {
+          "n": "03",
+          "heading": "Quote calls while you’re in a roof cavity.",
+          "body": "You can’t take a call with your hands in a switchboard. Jackal captures the job details, asks the right questions, and has everything ready for you to call back with an informed quote."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "Power’s out", "body": "A customer calls at 9pm about a tripped switchboard. You’re wrapping up another job." },
+        { "n": "02", "title": "Jackal answers", "body": "Your AI receptionist picks up, captures the fault details, their address, and books an inspection time." },
+        { "n": "03", "title": "You get the brief", "body": "Full job details hit your phone via SMS. Show up knowing exactly what you’re walking into." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle urgent electrical fault calls?",
+          "a": "Yes. Jackal is configured to capture the nature of the fault, location, and urgency — and flag high-priority calls so you know which ones need an immediate call back versus a scheduled inspection."
+        },
+        {
+          "q": "What if a caller asks about my licence or insurance?",
+          "a": "Jackal is set up with your licence number, insurance details, and coverage area. It handles those reassurance questions so callers don’t move on to someone else while you’re on site."
+        },
+        {
+          "q": "Will it handle quote requests for big electrical jobs?",
+          "a": "Absolutely. It captures the scope, asks the right discovery questions, and books a site visit or call-back. You arrive to quote already knowing the details."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Electricians",
+      "schemaAudience": "Electrical contracting businesses"
+    },
+    {
+      "slug": "builders",
+      "label": "Builders",
+      "singular": "builder",
+      "eyebrow": "AI Receptionist · Australian Builders",
+      "h1": "Your Build Site Is Loud. Your Receptionist Doesn’t Have to Be Silent.",
+      "metaTitle": "AI Receptionist for Builders | Never Miss a Lead | Jackal AI",
+      "metaDescription": "Jackal AI answers your building enquiry calls 24/7 — new builds, renovations, quote requests. Captures project details, books consultations, sends you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Builders — Capture Every Lead",
+      "heroSub": "You’re on site, on tools, running a crew. Enquiry calls are coming in. Jackal captures every project lead, books the consultation, and briefs you before you call them back.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "A new build enquiry is worth $100K+. Missing it costs more than a receptionist.",
+          "body": "Renovation and new build leads go quiet fast. If they don’t reach you on the first call, they’re ringing the next builder on the list. Jackal answers while you’re on site and locks in the consultation."
+        },
+        {
+          "n": "02",
+          "heading": "Clients call with questions mid-build. You can’t always stop.",
+          "body": "Progress update calls, variation requests, neighbour complaints. Jackal handles the intake, logs it properly, and routes only what actually needs you — right now."
+        },
+        {
+          "n": "03",
+          "heading": "Your number is on every site sign. Those calls need an answer.",
+          "body": "A site sign with a number that goes to voicemail is a lead generation system that doesn’t work. Jackal turns every call into a logged, booked, followed-up lead."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "Enquiry comes in", "body": "Someone sees your site sign or finds you online. They call to ask about a renovation or new build." },
+        { "n": "02", "title": "Jackal qualifies it", "body": "Your AI receptionist captures the project type, budget range, suburb, and books a consultation." },
+        { "n": "03", "title": "You’re briefed", "body": "You get the full intake via SMS before you walk into the meeting. No more flying blind." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle new build and renovation enquiries?",
+          "a": "Yes. Jackal is configured to ask your qualification questions — project type, rough budget, location, timeline — so you’re not wasting site visits on unqualified leads."
+        },
+        {
+          "q": "What about calls from clients mid-build?",
+          "a": "Jackal logs the nature of the call and routes it appropriately. Urgent issues get flagged immediately. Progress questions get logged and queued — nothing falls through."
+        },
+        {
+          "q": "Can it book site inspection appointments?",
+          "a": "Directly into your calendar. The caller gets a confirmation, you get the brief. No back-and-forth by text."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Builders",
+      "schemaAudience": "Building and construction businesses"
+    },
+    {
+      "slug": "landscapers",
+      "label": "Landscapers",
+      "singular": "landscaper",
+      "eyebrow": "AI Receptionist · Australian Landscapers",
+      "h1": "Spring’s Peak Season. Your Phone Shouldn’t Be the Bottleneck.",
+      "metaTitle": "AI Receptionist for Landscapers | Never Miss a Quote Request | Jackal AI",
+      "metaDescription": "Jackal AI answers your landscaping calls 24/7 — quote requests, design consultations, maintenance bookings. Captures details, books jobs, sends you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Landscapers — Capture Every Quote Request",
+      "heroSub": "Spring hits and the phone doesn’t stop. Jackal handles the volume — captures every quote request, books the site visit, and lets you focus on the work that’s already in the ground.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "Spring enquiry season is 8 weeks. Every missed call is a missed season.",
+          "body": "Landscaping is seasonal. When the phone is running hot in September and October, every unanswered call is a job that goes to someone with a pickup. Jackal answers all of them, all day."
+        },
+        {
+          "n": "02",
+          "heading": "Quote requests come when you’re driving, digging, or designing.",
+          "body": "You can’t take a call with a shovel in your hand or a ute full of crew. Jackal captures the project details, suburb, and size so you can quote accurately without a call back."
+        },
+        {
+          "n": "03",
+          "heading": "Weather rescheduling creates a phone call flood.",
+          "body": "One wet week and you’re rescheduling 10 jobs. Jackal handles the inbound chaos, logs every change, and keeps customers informed without you managing it manually."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "Enquiry comes in", "body": "A homeowner calls about a backyard redesign or maintenance package. You’re on another site." },
+        { "n": "02", "title": "Jackal qualifies it", "body": "Captures the project size, suburb, what they’re after, and books a site consultation." },
+        { "n": "03", "title": "You turn up ready", "body": "Full intake in your phone before the visit. Quote it right the first time." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle seasonal spikes in call volume?",
+          "a": "That’s exactly what it’s built for. Jackal doesn’t get overwhelmed in October. Every call is answered, every lead is captured, and your calendar fills up without you being glued to your phone."
+        },
+        {
+          "q": "Can it handle weather rescheduling calls?",
+          "a": "Yes. You configure the message and Jackal handles the inbound. It captures the request, logs it, and confirms the reschedule — keeping your customers informed without the chaos landing on you."
+        },
+        {
+          "q": "Will it capture enough detail for me to quote accurately?",
+          "a": "Jackal asks your qualification questions — project type, size, suburb, rough budget — so you arrive to the site visit with enough to quote without going back twice."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Landscapers",
+      "schemaAudience": "Landscaping businesses"
+    },
+    {
+      "slug": "air-conditioning",
+      "label": "Air Conditioning",
+      "singular": "air conditioning technician",
+      "eyebrow": "AI Receptionist · Air Conditioning Businesses",
+      "h1": "40 Degrees Outside. Every AC Call Answered. No Exceptions.",
+      "metaTitle": "AI Receptionist for Air Conditioning | Never Miss a Callout | Jackal AI",
+      "metaDescription": "Jackal AI answers your air conditioning calls 24/7 — emergency breakdowns, installation enquiries, service bookings. Captures details, books jobs, sends you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Air Conditioning — Peak Season, Zero Missed Calls",
+      "heroSub": "It’s 38 degrees and an AC unit just died. That customer is calling every number they can find. Jackal answers yours first, books the job, and has you there before anyone else.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "Summer breakdowns are your highest-margin work. They go to whoever answers.",
+          "body": "When an AC unit fails on a 40-degree day, that customer calls three numbers. The first to answer gets the job. At $400–$800 a callout, missing those calls in summer is expensive. Jackal doesn’t miss them."
+        },
+        {
+          "n": "02",
+          "heading": "Installation enquiries are heavy research calls. Capture them or lose them.",
+          "body": "A homeowner calling about a split system installation is comparing three quotes. Jackal captures their details and books the measure-and-quote before they hang up and call your competitor."
+        },
+        {
+          "n": "03",
+          "heading": "Summer and winter peak demand hits at the same time your phone gets hardest to answer.",
+          "body": "You’re flat out in the roof in 35-degree heat. Your phone is ringing. Jackal handles the calls so you can handle the jobs."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "AC breaks down", "body": "A customer calls at 2pm on a 38-degree day. Their split system is dead. You’re already on another job." },
+        { "n": "02", "title": "Jackal answers", "body": "Captures the unit type, issue, address, and urgency. Books the callout or measure-and-quote." },
+        { "n": "03", "title": "You get the brief", "body": "SMS summary hits your phone. You arrive knowing the unit, the issue, and what to bring." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle emergency breakdown calls in summer?",
+          "a": "That’s the highest-value scenario it’s built for. Jackal captures the unit type, fault description, and location — and flags emergency callouts so you know which jobs to prioritise. No more missed $600 callouts on hot days."
+        },
+        {
+          "q": "Can it handle installation and measure-and-quote enquiries?",
+          "a": "Yes. Jackal captures the home size, number of units wanted, budget range, and preferred brand — and books a measure-and-quote directly into your calendar."
+        },
+        {
+          "q": "What about service and maintenance bookings?",
+          "a": "Jackal handles routine service bookings automatically — captures the unit details and books the service into your schedule. Great for clearing the admin backlog without you touching the phone."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Air Conditioning Businesses",
+      "schemaAudience": "Air conditioning and HVAC businesses"
+    },
+    {
+      "slug": "roofers",
+      "label": "Roofers",
+      "singular": "roofer",
+      "eyebrow": "AI Receptionist · Australian Roofers",
+      "h1": "Storm Damage Calls Don’t Wait Until Monday. Neither Does Jackal.",
+      "metaTitle": "AI Receptionist for Roofers | Never Miss a Storm Callout | Jackal AI",
+      "metaDescription": "Jackal AI answers your roofing calls 24/7 — storm damage, emergency leaks, insurance jobs. Captures details, books inspections, sends you a summary. From $249/month.",
+      "ogTitle": "AI Receptionist for Roofers — Storm Season, Zero Missed Calls",
+      "heroSub": "Storm rolls through on a Saturday night. By Sunday morning, your phone is ringing with damage calls. Jackal captures every one and books the inspections before you’ve had your coffee.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "After a storm, the first roofer to answer wins the suburb.",
+          "body": "Storm damage creates a cluster of calls in a tight geographic area. The roofer who answers first books the street. Jackal answers every call in under a second — day, night, or the moment after a storm."
+        },
+        {
+          "n": "02",
+          "heading": "Insurance jobs need the right details captured. Jackal gets them.",
+          "body": "Insurance repair leads require policy numbers, damage descriptions, and photos. Jackal asks the intake questions so you walk into the inspection with the right information and a stronger quote."
+        },
+        {
+          "n": "03",
+          "heading": "You’re on a roof. You can’t take calls safely.",
+          "body": "Safety first — but that means missed calls. Jackal handles every inbound while you’re working at height. All the details are waiting when you come down."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "Storm hits", "body": "Saturday night hail storm. By 7am Sunday, six homeowners in the same suburb are calling about damage." },
+        { "n": "02", "title": "Jackal answers all six", "body": "Captures damage type, address, urgency, and books inspection slots across the day." },
+        { "n": "03", "title": "You have a full day booked", "body": "Wake up to a full inspection schedule and six SMS briefings. No calls required." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Can the AI handle the call spike after a storm?",
+          "a": "That’s exactly the scenario it’s built for. Jackal doesn’t get overwhelmed. It answers every call, captures every address, and books every inspection — while you’re still asleep or finishing the previous job."
+        },
+        {
+          "q": "What about insurance repair enquiries?",
+          "a": "Jackal is configured to capture the damage description, insurance provider, and policy reference. You arrive to the inspection with the intake already done and a stronger case for the insurer."
+        },
+        {
+          "q": "Will it work for new roof quotes and regular maintenance too?",
+          "a": "Yes. Storm damage is the high-urgency use case, but Jackal handles new build roofing enquiries, maintenance bookings, and re-roofing quotes just as well — any time of day."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Roofers",
+      "schemaAudience": "Roofing businesses"
+    }
+  ],
+  "locationPages": [
+    {
+      "slug": "perth",
+      "label": "Perth tradies",
+      "city": "Perth",
+      "state": "WA",
+      "eyebrow": "AI Receptionist · Perth",
+      "h1": "Perth Tradies: Every Call Answered. Every Job Captured.",
+      "metaTitle": "AI Receptionist Perth | 24/7 Call Answering for Perth Trades | Jackal AI",
+      "metaDescription": "Jackal AI is built for Perth trade businesses. Answers every call 24/7, captures the details, books the job, texts you a summary. Local support. From $249/month.",
+      "ogTitle": "AI Receptionist Perth — Built for Perth Tradies",
+      "heroSub": "Perth’s tradie market is competitive. The business that answers first gets the job. Jackal answers your calls 24/7 so you’re always first — even when you’re on the tools in Bayswater or flat out in Mandurah.",
+      "painPoints": [
+        {
+          "n": "01",
+          "heading": "Perth’s tradie market: they call three numbers and go with whoever answers.",
+          "body": "In a city of 2 million people, competition between tradies is tight. The job goes to the first person who picks up — not the best tradie, not the cheapest. Jackal makes sure that’s always you."
+        },
+        {
+          "n": "02",
+          "heading": "After-hours work is Perth’s bread and butter.",
+          "body": "From Rockingham to Joondalup, Perth tradies get emergency calls outside business hours. Jackal answers every one of them — burst pipes at midnight, power faults on weekends, AC breakdowns in 40-degree heat."
+        },
+        {
+          "n": "03",
+          "heading": "Perth is a big city. Your calls shouldn’t fall through the cracks.",
+          "body": "Whether you’re covering the northern suburbs, the south, or the hills — Jackal captures the suburb in every call so you can triage, route, and quote with the right information."
+        }
+      ],
+      "howItWorks": [
+        { "n": "01", "title": "Perth customer calls", "body": "Someone in Subiaco, Balcatta, or Fremantle calls your number. You’re on a job across town." },
+        { "n": "02", "title": "Jackal answers", "body": "Captures their name, suburb, job details, and urgency. Books the inspection or job into your calendar." },
+        { "n": "03", "title": "You get the brief", "body": "SMS summary with everything you need. Show up already knowing what you’re walking into." }
+      ],
+      "faqVariants": [
+        {
+          "q": "Is Jackal AI based in Perth?",
+          "a": "Yes. Jackal AI is built in Perth, Western Australia. We understand the local tradie market, the suburbs, and the way Perth customers think. ABN 92 509 551 334."
+        },
+        {
+          "q": "Does it work for any trade in Perth?",
+          "a": "Plumbers, electricians, builders, roofers, landscapers, air conditioning technicians, painters, tilers, carpenters — if you take calls and book jobs, Jackal can answer for you."
+        },
+        {
+          "q": "How quickly can I get set up in Perth?",
+          "a": "Most Perth businesses are live within a week. We handle the full setup — you give us your business info, we build and configure the agent. You don’t touch a thing."
+        }
+      ],
+      "schemaServiceName": "AI Voice Receptionist for Perth Trade Businesses",
+      "schemaAudience": "Trade businesses in Perth, Western Australia",
+      "schemaCity": "Perth",
+      "schemaRegion": "WA"
+    }
+  ]
+}

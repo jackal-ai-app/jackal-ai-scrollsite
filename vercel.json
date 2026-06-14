@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/index.html",         "destination": "/",             "permanent": true },
+    { "source": "/ai-calls.html",      "destination": "/ai-calls",     "permanent": true },
+    { "source": "/websites.html",      "destination": "/websites",     "permanent": true },
+    { "source": "/about.html",         "destination": "/about",        "permanent": true },
+    { "source": "/contact.html",       "destination": "/contact",      "permanent": true },
+    { "source": "/book.html",          "destination": "/book",         "permanent": true }
+  ]
+}
