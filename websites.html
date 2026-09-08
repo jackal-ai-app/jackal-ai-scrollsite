@@ -94,6 +94,7 @@
     "description": "AI voice receptionist for Australian trades and service businesses. Answers every call 24/7, books jobs, and sends SMS summaries. From $249/month. ABN 92 509 551 334.",
     "foundingDate": "2024",
     "taxID": "92 509 551 334",
+    "telephone": "+61851226302",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Perth",
@@ -561,7 +562,7 @@
       display: flex; align-items: center; gap: 7px;
     }
     .live-dot {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
       background: #28ca41; display: inline-block;
       animation: pulse 1.6s ease-in-out infinite;
     }
@@ -619,43 +620,15 @@
     }
     .preview-screen { flex: 1; position: relative; overflow: hidden; min-height: 180px; }
 
-    /* Kelecec preview recreation */
-    .screen-kelecec {
-      background: #111; height: 100%; position: relative;
+    /* Screenshot preview — real site capture */
+    .screen-shot {
+      height: 100%; min-height: 180px;
+      background: #121210; overflow: hidden;
     }
-    .kelecec-hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, #1a1a1a 0%, #252525 40%, #111 70%, #0a0a0a 100%);
-    }
-    .kelecec-hero-content {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 24px; z-index: 1;
-    }
-    .kelecec-h1 {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1rem, 2.5vw, 1.6rem);
-      font-weight: 800; line-height: 1.05;
-      color: #fafafe; text-shadow: 0 2px 20px rgba(0,0,0,0.9);
-      margin-bottom: 8px; letter-spacing: -0.02em;
-    }
-    .kelecec-sub {
-      font-size: 0.7rem; color: rgba(255,255,255,0.75);
-      background: rgba(0,0,0,0.55); padding: 3px 10px;
-      border-radius: 3px; margin-bottom: 10px;
-      font-family: 'Outfit', sans-serif;
-    }
-    .kelecec-cta {
-      display: inline-block; background: #7977E6;
-      color: #fafafe; font-size: 0.68rem; font-weight: 700;
-      padding: 6px 14px; border-radius: 6px;
-      font-family: 'Outfit', sans-serif;
-    }
-    .kelecec-accent-strip {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #7977E6, #9b99f0);
+    .screen-shot img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
     }
 
     /* Placeholder preview */
@@ -945,6 +918,7 @@
     .mobile-sticky-primary { background: var(--amber); color: #000; }
     .mobile-sticky-secondary { background: transparent; color: var(--amber); border: 1.5px solid var(--amber) !important; }
     @media (prefers-reduced-motion: reduce) { .mobile-sticky-btn { transition: none; } }
+    :focus-visible { outline: 2px solid var(--amber, #F59E0B); outline-offset: 3px; border-radius: 2px; }
   </style>
 </head>
 <body>
@@ -968,7 +942,7 @@
         <a href="index.html#faq">FAQ</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-nav">Book a free call</a>
+        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-nav">Book a discovery call</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1000,8 +974,8 @@
         Cinematic, fast, conversion-focused websites for Australian trades and service businesses. Built in 30 days. No templates. No compromise.
       </p>
       <div class="hero-btns reveal rd-3">
-        <a href="#showcase" class="btn btn-amber btn-lg">See the work &darr;</a>
-        <a href="javascript:void(0)" class="btn btn-ghost btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-hero">Book a discovery call</a>
+        <a href="javascript:void(0)" class="btn btn-amber btn-lg" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-hero">Book a discovery call</a>
+        <a href="#showcase" class="btn btn-ghost btn-lg">See the work &darr;</a>
       </div>
       <div class="scroll-hint reveal rd-4">
         <span class="scroll-hint-text">Scroll to explore</span>
@@ -1051,8 +1025,50 @@
 
       <div class="showcase-cards">
 
-        <!-- Card 1: Kelecec — featured, live -->
+        <!-- Card 1: Datum Aerial — featured, live -->
         <div class="case-card featured reveal">
+          <div class="case-info">
+            <div>
+              <div class="case-industry">
+                <span class="live-dot"></span>
+                Aerial Survey &mdash; Perth
+              </div>
+              <div class="case-name">Datum<br>Aerial</div>
+              <div class="case-desc">
+                Near-black instrument theme with one survey-orange signal colour and monospaced figures. Full-bleed pit-wall hero, curtain-reveal wipe, accuracy numbers stated above the fold. Built to look like a measuring device, not a drone brochure.
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">Dark Theme</span>
+                <span class="case-tag">Next.js</span>
+                <span class="case-tag">Cinematic Hero</span>
+                <span class="case-tag">Curtain Reveal</span>
+                <span class="case-tag">Quote Form</span>
+              </div>
+            </div>
+            <div class="case-actions">
+              <a href="https://datum-aerial.vercel.app" target="_blank" rel="noopener" class="case-view-btn">View live site &rarr;</a>
+              <a href="javascript:void(0)" class="case-want-link" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-casestudy">Want one like this?</a>
+            </div>
+          </div>
+          <div class="case-preview">
+            <div class="preview-chrome">
+              <div class="preview-dots">
+                <div class="preview-dot" style="background:#ff5f57"></div>
+                <div class="preview-dot" style="background:#ffbd2e"></div>
+                <div class="preview-dot" style="background:#28ca41"></div>
+              </div>
+              <div class="preview-url">datum-aerial.vercel.app</div>
+            </div>
+            <div class="preview-screen">
+              <div class="screen-shot">
+                <img src="assets/work/datum-aerial.jpg" alt="Datum Aerial website homepage — Jackal AI website project" loading="lazy" width="1280" height="610">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Kelecec — live -->
+        <div class="case-card reveal rd-1">
           <div class="case-info">
             <div>
               <div class="case-industry">
@@ -1086,21 +1102,57 @@
               <div class="preview-url">kelecec.vercel.app</div>
             </div>
             <div class="preview-screen">
-              <div class="screen-kelecec">
-                <div class="kelecec-hero-bg"></div>
-                <div class="kelecec-hero-content">
-                  <div class="kelecec-h1">SAFE POWER,<br>DONE RIGHT.</div>
-                  <div class="kelecec-sub">Licensed residential &amp; commercial electrician, Perth</div>
-                  <div class="kelecec-cta">Book a Job</div>
-                </div>
-                <div class="kelecec-accent-strip"></div>
+              <div class="screen-shot">
+                <img src="assets/work/kelec-electrical.jpg" alt="Kelec Electrical website homepage — Jackal AI website project" loading="lazy" width="1280" height="632">
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Card 2: Placeholder — next slot -->
-        <div class="case-card reveal rd-1">
+        <!-- Card 3: Northbridge Physio — live -->
+        <div class="case-card reveal rd-2">
+          <div class="case-info">
+            <div>
+              <div class="case-industry">
+                <span class="live-dot"></span>
+                Physiotherapy &mdash; Perth
+              </div>
+              <div class="case-name">Northbridge<br>Physio</div>
+              <div class="case-desc">
+                Warm clinical light theme &mdash; off-white ground, green-slate ink, a serif display and a single green for every action. Price and phone number above the fold, booking in three fields. Static Next.js, no animation library.
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">Light Theme</span>
+                <span class="case-tag">Next.js 15</span>
+                <span class="case-tag">Booking Flow</span>
+                <span class="case-tag">Local SEO</span>
+                <span class="case-tag">CSS Motion</span>
+              </div>
+            </div>
+            <div class="case-actions">
+              <a href="https://northbridge-physio.vercel.app" target="_blank" rel="noopener" class="case-view-btn">View live site &rarr;</a>
+              <a href="javascript:void(0)" class="case-want-link" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=websites-casestudy">Want one like this?</a>
+            </div>
+          </div>
+          <div class="case-preview">
+            <div class="preview-chrome">
+              <div class="preview-dots">
+                <div class="preview-dot" style="background:#ff5f57"></div>
+                <div class="preview-dot" style="background:#ffbd2e"></div>
+                <div class="preview-dot" style="background:#28ca41"></div>
+              </div>
+              <div class="preview-url">northbridge-physio.vercel.app</div>
+            </div>
+            <div class="preview-screen">
+              <div class="screen-shot">
+                <img src="assets/work/northbridge-physio.jpg" alt="Northbridge Physio website homepage — Jackal AI website project" loading="lazy" width="1280" height="598">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Placeholder — next slot -->
+        <div class="case-card reveal rd-3">
           <div class="case-info">
             <div>
               <div class="case-industry">Your Industry &mdash; Your City</div>
@@ -1125,7 +1177,7 @@
                 <div class="preview-dot" style="background:#ffbd2e"></div>
                 <div class="preview-dot" style="background:#28ca41"></div>
               </div>
-              <div class="preview-url">yourbiz.com.au</div>
+              <div class="preview-url">yoursite.com.au</div>
             </div>
             <div class="preview-screen">
               <div class="screen-placeholder">
@@ -1144,7 +1196,7 @@
     <div class="hiw-wrap">
       <div class="hiw-head">
         <span class="section-label reveal">The Process</span>
-        <h2 class="reveal rd-1">YOUR SITE LIVE<br>IN 30 DAYS.</h2>
+        <h2 class="reveal rd-1">Your site live<br>in 30 days.</h2>
         <p class="reveal rd-2">Five structured phases. Nothing built until you sign off. Nothing launched until you're satisfied.</p>
       </div>
       <div class="steps-timeline">
