@@ -20,13 +20,13 @@ const outputDir = path.resolve(__dirname, '../assets/og');
 const pages = [
   {
     slug: 'home',
-    h: 'Your AI receptionist answers every call.',
-    t: 'AI voice receptionist for Australian trades. From $249/month.',
+    h: 'More money. More time back.',
+    t: 'AI integration for Perth trades & local service businesses. Free Business Streamlining Consult.',
   },
   {
     slug: 'ai-calls',
-    h: 'Never miss another job to voicemail.',
-    t: 'Answers 24/7 in a natural Aussie voice. Books jobs. Sends summaries.',
+    h: 'Stop losing jobs to voicemail.',
+    t: 'The AI receptionist: one of the fixes. Answers 24/7, books jobs, sends summaries.',
   },
   {
     slug: 'websites',
@@ -36,22 +36,27 @@ const pages = [
   {
     slug: 'about',
     h: 'Built by someone who’s trained thousands of real receptionists.',
-    t: 'A decade in CX and service ops. Perth, WA.',
+    t: 'A decade in CX. Now finding where Perth businesses leak time and money.',
   },
   {
     slug: 'contact',
-    h: 'Book a free 15-minute call.',
-    t: 'See exactly how the AI receptionist works — no pressure.',
+    h: 'Let’s talk.',
+    t: 'Book your free consult, or grab a quick call.',
   },
   {
     slug: 'book',
-    h: 'Book a free 15-minute call.',
-    t: 'See exactly how the AI receptionist works — no pressure.',
+    h: 'Find out where your business is leaking.',
+    t: 'Free 30-minute Business Streamlining Consult. You keep the plan either way.',
+  },
+  {
+    slug: 'consult',
+    h: 'Find out where your business is leaking.',
+    t: 'Free 30-minute Business Streamlining Consult. You keep the plan either way.',
   },
   {
     slug: 'calculator',
-    h: 'How much are missed calls costing you?',
-    t: 'Find your number. Perth tradies lose $30K–$80K/year to voicemail.',
+    h: 'What’s admin (and missed work) costing you?',
+    t: 'Your numbers, not an industry average. Takes a minute.',
   },
 ];
 

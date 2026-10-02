@@ -1,7 +1,9 @@
 /**
  * generate-pages.js
  * Run: node scripts/generate-pages.js
- * Reads trades.json, generates static HTML pages, updates sitemap.xml.
+ * Reads trades.json, generates the /ai-receptionist-* pages (the AI receptionist fix), updates sitemap.xml.
+ * Kept live for receptionist search equity (docs/business-model-pivot/03-website-brief.md §2, §8).
+ * Primary CTA is the free Business Streamlining Consult; each page links to its matching /ai-for-{trade} page.
  * To add a new trade: edit trades.json and re-run this script.
  */
 'use strict';
@@ -15,45 +17,12 @@ const data    = JSON.parse(fs.readFileSync(path.join(rootDir, 'trades.json'), 'u
 const SITE_URL = 'https://jackalai.app';
 const TODAY    = new Date().toISOString().slice(0, 10);
 
-/* ─── Shared boilerplate snippets ─── */
-
-const GTM_HEAD = `  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5JQ32785');</script>
-  <!-- End Google Tag Manager -->`;
-
-const GTM_NOSCRIPT = `  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JQ32785"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->`;
-
-const ORG_SCHEMA = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': ['Organization', 'LocalBusiness'],
-  name: 'Jackal AI',
-  url: 'https://jackalai.app',
-  logo: 'https://jackalai.app/logo.png',
-  description: 'AI voice receptionist for Australian trades and service businesses. Answers every call 24/7, books jobs, and sends SMS summaries. From $249/month. ABN 92 509 551 334.',
-  foundingDate: '2024',
-  taxID: '92 509 551 334',
-  address: { '@type': 'PostalAddress', addressLocality: 'Perth', addressRegion: 'WA', addressCountry: 'AU' },
-  areaServed: { '@type': 'Country', name: 'Australia' },
-  email: 'hello@jackalai.app',
-  sameAs: [
-    'https://www.instagram.com/jackal.ai/',
-    'https://www.facebook.com/people/Jackal-AI/61587872414237/',
-    'https://www.linkedin.com/in/jack-alexander-0b898a192'
-  ],
-  founder: { '@type': 'Person', name: 'Jack Alexander', sameAs: 'https://www.linkedin.com/in/jack-alexander-0b898a192' }
-}, null, 2);
+const { GTM_HEAD, GTM_NOSCRIPT, ORG_SCHEMA, CSS, SOCIAL_SVGS, esc, upsertSitemap } = require('./lib/shared');
 
 const UNIVERSAL_FAQS = [
   {
     q: "Will callers know they're talking to an AI?",
-    a: "Most callers don't realise. Jackal sounds like a natural Aussie receptionist, not a robot. We'll set up a demo call so you can hear it yourself before you commit."
+    a: "It sounds like a natural Aussie receptionist, and it says it's an AI assistant if asked. A real person is always reachable. You can hear Jess answer a test call on the AI receptionist page before you commit."
   },
   {
     q: 'How quickly can I get set up?',
@@ -105,195 +74,6 @@ function breadcrumbSchema(page, slugPrefix) {
     ]
   }, null, 2);
 }
-
-/* ─── CSS ─── */
-
-const CSS = `
-    :root {
-      --graphite: #111111; --iron: #2A2A28; --slate: #71706C;
-      --dust: #B8A88E; --sandstone: #E5D5BE; --white: #FAFAF7;
-      --amber: #F59E0B; --amber-dark: #D97706; --amber-light: #FCD34D;
-      --bg: #111111; --text-primary: #FAFAF7;
-      --text-body: #E5D5BE; --text-muted: #B8A88E;
-      --radius: 8px; --radius-lg: 16px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--graphite); color: var(--text-body); font-family: 'Outfit', sans-serif; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    /* NAV */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-      background: rgba(17,17,17,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 32px;
-      height: 64px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 28px; width: auto; }
-    .nav-wordmark {
-      font-family: 'Archivo Black', sans-serif; font-size: 0.85rem;
-      letter-spacing: 0.1em; color: var(--white); text-transform: uppercase;
-    }
-    .nav-wordmark sup { font-size: 0.5em; vertical-align: super; color: var(--amber); }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      background: var(--amber); color: #111111 !important;
-      font-family: 'Archivo Black', sans-serif !important;
-      font-size: 0.72rem !important; letter-spacing: 0.08em; text-transform: uppercase;
-      padding: 9px 18px; border-radius: var(--radius); transition: background 0.2s; cursor: pointer;
-    }
-    .nav-cta:hover { background: var(--amber-dark) !important; }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
-    .nav-mobile {
-      display: none; flex-direction: column; padding: 20px 32px 28px;
-      background: rgba(17,17,17,0.98); border-bottom: 1px solid rgba(255,255,255,0.07);
-      position: fixed; top: 64px; left: 0; right: 0; z-index: 899;
-    }
-    .nav-mobile.open { display: flex; }
-    .nav-mobile a { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--text-body); padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile-cta {
-      margin-top: 16px; background: var(--amber); color: #111111 !important;
-      font-family: 'Archivo Black', sans-serif !important; font-size: 0.8rem !important;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      padding: 13px 22px; border-radius: var(--radius); text-align: center;
-      border-bottom: none !important; cursor: pointer;
-    }
-    @media (max-width: 768px) { .nav-links { display: none; } .nav-hamburger { display: flex; } }
-
-    /* HERO */
-    .tp-hero {
-      min-height: 88vh; display: flex; align-items: center;
-      padding: 120px 0 80px; position: relative; overflow: hidden;
-    }
-    .tp-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(245,158,11,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .tp-hero-inner { max-width: 900px; margin: 0 auto; padding: 0 48px; }
-    .tp-eyebrow { font-family: 'Outfit', sans-serif; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 20px; }
-    .tp-h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.0; text-transform: uppercase; color: var(--white); margin-bottom: 28px; letter-spacing: -0.02em; }
-    .tp-sub { font-family: 'Outfit', sans-serif; font-size: clamp(1rem, 2vw, 1.18rem); color: var(--text-body); line-height: 1.65; max-width: 680px; margin-bottom: 40px; }
-    .tp-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-amber { display: inline-block; background: var(--amber); color: #111111; font-family: 'Archivo Black', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 30px; border-radius: var(--radius); transition: background 0.2s, transform 0.2s; cursor: pointer; border: none; }
-    .btn-amber:hover { background: var(--amber-dark); transform: translateY(-1px); }
-    .btn-ghost { display: inline-block; background: transparent; color: var(--text-body); font-family: 'Archivo Black', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px 30px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.18); transition: background 0.2s, border-color 0.2s, transform 0.2s; }
-    .btn-ghost:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.35); transform: translateY(-1px); }
-    @media (max-width: 600px) { .tp-hero-inner { padding: 0 24px; } }
-
-    /* SECTION SHARED */
-    .tp-section { padding: 90px 0; }
-    .tp-section-alt { background: var(--iron); }
-    .tp-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-    .tp-label { font-family: 'Outfit', sans-serif; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 18px; }
-    .tp-heading { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); line-height: 1.05; text-transform: uppercase; color: var(--white); margin-bottom: 20px; letter-spacing: -0.01em; }
-    .tp-body { font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text-muted); line-height: 1.65; max-width: 600px; margin-bottom: 56px; }
-    @media (max-width: 600px) { .tp-inner { padding: 0 24px; } .tp-section { padding: 60px 0; } }
-
-    /* PAIN POINTS */
-    .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .pain-card { background: rgba(17,17,17,0.6); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 28px 24px; }
-    .tp-section-alt .pain-card { background: rgba(17,17,17,0.4); }
-    .pain-n { font-family: 'Archivo Black', sans-serif; font-size: 2rem; color: var(--amber); line-height: 1; margin-bottom: 18px; letter-spacing: -0.03em; }
-    .pain-card h3 { font-family: 'Archivo Black', sans-serif; font-size: 0.78rem; text-transform: uppercase; color: var(--white); letter-spacing: 0.06em; margin-bottom: 10px; line-height: 1.35; }
-    .pain-card p { font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; }
-    @media (max-width: 900px) { .pain-grid { grid-template-columns: 1fr; gap: 16px; } }
-
-    /* HOW IT WORKS */
-    .hiw-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
-    .hiw-step { position: relative; padding-left: 52px; }
-    .hiw-step::before { content: attr(data-n); position: absolute; left: 0; top: 0; font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; color: var(--amber); line-height: 1; letter-spacing: -0.03em; }
-    .hiw-step h3 { font-family: 'Archivo Black', sans-serif; font-size: 0.78rem; text-transform: uppercase; color: var(--white); letter-spacing: 0.06em; margin-bottom: 8px; line-height: 1.3; }
-    .hiw-step p { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
-    @media (max-width: 768px) { .hiw-steps { grid-template-columns: 1fr; gap: 28px; } }
-
-    /* PRICING */
-    .price-cta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
-    .price-card { background: var(--iron); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 32px 28px; position: relative; }
-    .price-card.featured { border-color: var(--amber); }
-    .price-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--amber); color: #111111; font-family: 'Archivo Black', sans-serif; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 14px; border-radius: 100px; white-space: nowrap; }
-    .price-tier { font-family: 'Archivo Black', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; }
-    .price-amount { font-family: 'Archivo Black', sans-serif; font-size: 2.4rem; color: var(--white); line-height: 1; margin-bottom: 6px; }
-    .price-amount sup { font-size: 0.45em; vertical-align: super; }
-    .price-period { font-family: 'Outfit', sans-serif; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
-    .price-setup { font-family: 'Outfit', sans-serif; font-size: 0.75rem; color: var(--slate); margin-bottom: 24px; }
-    .price-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-    .price-feature { display: flex; align-items: flex-start; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-body); }
-    .price-feature::before { content: '✓'; color: var(--amber); font-size: 0.75rem; flex-shrink: 0; margin-top: 2px; }
-    .price-btn { display: block; width: 100%; text-align: center; background: var(--amber); color: #111111; font-family: 'Archivo Black', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 20px; border-radius: var(--radius); border: none; cursor: pointer; transition: background 0.2s; }
-    .price-btn:hover { background: var(--amber-dark); }
-    @media (max-width: 900px) { .price-cta-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; } }
-
-    /* FAQ */
-    .faq-list { display: flex; flex-direction: column; gap: 8px; }
-    .faq-item { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; }
-    .faq-q { width: 100%; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; gap: 16px; text-align: left; }
-    .faq-q-text { font-family: 'Archivo Black', sans-serif; font-size: 0.82rem; text-transform: uppercase; color: var(--white); letter-spacing: 0.04em; line-height: 1.35; }
-    .faq-chevron { flex-shrink: 0; width: 22px; height: 22px; border: 1px solid rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.25s, background 0.2s, border-color 0.2s; }
-    .faq-chevron svg { transition: transform 0.25s; }
-    .faq-item.open .faq-chevron { background: var(--amber); border-color: var(--amber); }
-    .faq-item.open .faq-chevron svg { transform: rotate(180deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; padding: 0 24px; }
-    .faq-item.open .faq-a { max-height: 500px; padding: 0 24px 20px; }
-    .faq-a p { font-family: 'Outfit', sans-serif; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
-
-    /* INTERNAL LINK BAR */
-    .tp-link-bar { border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 0; text-align: center; }
-    .tp-link-bar a { font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-muted); transition: color 0.2s; }
-    .tp-link-bar a:hover { color: var(--amber); }
-    .tp-link-bar strong { color: var(--amber); font-weight: 400; }
-
-    /* FOOTER */
-    footer { background: var(--graphite); border-top: 1px solid rgba(255,255,255,0.07); padding: 60px 0 32px; }
-    .foot-inner { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
-    .foot-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px; }
-    .foot-brand-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .foot-brand-logo img { height: 26px; width: auto; }
-    .foot-wordmark { font-family: 'Archivo Black', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--white); text-transform: uppercase; }
-    .foot-wordmark sup { font-size: 0.5em; vertical-align: super; color: var(--amber); }
-    .foot-tagline { font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 20px; }
-    .foot-social { display: flex; gap: 12px; }
-    .foot-social-link { color: var(--text-muted); transition: color 0.2s; }
-    .foot-social-link:hover { color: var(--amber); }
-    .foot-col h4 { font-family: 'Archivo Black', sans-serif; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dust); margin-bottom: 18px; }
-    .foot-col a { display: block; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; transition: color 0.2s; }
-    .foot-col a:hover { color: var(--white); }
-    .foot-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .foot-loc, .foot-copy { font-family: 'Outfit', sans-serif; font-size: 0.75rem; color: var(--slate); }
-    .foot-legal { display: flex; gap: 18px; }
-    .foot-legal a { font-family: 'Outfit', sans-serif; font-size: 0.75rem; color: var(--slate); transition: color 0.2s; }
-    .foot-legal a:hover { color: var(--text-muted); }
-    @media (max-width: 768px) { .foot-top { grid-template-columns: 1fr; gap: 32px; } .foot-inner { padding: 0 24px; } .foot-bottom { flex-direction: column; text-align: center; } }
-
-    /* MOBILE STICKY BAR */
-    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 800; background: rgba(17,17,17,0.96); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.08); padding: 12px 20px; display: flex; gap: 10px; align-items: center; transform: translateY(100%); transition: transform 0.35s ease; }
-    .sticky-bar.visible { transform: translateY(0); }
-    .sb-primary { flex: 1; text-align: center; background: var(--amber); color: #111111; font-family: 'Archivo Black', sans-serif; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; border-radius: var(--radius); border: none; cursor: pointer; }
-    .sb-secondary { flex: 1; text-align: center; background: transparent; color: var(--text-body); font-family: 'Archivo Black', sans-serif; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 16px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.18); }
-    @media (min-width: 768px) { .sticky-bar { display: none; } }
-    @media (prefers-reduced-motion: reduce) { .sticky-bar { transition: none; } }`;
-
-/* ─── Social SVGs (reused in footer) ─── */
-
-const SOCIAL_SVGS = `
-            <a href="https://www.instagram.com/jackal.ai/" target="_blank" rel="noopener" aria-label="Instagram" class="foot-social-link">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/people/Jackal-AI/61587872414237/" target="_blank" rel="noopener" aria-label="Facebook" class="foot-social-link">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/jack-alexander-0b898a192" target="_blank" rel="noopener" aria-label="LinkedIn" class="foot-social-link">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>`;
 
 /* ─── Page builder ─── */
 
@@ -375,11 +155,11 @@ ${GTM_NOSCRIPT}
         <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
       </a>
       <div class="nav-links">
-        <a href="/ai-calls">AI Calls</a>
+        <a href="/#fixes">Fixes</a>
+        <a href="/ai-calls">AI Receptionist</a>
         <a href="/websites">Websites</a>
         <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-nav">Book a free call</a>
+        <a href="/consultation" class="nav-cta">Book your free consult</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav()">
         <span></span><span></span><span></span>
@@ -387,11 +167,12 @@ ${GTM_NOSCRIPT}
     </div>
   </nav>
   <div class="nav-mobile" id="navMobile">
-    <a href="/ai-calls">AI Calls</a>
+    <a href="/#fixes">Fixes</a>
+    <a href="/ai-calls">AI Receptionist</a>
     <a href="/websites">Websites</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
-    <a href="javascript:void(0)" class="nav-mobile-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-nav">Book a free call</a>
+    <a href="/consultation" class="nav-mobile-cta">Book your free consult</a>
   </div>
 
   <!-- HERO -->
@@ -401,7 +182,7 @@ ${GTM_NOSCRIPT}
       <h1 class="tp-h1">${esc(page.h1)}</h1>
       <p class="tp-sub">${esc(page.heroSub)}</p>
       <div class="tp-hero-btns">
-        <a href="javascript:void(0)" class="btn-amber" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-hero">Book a free call</a>
+        <a href="/consultation?utm_source=site&utm_content=${utmContent}-hero" class="btn-amber">Book your free consult</a>
         <a href="/ai-calls" class="btn-ghost">See how it works &rarr;</a>
       </div>
     </div>
@@ -435,7 +216,7 @@ ${GTM_NOSCRIPT}
     <div class="tp-inner">
       <p class="tp-label">Pricing</p>
       <h2 class="tp-heading">Simple pricing. No surprises.</h2>
-      <p class="tp-body">Month to month. No lock-in. Cancel anytime. One-time setup fee covers configuration, testing, and going live.</p>
+      <p class="tp-body">Month to month. No lock-in. Cancel anytime. One-time setup fee covers configuration, testing, and going live. Not sure calls are your biggest leak? Book the free consult first.</p>
       <div class="price-cta-grid">
         <div class="price-card">
           <div class="price-tier">Capture</div>
@@ -448,7 +229,7 @@ ${GTM_NOSCRIPT}
             <div class="price-feature">SMS &amp; email summaries</div>
             <div class="price-feature">Calendar booking</div>
           </div>
-          <button class="price-btn" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-capture">Book a setup call</button>
+          <a class="price-btn" href="/consultation?utm_source=site&utm_content=${utmContent}-capture">Book your free consult</a>
         </div>
         <div class="price-card featured">
           <div class="price-badge">Most Popular</div>
@@ -462,7 +243,7 @@ ${GTM_NOSCRIPT}
             <div class="price-feature">Call routing</div>
             <div class="price-feature">Priority handling</div>
           </div>
-          <button class="price-btn" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-convert">Book a setup call</button>
+          <a class="price-btn" href="/consultation?utm_source=site&utm_content=${utmContent}-convert">Book your free consult</a>
         </div>
         <div class="price-card">
           <div class="price-tier">Command</div>
@@ -475,7 +256,7 @@ ${GTM_NOSCRIPT}
             <div class="price-feature">Multi-calendar support</div>
             <div class="price-feature">Advanced integrations</div>
           </div>
-          <button class="price-btn" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-command">Book a setup call</button>
+          <a class="price-btn" href="/consultation?utm_source=site&utm_content=${utmContent}-command">Book your free consult</a>
         </div>
       </div>
     </div>
@@ -495,7 +276,8 @@ ${GTM_NOSCRIPT}
   <!-- INTERNAL LINK -->
   <div class="tp-link-bar">
     <div class="tp-inner" style="text-align:center">
-      <a href="/ai-calls">Full product details, demo call &amp; integrations &rarr; <strong>AI Calls page</strong></a>
+      <a href="/ai-calls">Full product details, demo call &amp; integrations &rarr; <strong>AI receptionist page</strong></a>
+      ${page.relatedIntegrationPage ? `<br><br><a href="${page.relatedIntegrationPage}">Calls are one leak. See the rest of the job cycle &rarr; <strong>${esc(page.relatedIntegrationLabel)}</strong></a>` : ''}
     </div>
   </div>
 
@@ -515,7 +297,8 @@ ${GTM_NOSCRIPT}
         </div>
         <div class="foot-col">
           <h4>Navigate</h4>
-          <a href="/ai-calls">AI Calls</a>
+          <a href="/consultation">Free consult</a>
+          <a href="/ai-calls">AI Receptionist</a>
           <a href="/websites">Websites</a>
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
@@ -539,16 +322,9 @@ ${GTM_NOSCRIPT}
 
   <!-- MOBILE STICKY BAR -->
   <div class="sticky-bar" id="stickyBar">
-    <button class="sb-primary" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=${utmContent}-sticky">Book a free call</button>
+    <a class="sb-primary" href="/consultation?utm_source=site&utm_content=${utmContent}-sticky">Book your free consult</a>
     <a href="/ai-calls" class="sb-secondary">See pricing</a>
   </div>
-
-  <!-- Cal.com embed -->
-  <script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "15min", {origin:"https://cal.com"});
-  Cal.ns["15min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view","theme":"dark"});
-  </script>
 
   <script>
   (function () {
@@ -583,15 +359,6 @@ ${GTM_NOSCRIPT}
 </html>`;
 }
 
-/* Escape HTML special chars in text content */
-function esc(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
 /* ─── Generate ─── */
 
 const pages = [
@@ -608,14 +375,11 @@ for (const { page, prefix, isLocation } of pages) {
 
 /* ─── Update sitemap.xml ─── */
 
-const sitemapPath = path.join(rootDir, 'sitemap.xml');
-let sitemap = fs.readFileSync(sitemapPath, 'utf8');
-
-const newEntries = pages.map(({ page, prefix }) =>
-  `  <url>\n    <loc>${SITE_URL}/${prefix}${page.slug}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <priority>0.7</priority>\n  </url>`
-).join('\n');
-
-sitemap = sitemap.replace('</urlset>', newEntries + '\n</urlset>');
-fs.writeFileSync(sitemapPath, sitemap, 'utf8');
+upsertSitemap(
+  path.join(rootDir, 'sitemap.xml'),
+  pages.map(({ page, prefix }) => `${SITE_URL}/${prefix}${page.slug}`),
+  TODAY,
+  '0.7'
+);
 console.log(`✓  sitemap.xml updated`);
 console.log(`\nDone — ${pages.length} pages generated.`);

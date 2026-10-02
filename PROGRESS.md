@@ -1,3 +1,27 @@
+# Pivot rework — 25 Sep 2026
+
+Business model changed to AI integration partner (source: `docs/business-model-pivot/01-business-model-change.md` and `03-website-brief.md` in the parent workspace). Everything below this section is pre-pivot history.
+
+| Item | Status |
+|---|---|
+| Homepage rebuilt: results hero, job-cycle map, how it works, proof, promise, fit, FAQ, founder, final CTA; unsourced stat strip, missed-call ROI block, flagship receptionist block, toolbox and consulting blocks removed | ✅ |
+| `audit.html` created (primary conversion page, Cal.com inline, Pixel `Schedule` on booking) | ✅ (Cal event swap pending) |
+| Site-wide CTA system → "Book your free consult"; nav FAQ→Fixes, AI Calls→AI Receptionist; footer "Free audit" link | ✅ |
+| `ai-calls.html` reframed as the Enquiries fix; $5K / 80% / 12+ stats removed | ✅ |
+| `websites.html` reframed as the Growth fix; AI-visibility line; audit primary, discovery call secondary | ✅ |
+| `about.html`, `book.html`, `contact.html`, `sample-call` reframed | ✅ |
+| Calculator rebuilt on-brand: admin + missed-work cost from the user's own numbers; unsourced "$30K–$80K" and scarcity claims removed | ✅ |
+| `integrations.json` + `scripts/generate-integration-pages.js` → 7 `/ai-for-*` pages | ✅ |
+| `/ai-receptionist-*` generator: audit CTAs, cross-links, org schema | ✅ |
+| Shared generator shell `scripts/lib/shared.js`; sitemap updates made idempotent (7 duplicate URLs removed) | ✅ |
+| `llms.txt`, schema, OG images (`scripts/generate-og.js`) updated | ✅ |
+| Broken Cal.com loader replaced site-wide (inline embeds on /book and /contact were throwing) | ✅ |
+| `/receptionist` → `/ai-calls` redirect; `/audit.html` → `/audit` | ✅ |
+| `results.html` | Not built — waits for 2 real, permissioned results |
+| Follow-ups (same day): entry offer renamed Business Streamlining Consult (`audit.html` → `consultation.html`, `/audit` redirects); positioning line "We make your business easier to run. Helping you do more, without doing more." in the homepage hero; Fergus + simPRO added to tool lists; portfolio relabelled as demo builds; missed-call calculator moved to `ai-calls.html` (with a booking-rate slider); consent tick box on the calculator email form | ✅ |
+
+---
+
 # Sprint 1 Progress
 
 ## Status: COMPLETE ✓
@@ -176,3 +200,62 @@
 2. `logo.png` — 2.8MB at 41354×11820px. Used only in index.html loader at ~150px wide. Target: ~200×60px at ~20KB. Eliminates ~2.8MB from index.html initial load.
 3. `assets/about-me-profile-pic.jpg` — 935KB at 2716×3622px. Used in about.html at ~400px wide. Target: ~800×1066px at ~120KB. Saves 815KB on about.html.
 - Lighthouse mobile report: pending deploy (run after next Vercel deploy on `/` and `/ai-calls`)
+
+---
+
+# QA Pass — 2026-06-14
+
+## Status: COMPLETE ✓
+
+Full cross-sprint QA pass covering all 7 categories: placeholder sweep, link/CTA integrity, structured data, SEO/GEO, content/voice, accessibility, and performance.
+
+### Fixes applied (22 issues resolved)
+
+**Critical:**
+- `sample-call/index.html` — Fixed `REPLACE_WITH_AUDIO_FILE_URL` → `../assets/Demo-Call.MP3`; fixed `REPLACE_WITH_CALCOM_URL` → `https://jackalai.app/book`; full page rebuilt with Jackal brand tokens, Archivo Black + Outfit fonts, GTM, canonical, meta description, and `preload="none"` on audio
+
+**Major:**
+- `websites.html` — Nav CTA (desktop + mobile) changed "Book a free call" → "Book a discovery call" (spec compliance)
+- `websites.html` — Hero CTA hierarchy corrected: amber primary = "Book a discovery call", ghost secondary = "See the work ↓"
+- `websites.html` — `yourbiz.com.au` placeholder URL replaced with `yoursite.com.au`
+- `ai-calls.html` + `index.html` — FAQPage JSON-LD `name` fields aligned to visible FAQ text (6 mismatches per page fixed; answer text also aligned)
+- `calculator/index.html` — Added `<link rel="canonical">` and GTM (head + noscript body)
+- `sample-call/index.html` — Added `<link rel="canonical">` (canonical, GTM done as part of full rebuild)
+- `privacy-policy.html` — Added `<link rel="canonical">`
+- `terms-of-service.html` — Added `<link rel="canonical">`
+- `index.html`, `ai-calls.html`, `websites.html`, `about.html`, `contact.html`, `book.html` — Added global `:focus-visible` CSS rule (amber outline) for keyboard accessibility
+
+**Minor:**
+- `about.html` — "No hype, no bullshit" → "No hype, no bullsh*t" (censoring consistency)
+- `ai-calls.html` — ALL-CAPS section headings converted to sentence case: "Every missed call is money out the door", "This is what you're missing", "Your calls answered. Your jobs booked."
+- `index.html` — ALL-CAPS heading converted: "Works with what you've already got"
+- `websites.html` — ALL-CAPS heading converted: "Your site live in 30 days."
+- `sitemap.xml` — `lastmod` dates updated to 2026-06-14 for all 10 original pages
+
+### QA category verdicts
+
+| Category | Status | Notes |
+|---|---|---|
+| 1. Placeholder & artifact sweep | ✅ Green | sample-call placeholders fixed; calculator webhook in backlog (needs real URL) |
+| 2. Link & CTA integrity | ✅ Green | websites.html CTA labels corrected; Cal.com slugs all correct |
+| 3. Structured data | ✅ Green | FAQPage JSON-LD names aligned; no fake ratings; entity consistency confirmed |
+| 4. SEO / GEO | ✅ Green | Canonicals now on all 17 pages; sitemap 17 URLs; robots.txt correct; llms.txt current |
+| 5. Content & voice | ✅ Green | No banned words; censoring unified; ALL-CAPS headings fixed |
+| 6. Accessibility | ✅ Green | :focus-visible added to all main pages; prefers-reduced-motion confirmed throughout |
+| 7. Performance | 🟡 Partial | Render-blocking/lazy-load/preconnect all correct; Lighthouse scores pending deployment |
+
+---
+
+## Post-launch backlog
+
+| # | Item | Page | Notes |
+|---|---|---|---|
+| PL-1 | ~~Calculator webhook~~ | calculator/index.html | ✅ Done — `/api/calculator-lead.js` → Airtable "Calculator Leads" table (base: appkjvDwVT0nxIXzQ). Needs `AIRTABLE_TOKEN` env var in Vercel. |
+| PL-2 | ~~Oversized images: brandmark.png, logo.png, about-me-profile-pic.jpg~~ | All pages | ✅ Done — brandmark 5KB, logo 10KB, profile 72KB |
+| PL-3 | ~~TODO_PHONE~~ | All pages | ✅ Done — +61851226302 / (08) 5122 6302 on ai-calls.html CTA + telephone field in all JSON-LD Organization schemas (main pages + trade pages via generate-pages.js) |
+| PL-4 | Trade page OG images — all 7 pages use home.png | Trade pages | Generate trade-specific 1200×630 cards |
+| PL-5 | "cinematic" appears 4× on websites.html — vary the language | websites.html | Minor copy polish |
+| PL-6 | sample-call + calculator pages — brand refresh (currently use purple/cyan design system) | sample-call, calculator | Out of scope for QA pass; visual only |
+| PL-7 | Legal pages (privacy/terms) nav CTA is "Hear a demo call" → inconsistent with rest of site | privacy-policy, terms-of-service | Low traffic; low priority |
+| PL-8 | Lighthouse mobile scores for all key pages — run after next Vercel deploy | All | Target: LCP <2.5s, CLS <0.1 |
+| PL-9 | Google Search Console sitemap submission | — | Submit sitemap.xml once live on production domain |

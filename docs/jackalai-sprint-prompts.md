@@ -1,3 +1,5 @@
+> Pre-pivot document (receptionist-first model, before 25 Sep 2026). Current direction: docs/business-model-pivot/01-business-model-change.md
+
 # Jackal AI Website — Sprint 2–4 Claude Code Kickoff Prompts
 
 Store this in the repo as `docs/sprint-prompts.md`. Run one sprint per session.

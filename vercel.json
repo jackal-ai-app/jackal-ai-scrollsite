@@ -6,6 +6,10 @@
     { "source": "/websites.html",      "destination": "/websites",     "permanent": true },
     { "source": "/about.html",         "destination": "/about",        "permanent": true },
     { "source": "/contact.html",       "destination": "/contact",      "permanent": true },
-    { "source": "/book.html",          "destination": "/book",         "permanent": true }
+    { "source": "/book.html",          "destination": "/book",         "permanent": true },
+    { "source": "/consultation.html",  "destination": "/consultation", "permanent": true },
+    { "source": "/audit.html",         "destination": "/consultation", "permanent": true },
+    { "source": "/audit",              "destination": "/consultation", "permanent": true },
+    { "source": "/receptionist",       "destination": "/ai-calls",     "permanent": false }
   ]
 }

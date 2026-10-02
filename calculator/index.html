@@ -1,806 +1,371 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5JQ32785');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
+  <!-- Meta Pixel Code --><script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','894686753558809');fbq('init','1110089987862901');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1110089987862901&ev=PageView&noscript=1"/></noscript>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Missed Call Revenue Calculator — Jackal AI</title>
-  <meta name="description" content="Find out exactly how much revenue your trade business is losing to missed calls every year. Free calculator for Perth tradies." />
+  <title>What's Admin (and Missed Work) Costing You? — Jackal AI</title>
+  <meta name="description" content="Put in your own numbers: hours on admin, your hourly rate, enquiries you miss, job value and win rate. See what admin and missed work cost you each month. Free, Perth-built." />
+  <meta property="og:title" content="What's admin (and missed work) costing you? — Jackal AI" />
+  <meta property="og:description" content="Your numbers, not an industry average. Takes a minute." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jackalai.app/calculator" />
+  <link rel="canonical" href="https://jackalai.app/calculator" />
+  <link rel="icon" type="image/png" href="../brandmark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:         #0D0D0D;
-      --card-bg:    #161616;
-      --border:     #2a2a2a;
-      --text:       #F0F0F0;
-      --muted:      #888;
-      --purple:     #814AC8;
-      --cyan:       #3DE0FC;
-      --red:        #ef4444;
-      --radius-card: 16px;
-      --radius-el:   8px;
+      --graphite: #111111;
+      --iron:     #2A2A28;
+      --slate:    #71706C;
+      --dust:     #B8A88E;
+      --sandstone:#E5D5BE;
+      --white:    #FAFAF7;
+      --amber:    #F59E0B;
+      --amber-dark:#D97706;
+      --red:      #f87171;
+      --radius:   8px;
+      --radius-lg:16px;
     }
-
     html, body { min-height: 100%; }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      background: var(--graphite); color: var(--sandstone);
+      font-family: 'Outfit', sans-serif; line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
-    .page-wrap {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 20px 80px;
-    }
-
+    a { color: inherit; }
+    .page-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 48px; }
+    .top-bar a.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .top-bar img { width: 26px; height: 26px; }
+    .wordmark { font-family: 'Archivo Black', sans-serif; font-size: 14px; letter-spacing: 0.08em; color: var(--white); }
+    .top-bar .back { font-size: 14px; color: var(--dust); text-decoration: none; }
     .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      font-variant: small-caps;
-      letter-spacing: 0.1em;
-      color: var(--cyan);
-      margin-bottom: 20px;
+      display: block; font-family: 'Archivo Black', sans-serif; font-size: 11px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--dust); margin-bottom: 18px;
     }
-
     h1 {
-      font-size: clamp(26px, 5vw, 38px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 16px;
+      font-family: 'Archivo Black', sans-serif; font-size: clamp(28px, 5.5vw, 44px);
+      text-transform: uppercase; line-height: 1.05; color: var(--white); margin-bottom: 16px;
     }
-
-    .subhead {
-      font-size: 17px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .authority {
-      border-left: 3px solid var(--purple);
-      padding: 12px 16px;
-      background: rgba(129, 74, 200, 0.08);
-      border-radius: 0 var(--radius-el) var(--radius-el) 0;
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 36px;
-    }
-
+    h2 { font-family: 'Archivo Black', sans-serif; font-size: 20px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
+    .subhead { font-size: 17px; color: var(--dust); margin-bottom: 32px; }
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 36px;
-      margin-bottom: 24px;
+      background: rgba(42,42,40,0.5); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg); padding: 32px; margin-bottom: 24px;
     }
-
-    .benchmark {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 28px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,0.03);
-      border-radius: var(--radius-el);
-      border: 1px solid var(--border);
-    }
-
-    .form-grid { display: grid; gap: 20px; }
-
+    .group-title { font-family: 'Archivo Black', sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); margin: 8px 0 14px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; margin-bottom: 22px; }
     .field { display: flex; flex-direction: column; gap: 6px; }
-
-    label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.01em;
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; font-weight: 600; color: var(--dust); }
+    input, select {
+      width: 100%; background: var(--graphite); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); color: var(--white); font-family: 'Outfit', sans-serif;
+      font-size: 16px; padding: 12px 14px; outline: none; transition: border-color 0.2s;
+      -moz-appearance: textfield;
     }
-
-    input[type="number"],
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-el);
-      color: var(--text);
-      font-size: 16px;
-      padding: 12px 14px;
-      width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
-      transition: border-color 0.15s;
-      outline: none;
-    }
-
-    input[type="number"]:focus,
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    select:focus {
-      border-color: var(--purple);
-    }
-
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 38px;
-      cursor: pointer;
-    }
-
-    select option { background: #1e1e1e; }
-
+    input:focus, select:focus { border-color: var(--dust); }
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     .input-wrap { position: relative; }
-
-    .input-prefix {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 16px;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .input-wrap input { padding-left: 28px; }
-
-    .input-suffix {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 14px;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .input-wrap input.has-suffix { padding-right: 36px; }
-
-    input::placeholder { color: #555; }
-
-    .btn-calculate {
-      margin-top: 8px;
-      width: 100%;
-      padding: 16px;
-      background: var(--purple);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: var(--radius-el);
-      cursor: pointer;
-      letter-spacing: 0.01em;
-      transition: opacity 0.15s, transform 0.1s;
-    }
-
-    .btn-calculate:hover { opacity: 0.88; }
-    .btn-calculate:active { transform: scale(0.99); }
-
-    /* ── Result section ── */
-    #result-section { display: none; }
-    #result-section.visible { display: block; }
-
-    .result-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 36px;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .result-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .result-amount {
-      font-size: clamp(44px, 10vw, 72px);
-      font-weight: 900;
-      color: var(--cyan);
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 8px;
-    }
-
-    .result-sublabel {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    .breakdown-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .breakdown-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .breakdown-card .label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-
-    .breakdown-card .amount {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.02em;
-    }
-
-    /* ── Email capture ── */
-    .email-card {
-      background: var(--card-bg);
-      border: 1px solid var(--purple);
-      border-radius: var(--radius-card);
-      padding: 36px;
-      transition: border-color 0.3s;
-    }
-
-    .email-card.tier-hot { border-color: var(--red); }
-
-    .email-card h2 {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .email-card .subhead {
-      font-size: 15px;
-      margin-bottom: 24px;
-    }
-
-    .email-form-grid { display: grid; gap: 14px; }
-
-    .btn-submit {
-      width: 100%;
-      padding: 16px;
-      background: var(--cyan);
-      color: #0D0D0D;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: var(--radius-el);
-      cursor: pointer;
-      letter-spacing: 0.01em;
-      transition: opacity 0.15s, transform 0.1s;
-    }
-
-    .btn-submit:hover:not(:disabled) { opacity: 0.88; }
-    .btn-submit:active:not(:disabled) { transform: scale(0.99); }
-    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
-
-    .privacy-line {
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    /* ── Validation error ── */
-    .field-error {
-      font-size: 12px;
-      color: #f87171;
-      margin-top: 4px;
-      display: none;
-    }
-
+    .input-wrap .prefix, .input-wrap .suffix { position: absolute; top: 50%; transform: translateY(-50%); color: var(--slate); font-size: 15px; pointer-events: none; }
+    .input-wrap .prefix { left: 14px; }
+    .input-wrap .suffix { right: 14px; }
+    .input-wrap input.has-prefix { padding-left: 28px; }
+    .input-wrap input.has-suffix { padding-right: 34px; }
+    .hint { font-size: 12px; color: var(--slate); }
+    .field-error { font-size: 12px; color: var(--red); display: none; }
     .field-error.visible { display: block; }
-
-    /* ── Thank-you sections ── */
-    .thankyou-section { display: none; }
-    .thankyou-section.visible { display: block; }
-
-    .thankyou-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-card);
-      padding: 48px 36px;
-      text-align: center;
+    .btn {
+      display: inline-block; width: 100%; text-align: center; border: none; cursor: pointer;
+      font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 16px;
+      padding: 16px 24px; border-radius: var(--radius); text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .thankyou-card--hot { border-color: var(--red); }
-
-    .thankyou-icon { font-size: 40px; margin-bottom: 20px; }
-
-    .thankyou-card h2 {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 16px;
-      line-height: 1.3;
+    .btn-amber { background: var(--amber); color: #000; box-shadow: 0 0 20px rgba(245,158,11,0.25); }
+    .btn-amber:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(245,158,11,0.45); }
+    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); }
+    .btn:disabled { opacity: 0.6; cursor: default; }
+    #result-section, .thankyou-section { display: none; }
+    #result-section.visible, .thankyou-section.visible { display: block; }
+    .result-total { font-family: 'Archivo Black', sans-serif; font-size: clamp(40px, 9vw, 64px); color: var(--white); line-height: 1; margin: 6px 0 8px; }
+    .result-label { font-size: 14px; color: var(--dust); }
+    .breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .breakdown div { border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 16px; }
+    .breakdown .amt { font-family: 'Archivo Black', sans-serif; font-size: 22px; color: var(--white); }
+    .breakdown .lbl { font-size: 13px; color: var(--dust); }
+    .note { font-size: 13px; color: var(--slate); margin-top: 16px; }
+    .cta-block { margin-top: 26px; }
+    .cta-block p { margin-bottom: 14px; color: var(--sandstone); }
+    .email-grid { display: grid; gap: 12px; margin-top: 16px; }
+    .privacy-line { font-size: 12px; color: var(--slate); margin-top: 10px; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; font-weight: 400; color: var(--sandstone); cursor: pointer; }
+    .consent input { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--amber); padding: 0; }
+    .page-footer { text-align: center; font-size: 13px; color: var(--slate); margin-top: 48px; }
+    @media (max-width: 560px) {
+      .form-grid, .breakdown { grid-template-columns: 1fr; }
+      .card { padding: 24px 20px; }
     }
-
-    .thankyou-card .name-highlight { color: var(--cyan); }
-
-    .thankyou-card p {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 24px;
-    }
-
-    /* ── CTA links styled as buttons ── */
-    .btn-cta {
-      display: inline-block;
-      padding: 16px 32px;
-      border-radius: var(--radius-el);
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: opacity 0.15s, transform 0.1s;
-      cursor: pointer;
-    }
-
-    .btn-cta:hover { opacity: 0.88; }
-    .btn-cta:active { transform: scale(0.99); }
-
-    .btn-cta--primary {
-      background: var(--cyan);
-      color: #0D0D0D;
-    }
-
-    .btn-cta--secondary {
-      background: var(--purple);
-      color: #fff;
-    }
-
-    .btn-cta--outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .scarcity-note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 14px;
-      font-style: italic;
-    }
-
-    .secondary-cta-line {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 16px;
-    }
-
-    .secondary-cta-line a {
-      color: var(--purple);
-      text-decoration: underline;
-    }
-
-    /* ── Footer ── */
-    .page-footer {
-      margin-top: 48px;
-      text-align: center;
-      font-size: 13px;
-      color: #444;
-    }
-
-    .page-footer a { color: #555; text-decoration: none; }
-    .page-footer a:hover { color: var(--muted); }
-
-    /* ── Responsive ── */
-    @media (max-width: 520px) {
-      .card, .result-card, .email-card, .thankyou-card {
-        padding: 24px 20px;
-      }
-
-      .breakdown-row { grid-template-columns: 1fr; }
-
-      .breakdown-card .amount { font-size: 22px; }
-
-      .btn-cta { width: 100%; display: block; text-align: center; }
-    }
+    :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JQ32785"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
 <div class="page-wrap">
 
-  <span class="eyebrow">Free Calculator — Perth Tradies</span>
-  <h1>Most Perth tradies are losing $30,000–$80,000/year to missed calls. Find out your number.</h1>
-  <p class="subhead">Takes 60 seconds. Based on your actual job value and call volume — not estimates.</p>
-
-  <div class="authority">
-    Based on conversion data from Australian trades businesses.
+  <div class="top-bar">
+    <a href="../index.html" class="logo"><img src="../brandmark.png" alt="Jackal AI"><span class="wordmark">JACKAL AI</span></a>
+    <a href="../consultation.html" class="back">Free consult &rarr;</a>
   </div>
 
-  <!-- Calculator inputs -->
-  <div class="card">
-    <p class="benchmark">Most tradies who run this calculator discover they're losing $30,000–$80,000/year.</p>
+  <span class="eyebrow">Free calculator &middot; Perth trades &amp; local service businesses</span>
+  <h1>What's admin (and missed work) costing you?</h1>
+  <p class="subhead">Your numbers, not an industry average. Takes a minute.</p>
 
+  <div class="card">
     <form id="calc-form" novalidate>
       <div class="form-grid">
-
-        <div class="field">
-          <label for="trade-type">Your trade</label>
+        <div class="field full">
+          <label for="trade-type">Your trade or business</label>
           <select id="trade-type" name="trade_type">
-            <option value="" disabled selected>Select your trade…</option>
-            <option value="Plumber">Plumber</option>
+            <option value="" disabled selected>Select one…</option>
             <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
             <option value="HVAC / Air Con">HVAC / Air Con</option>
             <option value="Builder">Builder</option>
             <option value="Roofer">Roofer</option>
-            <option value="Locksmith">Locksmith</option>
             <option value="Landscaper">Landscaper</option>
-            <option value="Pest Control">Pest Control</option>
             <option value="Cleaner">Cleaner</option>
+            <option value="Pest Control">Pest Control</option>
+            <option value="Locksmith">Locksmith</option>
             <option value="Other trade">Other trade</option>
+            <option value="Clinic / allied health">Clinic / allied health</option>
+            <option value="Other local service">Other local service</option>
           </select>
-          <span class="field-error" id="trade-type-error">Please select your trade.</span>
+          <span class="field-error" id="trade-type-error">Pick the closest one.</span>
         </div>
-
-        <div class="field">
-          <label for="avg-job-value">Average job value</label>
-          <div class="input-wrap">
-            <span class="input-prefix">$</span>
-            <input type="number" id="avg-job-value" name="avg_job_value" placeholder="350" min="1" step="1" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="missed-calls">Calls missed per week</label>
-          <input type="number" id="missed-calls" name="missed_calls_per_week" placeholder="8" min="1" step="1" />
-        </div>
-
-        <div class="field">
-          <label for="conversion-rate">% of callers who become paying jobs</label>
-          <div class="input-wrap">
-            <input type="number" id="conversion-rate" name="conversion_rate" value="40" min="1" max="100" step="1" class="has-suffix" />
-            <span class="input-suffix">%</span>
-          </div>
-        </div>
-
       </div>
 
-      <button type="submit" class="btn-calculate">Calculate My Revenue Loss →</button>
+      <p class="group-title">Admin</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="admin-hours">Hours a week on admin</label>
+          <input type="number" id="admin-hours" name="admin_hours_per_week" placeholder="e.g. 8" min="0" step="0.5" />
+          <span class="hint">Quotes, invoices, chasing, bookings, paperwork</span>
+        </div>
+        <div class="field">
+          <label for="hourly-rate">Your hourly rate</label>
+          <div class="input-wrap"><span class="prefix">$</span><input type="number" id="hourly-rate" name="hourly_rate" class="has-prefix" placeholder="e.g. 90" min="0" step="1" /></div>
+          <span class="hint">What an hour of your time is worth</span>
+        </div>
+      </div>
+
+      <p class="group-title">Missed work</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="missed-enquiries">Enquiries missed a week</label>
+          <input type="number" id="missed-enquiries" name="missed_enquiries_per_week" placeholder="e.g. 3" min="0" step="1" />
+          <span class="hint">Calls, messages or quotes that went nowhere</span>
+        </div>
+        <div class="field">
+          <label for="avg-job-value">Average job value</label>
+          <div class="input-wrap"><span class="prefix">$</span><input type="number" id="avg-job-value" name="avg_job_value" class="has-prefix" placeholder="e.g. 400" min="0" step="1" /></div>
+        </div>
+        <div class="field full">
+          <label for="win-rate">Your win rate</label>
+          <div class="input-wrap"><input type="number" id="win-rate" name="win_rate" class="has-suffix" placeholder="e.g. 40" min="0" max="100" step="1" /><span class="suffix">%</span></div>
+          <span class="hint">Out of every 10 enquiries you handle, how many turn into paid work?</span>
+        </div>
+      </div>
+
+      <span class="field-error" id="numbers-error" style="margin-bottom:12px;">Fill in at least the admin pair or the missed-work three.</span>
+      <button type="submit" class="btn btn-amber">Show me my numbers &rarr;</button>
     </form>
   </div>
 
-  <!-- Result section (hidden until calculate) -->
+  <!-- Result -->
   <div id="result-section">
+    <div class="card">
+      <p class="result-label">Your numbers, each month</p>
+      <p class="result-total" id="total-display">$0</p>
+      <p class="result-label">admin time plus missed work</p>
+      <div class="breakdown">
+        <div><p class="amt" id="admin-display">$0</p><p class="lbl">Admin time a month</p></div>
+        <div><p class="amt" id="missed-display">$0</p><p class="lbl">Missed work a month</p></div>
+      </div>
+      <p class="note">Worked out from what you entered, using 4.33 weeks a month. It's your estimate, not an industry average.</p>
 
-    <div class="result-card">
-      <p class="result-label">Annual revenue lost to missed calls</p>
-      <p class="result-amount" id="annual-loss-display">$0</p>
-      <p class="result-sublabel">per year in missed revenue</p>
-
-      <div class="breakdown-row">
-        <div class="breakdown-card">
-          <p class="label">Weekly loss</p>
-          <p class="amount" id="weekly-loss-display">$0</p>
-        </div>
-        <div class="breakdown-card">
-          <p class="label">Monthly loss</p>
-          <p class="amount" id="monthly-loss-display">$0</p>
-        </div>
+      <div class="cta-block">
+        <p><strong>Want to know which fix pays back first?</strong> Book the consult. 30 minutes, free, and you keep the written plan either way.</p>
+        <a href="../consultation.html?utm_source=site&amp;utm_content=calculator" class="btn btn-amber">Book your free consult</a>
       </div>
     </div>
 
-    <!-- Email capture — headline/subhead updated dynamically by tier -->
-    <div class="email-card" id="email-section">
-      <h2 id="email-headline">Email me my full breakdown + recovery plan</h2>
-      <p class="subhead" id="email-subhead">See what recovering 60% of those calls is worth — and how Perth tradies are fixing this.</p>
-
+    <div class="card" id="email-section">
+      <h2>Email me my numbers</h2>
+      <p style="color:var(--dust);font-size:15px;">We'll send your breakdown so you have it for the consult.</p>
       <form id="email-form" novalidate>
-        <div class="email-form-grid">
-
+        <div class="email-grid">
           <div class="field">
-            <input
-              type="text"
-              id="first-name"
-              name="first_name"
-              placeholder="First name"
-              autocomplete="given-name"
-            />
+            <input type="text" id="first-name" name="first_name" placeholder="First name" autocomplete="given-name" />
             <span class="field-error" id="name-error">Please enter your first name.</span>
           </div>
-
           <div class="field">
-            <input
-              type="email"
-              id="email-input"
-              name="email"
-              placeholder="Email address"
-              autocomplete="email"
-            />
+            <input type="email" id="email-input" name="email" placeholder="Email address" autocomplete="email" />
             <span class="field-error" id="email-error">Please enter a valid email address.</span>
           </div>
-
           <div class="field">
-            <input
-              type="tel"
-              id="phone-input"
-              name="phone"
-              placeholder="Mobile number (optional — for SMS summary)"
-              autocomplete="tel"
-            />
+            <input type="tel" id="phone-input" name="phone" placeholder="Mobile (optional)" autocomplete="tel" />
           </div>
-
-          <button type="submit" class="btn-submit" id="submit-btn">Send My Breakdown →</button>
-
+          <label class="consent">
+            <input type="checkbox" id="marketing-consent" name="marketing_consent" />
+            <span>Yes, send me occasional tips and follow-ups from Jackal AI. Unsubscribe any time.</span>
+          </label>
+          <button type="submit" class="btn btn-ghost" id="submit-btn">Send my numbers &rarr;</button>
         </div>
       </form>
-
-      <p class="privacy-line">No spam. Unsubscribe any time.</p>
-    </div>
-
-  </div><!-- /result-section -->
-
-  <!-- HOT thank-you (monthlyLoss >= $2,000) -->
-  <div id="thankyou-hot" class="thankyou-section">
-    <div class="thankyou-card thankyou-card--hot">
-      <div class="thankyou-icon">🔥</div>
-      <h2>That's serious money, <span class="name-highlight" id="thankyou-name-hot"></span>.</h2>
-      <p>You're one of the highest-loss tradies who's run this calculator. The fastest fix is a 15-minute call — I'll show you exactly what your AI receptionist would look like and what it costs.</p>
-      <a href="https://cal.com/jackalai/discovery" class="btn-cta btn-cta--primary">Book Your Free 15-Min Call →</a>
-      <p class="scarcity-note">We only take 10 clients per month. Spots are limited.</p>
+      <p class="privacy-line">No spam. Unsubscribe any time. See our <a href="../privacy-policy.html">privacy policy</a>.</p>
     </div>
   </div>
 
-  <!-- WARM thank-you ($500–$1,999/month) -->
-  <div id="thankyou-warm" class="thankyou-section">
-    <div class="thankyou-card">
-      <div class="thankyou-icon">📊</div>
-      <h2>Your breakdown is on its way, <span class="name-highlight" id="thankyou-name-warm"></span>.</h2>
-      <p>While you wait — watch this 3-minute demo to see exactly how Perth tradies are recovering those missed calls with an AI voice receptionist.</p>
-      <a href="https://jackalai.app/ai-calls" class="btn-cta btn-cta--secondary">Watch the 3-Min Demo →</a>
-      <p class="secondary-cta-line">Ready to move faster? <a href="https://cal.com/jackalai/discovery">Book a free call instead.</a></p>
-    </div>
-  </div>
-
-  <!-- COLD thank-you (< $500/month) -->
-  <div id="thankyou-cold" class="thankyou-section">
-    <div class="thankyou-card">
-      <div class="thankyou-icon">📬</div>
-      <h2>Check your inbox, <span class="name-highlight" id="thankyou-name-cold"></span>.</h2>
-      <p>Your breakdown is on its way. While you wait — see how an AI voice receptionist works and why Perth tradies are making the switch.</p>
-      <a href="https://jackalai.app/ai-calls" class="btn-cta btn-cta--outline">See How It Works →</a>
+  <!-- Thank you -->
+  <div id="thankyou" class="thankyou-section">
+    <div class="card">
+      <h2>On its way, <span id="thankyou-name"></span>.</h2>
+      <p style="margin-bottom:18px;">While you're here: the consult turns these numbers into a plan. Top 3 fixes, what each should save you, and a fixed price for each.</p>
+      <a href="../consultation.html?utm_source=site&amp;utm_content=calculator-thanks" class="btn btn-amber">Book your free consult</a>
     </div>
   </div>
 
   <footer class="page-footer">
-    <p>&copy; 2026 Jackal AI &nbsp;·&nbsp; <a href="https://jackalai.app">jackalai.app</a></p>
+    <p>&copy; 2026 Jackal AI &nbsp;&middot;&nbsp; Perth, WA &nbsp;&middot;&nbsp; <a href="../index.html">jackalai.app</a></p>
   </footer>
 
-</div><!-- /page-wrap -->
+</div>
 
 <script>
-  // ─── Config ──────────────────────────────────────────────────────────────
+  'use strict';
 
-  const WEBHOOK_URL = 'REPLACE_WITH_N8N_WEBHOOK_URL';
-
-  // ─── Tier config ─────────────────────────────────────────────────────────
-
+  const WEBHOOK_URL = '/api/calculator-lead';
+  const WEEKS_PER_MONTH = 4.33;
+  // Score tier on the combined monthly figure; it goes into the Comp AI CRM note.
   const TIER_THRESHOLDS = { HOT: 2000, WARM: 500 };
 
-  const EMAIL_HEADLINES = {
-    hot: {
-      h2:      "You're losing serious money every month. Let's fix it.",
-      subhead: "Book a free 15-minute call — I'll walk you through exactly how to stop the bleeding and what it costs to fix it.",
-    },
-    warm: {
-      h2:      "Send me your full breakdown + recovery plan",
-      subhead: "See what recovering 60% of those calls is worth — and how Perth tradies are doing it right now.",
-    },
-    cold: {
-      h2:      "Email me my full breakdown + recovery plan",
-      subhead: "See what recovering 60% of those calls is worth — and how Perth tradies are fixing this.",
-    },
-  };
-
-  // ─── Calculation logic ───────────────────────────────────────────────────
-
-  function formatAUD(amount) {
-    return new Intl.NumberFormat('en-AU', {
-      style: 'currency',
-      currency: 'AUD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(amount);
+  function formatAUD(n) {
+    return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n);
   }
 
-  function calculate(missedCallsPerWeek, avgJobValue, conversionRate) {
-    const weeklyLoss   = missedCallsPerWeek * avgJobValue * (conversionRate / 100);
-    const monthlyLoss  = weeklyLoss * 4.33;
-    const annualLoss   = weeklyLoss * 52;
-    const recoveredAmt = Math.round(annualLoss * 0.6);
-    return { weeklyLoss, monthlyLoss, annualLoss, recoveredAmt };
+  function num(id) {
+    const v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) || v < 0 ? null : v;
   }
 
-  function getScoreTier(monthlyLoss) {
-    if (monthlyLoss >= TIER_THRESHOLDS.HOT)  return 'hot';
-    if (monthlyLoss >= TIER_THRESHOLDS.WARM) return 'warm';
+  function calculate(i) {
+    const adminMonthly  = (i.adminHours != null && i.hourlyRate != null) ? i.adminHours * i.hourlyRate * WEEKS_PER_MONTH : 0;
+    const missedWeekly  = (i.missed != null && i.jobValue != null && i.winRate != null) ? i.missed * i.jobValue * (i.winRate / 100) : 0;
+    const missedMonthly = missedWeekly * WEEKS_PER_MONTH;
+    return { adminMonthly, missedWeekly, missedMonthly, totalMonthly: adminMonthly + missedMonthly };
+  }
+
+  function tier(monthly) {
+    if (monthly >= TIER_THRESHOLDS.HOT) return 'hot';
+    if (monthly >= TIER_THRESHOLDS.WARM) return 'warm';
     return 'cold';
   }
 
-  function updateEmailCapture(tier) {
-    const { h2, subhead } = EMAIL_HEADLINES[tier];
-    document.getElementById('email-headline').textContent = h2;
-    document.getElementById('email-subhead').textContent  = subhead;
-    const emailCard = document.getElementById('email-section');
-    emailCard.classList.remove('tier-hot', 'tier-warm', 'tier-cold');
-    emailCard.classList.add('tier-' + tier);
-  }
+  let inputs = null, result = null, isSubmitting = false;
 
-  function showThankYou(tier, firstName) {
-    document.getElementById('thankyou-name-' + tier).textContent = firstName;
-    const section = document.getElementById('thankyou-' + tier);
+  document.getElementById('calc-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const tradeEl = document.getElementById('trade-type');
+    const tradeErr = document.getElementById('trade-type-error');
+    const numErr = document.getElementById('numbers-error');
+    tradeErr.classList.remove('visible'); numErr.classList.remove('visible');
+
+    const i = {
+      trade: tradeEl.value,
+      adminHours: num('admin-hours'), hourlyRate: num('hourly-rate'),
+      missed: num('missed-enquiries'), jobValue: num('avg-job-value'), winRate: num('win-rate'),
+    };
+    const adminOk  = i.adminHours != null && i.hourlyRate != null;
+    const missedOk = i.missed != null && i.jobValue != null && i.winRate != null && i.winRate <= 100;
+    let bad = false;
+    if (!i.trade) { tradeErr.classList.add('visible'); bad = true; }
+    if (!adminOk && !missedOk) { numErr.classList.add('visible'); bad = true; }
+    if (bad) return;
+
+    inputs = i;
+    result = calculate(i);
+    document.getElementById('total-display').textContent  = formatAUD(result.totalMonthly);
+    document.getElementById('admin-display').textContent  = adminOk ? formatAUD(result.adminMonthly) : '—';
+    document.getElementById('missed-display').textContent = missedOk ? formatAUD(result.missedMonthly) : '—';
+
+    const section = document.getElementById('result-section');
     section.classList.add('visible');
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ─── State ───────────────────────────────────────────────────────────────
-
-  let calcResult   = null;
-  let currentTier  = 'cold';
-  let isSubmitting = false;
-
-  // ─── Calculator form submission ──────────────────────────────────────────
-
-  const calcForm      = document.getElementById('calc-form');
-  const resultSection = document.getElementById('result-section');
-
-  calcForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const tradeTypeEl    = document.getElementById('trade-type');
-    const tradeTypeError = document.getElementById('trade-type-error');
-    const tradeType      = tradeTypeEl.value;
-    const missedCalls    = parseFloat(document.getElementById('missed-calls').value);
-    const avgJobValue    = parseFloat(document.getElementById('avg-job-value').value);
-    const conversionRate = parseFloat(document.getElementById('conversion-rate').value);
-
-    tradeTypeError.classList.remove('visible');
-    tradeTypeEl.style.borderColor = '';
-
-    let hasCalcError = false;
-
-    if (!tradeType) {
-      tradeTypeError.classList.add('visible');
-      tradeTypeEl.style.borderColor = '#f87171';
-      tradeTypeEl.addEventListener('change', function fix() {
-        tradeTypeError.classList.remove('visible');
-        tradeTypeEl.style.borderColor = '';
-        tradeTypeEl.removeEventListener('change', fix);
-      });
-      hasCalcError = true;
-    }
-
-    if (
-      isNaN(missedCalls)    || missedCalls    <= 0 ||
-      isNaN(avgJobValue)    || avgJobValue    <= 0 ||
-      isNaN(conversionRate) || conversionRate <= 0  || conversionRate > 100
-    ) {
-      [
-        { el: document.getElementById('missed-calls'),    valid: !isNaN(missedCalls)    && missedCalls    > 0 },
-        { el: document.getElementById('avg-job-value'),   valid: !isNaN(avgJobValue)    && avgJobValue    > 0 },
-        { el: document.getElementById('conversion-rate'), valid: !isNaN(conversionRate) && conversionRate > 0 && conversionRate <= 100 },
-      ].forEach(({ el, valid }) => {
-        if (!valid) {
-          el.style.borderColor = '#f87171';
-          el.addEventListener('input', function fix() {
-            el.style.borderColor = '';
-            el.removeEventListener('input', fix);
-          });
-        }
-      });
-      hasCalcError = true;
-    }
-
-    if (hasCalcError) return;
-
-    calcResult  = calculate(missedCalls, avgJobValue, conversionRate);
-    currentTier = getScoreTier(calcResult.monthlyLoss);
-
-    document.getElementById('annual-loss-display').textContent  = formatAUD(calcResult.annualLoss);
-    document.getElementById('weekly-loss-display').textContent  = formatAUD(calcResult.weeklyLoss);
-    document.getElementById('monthly-loss-display').textContent = formatAUD(calcResult.monthlyLoss);
-
-    updateEmailCapture(currentTier);
-
-    resultSection.classList.add('visible');
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.dataLayer) window.dataLayer.push({ event: 'calculator_result' });
   });
 
-  // ─── Email form submission ───────────────────────────────────────────────
-
-  const emailForm  = document.getElementById('email-form');
-  const submitBtn  = document.getElementById('submit-btn');
-  const nameError  = document.getElementById('name-error');
-  const emailError = document.getElementById('email-error');
-
-  function validateEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  emailForm.addEventListener('submit', async function (e) {
+  document.getElementById('email-form').addEventListener('submit', async function (e) {
     e.preventDefault();
-
-    if (isSubmitting) return;
-
+    if (isSubmitting || !result) return;
     const firstName = document.getElementById('first-name').value.trim();
-    const email     = document.getElementById('email-input').value.trim();
-    const phone     = document.getElementById('phone-input').value.trim();
+    const email = document.getElementById('email-input').value.trim();
+    const phone = document.getElementById('phone-input').value.trim();
+    const nameErr = document.getElementById('name-error'), emailErr = document.getElementById('email-error');
+    nameErr.classList.remove('visible'); emailErr.classList.remove('visible');
+    let bad = false;
+    if (!firstName) { nameErr.classList.add('visible'); bad = true; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailErr.classList.add('visible'); bad = true; }
+    if (bad) return;
 
-    nameError.classList.remove('visible');
-    emailError.classList.remove('visible');
+    isSubmitting = true;
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true; btn.textContent = 'Sending…';
 
-    let hasError = false;
-
-    if (!firstName) { nameError.classList.add('visible');  hasError = true; }
-    if (!validateEmail(email)) { emailError.classList.add('visible'); hasError = true; }
-
-    if (hasError) return;
-
-    isSubmitting          = true;
-    submitBtn.disabled    = true;
-    submitBtn.textContent = 'Sending…';
-
-    const tradeType      = document.getElementById('trade-type').value;
-    const avgJobValue    = parseFloat(document.getElementById('avg-job-value').value);
-    const missedCalls    = parseFloat(document.getElementById('missed-calls').value);
-    const conversionRate = parseFloat(document.getElementById('conversion-rate').value);
-
+    // api/calculator-lead.js creates or finds the contact in Comp AI CRM and adds these numbers as a note.
+    // monthly/weekly/annual now mean admin time + missed work combined.
     const payload = {
-      email,
-      name:                  firstName,
-      phone,
-      score_tier:            currentTier,
-      annual_loss:           calcResult ? Math.round(calcResult.annualLoss)   : 0,
-      calculated_amount:     calcResult ? Math.round(calcResult.annualLoss)   : 0,
-      recovered_amount:      calcResult ? calcResult.recoveredAmt              : 0,
-      trade_type:            tradeType  || '',
-      avg_job_value:         avgJobValue,
-      missed_calls_per_week: missedCalls,
-      conversion_rate:       conversionRate,
-      weekly_loss:           calcResult ? Math.round(calcResult.weeklyLoss)   : 0,
-      monthly_loss:          calcResult ? Math.round(calcResult.monthlyLoss)  : 0,
+      email, name: firstName, phone,
+      score_tier:            tier(result.totalMonthly),
+      trade_type:            inputs.trade || '',
+      annual_loss:           Math.round(result.totalMonthly * 12),
+      monthly_loss:          Math.round(result.totalMonthly),
+      weekly_loss:           Math.round(result.totalMonthly / WEEKS_PER_MONTH),
+      avg_job_value:         inputs.jobValue || 0,
+      missed_calls_per_week: inputs.missed || 0,
+      conversion_rate:       inputs.winRate || 0,
+      marketing_consent:     document.getElementById('marketing-consent').checked,
+      admin_hours_per_week:  inputs.adminHours || 0,
+      hourly_rate:           inputs.hourlyRate || 0,
     };
 
     try {
-      await fetch(WEBHOOK_URL, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload),
-      });
-    } catch (_err) {
-      // Fail silently — do not block thank-you display
-    }
+      await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    } catch (_err) { /* never block the thank-you */ }
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+    if (window.dataLayer) window.dataLayer.push({ event: 'calculator_lead' });
 
-    resultSection.classList.remove('visible');
-    showThankYou(currentTier, firstName);
+    document.getElementById('result-section').classList.remove('visible');
+    document.getElementById('thankyou-name').textContent = firstName;
+    const ty = document.getElementById('thankyou');
+    ty.classList.add('visible');
+    ty.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 </script>
 

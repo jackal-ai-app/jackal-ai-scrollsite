@@ -10,10 +10,10 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Call — Jackal AI | AI Receptionist for Aussie Tradies</title>
-  <meta name="description" content="Get in touch with Jackal AI. Book a demo call, ask a question, or find out which plan is right for your trade business.">
-  <meta property="og:title" content="Book a Call — Jackal AI | AI Receptionist for Aussie Tradies">
-  <meta property="og:description" content="Book a free 15-minute call. We'll show you exactly how the AI receptionist works — no pressure.">
+  <title>Contact — Jackal AI | AI Integration for Perth Trades</title>
+  <meta name="description" content="Get in touch with Jackal AI. Book your free consult, grab a quick call, or send us the details.">
+  <meta property="og:title" content="Contact — Jackal AI">
+  <meta property="og:description" content="Book your free consult, or grab a quick 15-minute call. No pressure.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jackalai.app/contact">
   <meta property="og:image" content="https://jackalai.app/assets/og/contact.png">
@@ -28,9 +28,10 @@
     "name": "Jackal AI",
     "url": "https://jackalai.app",
     "logo": "https://jackalai.app/logo.png",
-    "description": "AI voice receptionist for Australian trades and service businesses. Answers every call 24/7, books jobs, and sends SMS summaries. From $249/month. ABN 92 509 551 334.",
+    "description": "AI integration partner for trades and local service businesses, Perth WA. Jackal AI finds where a business leaks time and money and plugs AI into the tools it already uses. Free Business Streamlining Consult. ABN 92 509 551 334.",
     "foundingDate": "2024",
     "taxID": "92 509 551 334",
+    "telephone": "+61851226302",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Perth",
@@ -631,6 +632,7 @@
     .mobile-sticky-primary { background: var(--amber); color: #000; }
     .mobile-sticky-secondary { background: transparent; color: var(--amber); border: 1.5px solid var(--amber) !important; }
     @media (prefers-reduced-motion: reduce) { .mobile-sticky-btn { transition: none; } }
+    :focus-visible { outline: 2px solid var(--amber, #F59E0B); outline-offset: 3px; border-radius: 2px; }
   </style>
 </head>
 <body>
@@ -650,12 +652,12 @@
         <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
       </a>
       <div class="nav-links">
-        <a href="ai-calls.html">AI Calls</a>
+        <a href="ai-calls.html">AI Receptionist</a>
         <a href="websites.html">Websites</a>
-        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#fixes">Fixes</a>
         <a href="about.html">About</a>
         <a href="contact.html" class="active">Contact</a>
-        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=contact-nav">Book a free call</a>
+        <a href="consultation.html" class="nav-cta">Book your free consult</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -664,12 +666,12 @@
   </nav>
 
   <div class="nav-mobile" id="navMobile">
-    <a href="ai-calls.html" onclick="closeMobileNav()">AI Calls</a>
+    <a href="ai-calls.html" onclick="closeMobileNav()">AI Receptionist</a>
     <a href="websites.html" onclick="closeMobileNav()">Websites</a>
-    <a href="index.html#faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="index.html#fixes" onclick="closeMobileNav()">Fixes</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="javascript:void(0)" class="nav-mobile-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=contact-nav" onclick="closeMobileNav()">Book a free call</a>
+    <a href="consultation.html" class="nav-mobile-cta" onclick="closeMobileNav()">Book your free consult</a>
   </div>
 
   <!-- HERO -->
@@ -681,7 +683,7 @@
     <div class="contact-hero-inner">
       <span class="section-label reveal">Get In Touch</span>
       <h1 class="reveal rd-1">LET'S <span class="amber">TALK</span></h1>
-      <p class="reveal rd-2">Tell us about your trade business and we'll show you what Jackal can do. AI receptionists go live in under a week. Website builds take around 30 days.</p>
+      <p class="reveal rd-2">Tell us about your business and we'll tell you where we'd start. The best first step is the <a href="consultation.html" style="text-decoration:underline;text-underline-offset:3px;">free Business Streamlining Consult</a>.</p>
     </div>
   </section>
 
@@ -689,8 +691,8 @@
   <section class="contact-main" style="padding-bottom:0">
     <div class="contact-grid">
       <div class="cal-book-section" style="grid-column:1/-1">
-        <h3>Fastest way — grab a time now</h3>
-        <p>Free 15-minute call. No pressure, no pitch deck.</p>
+        <h3>Quick question? Grab a time now</h3>
+        <p>Free 15-minute call. No pressure, no pitch deck. Want the full 30-minute consult instead? <a href="consultation.html" style="text-decoration:underline;text-underline-offset:3px;">Book it here</a>.</p>
         <div id="cal-contact-inline"></div>
       </div>
       <div class="contact-divider" style="grid-column:1/-1">Or send us the details</div>
@@ -704,7 +706,8 @@
       <!-- Info column -->
       <div class="contact-info">
         <h2 class="reveal">What Happens<br>Next</h2>
-        <p class="reveal rd-1">Fill in the form and we'll be in touch within one business day. We'll ask a few questions about your business, set up a demo call, and handle everything from there.</p>
+        <p class="reveal rd-1">Fill in the form and we'll be in touch within one business day. We'll ask a few questions about your business and book in your free Business Streamlining Consult.</p>
+        <p class="reveal rd-1" style="font-size:0.9rem;">Coach, bookkeeper or accountant working with Perth trades? Use the form to say hi. Let's talk referrals.</p>
 
         <div class="contact-detail reveal rd-2">
           <div class="contact-detail-item">
@@ -726,7 +729,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>Step 2</strong>
-              <span>We call you back and run a live demo</span>
+              <span>We run your free Business Streamlining Consult and send you the written plan</span>
             </div>
           </div>
           <div class="contact-detail-item">
@@ -737,7 +740,7 @@
             </div>
             <div class="contact-detail-text">
               <strong>Step 3</strong>
-              <span>We build and go live — you don't touch a thing</span>
+              <span>You pick the fix. We build it, test it, and nothing goes live without your sign-off</span>
             </div>
           </div>
         </div>
@@ -845,9 +848,10 @@
         </div>
         <div class="foot-col">
           <h4>Navigate</h4>
-          <a href="ai-calls.html">AI Calls</a>
+          <a href="consultation.html">Free consult</a>
+          <a href="ai-calls.html">AI Receptionist</a>
           <a href="websites.html">Websites</a>
-          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#fixes">Fixes</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -1021,13 +1025,13 @@
 
   <!-- ===================== MOBILE STICKY BAR ===================== -->
   <div class="mobile-sticky hidden" id="mobileStickyBar">
-    <a href="javascript:void(0)" class="mobile-sticky-btn mobile-sticky-primary" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=contact-sticky">Book a free call</a>
-    <a href="ai-calls.html" class="mobile-sticky-btn mobile-sticky-secondary">Hear the AI</a>
+    <a href="consultation.html" class="mobile-sticky-btn mobile-sticky-primary">Book your free consult</a>
+    <a href="calculator/" class="mobile-sticky-btn mobile-sticky-secondary">Admin cost?</a>
   </div>
 
   <!-- ===================== CAL.COM EMBED ===================== -->
   <script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.loaded = true; cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.handle = function (name, e) { p(cal, [name, e]); }; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "15min", {origin:"https://cal.com"});
   Cal.ns["15min"]("inline", { elementOrSelector:"#cal-contact-inline", calLink:"jackal-ai/15min", layout:"month_view" });
   Cal.ns["15min"]("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#F59E0B"}},"hideEventTypeDetails":false,"layout":"month_view"});

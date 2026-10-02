@@ -1,3 +1,5 @@
+> Pre-pivot document (receptionist-first model, before 25 Sep 2026). Current direction: docs/business-model-pivot/01-business-model-change.md
+
 # Jackal AI Website Review — Design, Layout, Copy, SEO & Conversion
 
 **Site:** www.jackalai.app

@@ -1,54 +1,70 @@
 # Jackal AI
 
-> AI voice receptionist for Australian trades and service businesses.
+> AI integration partner for trades and local service businesses, Perth WA. We make your business easier to run: helping you do more, without doing more.
 
-Jackal AI answers phone calls for trade businesses 24 hours a day, 7 days a week, using a natural-sounding Australian voice. When a tradie is on the tools — up a ladder, under a sink, on a roof — Jackal picks up, captures the job details, books it into the calendar, and sends an SMS summary.
+Jackal AI finds where a trade or local service business leaks time and money, then plugs AI into the tools it already uses to fix it. It sells a result, more money and more time back, measured in hours saved per week and dollars recovered or won per month. Every engagement starts with a free 30-minute Business Streamlining Consult.
 
 Founded in Perth, WA, Australia in 2024. ABN 92 509 551 334.
 
-## Products
+## How it works
+1. Free Business Streamlining Consult (30 minutes): finds the repetitive jobs, bottlenecks and pointless processes eating the owner's time, walking through how a job moves through the business. The client gets a written plan with the top 3 fixes, what each should save in hours and dollars, and a fixed price for each.
+2. First fix, fixed price: the fix that pays back fastest, built into the client's existing tools and tested before it goes live. Starter fixes are $1,500 AUD and Core fixes are $3,000 AUD.
+3. AI Partner, month to month: keeps the fixes running, adds more, and sends a monthly report with real numbers.
+   - Keep, $495 AUD/month: up to 2 live fixes looked after, about 2 hours of small tweaks a month, a monthly results report and a 30-minute monthly check-in.
+   - Grow, $995 AUD/month: up to 5 live fixes, one new small fix each quarter, about 5 hours of tweaks a month, fortnightly check-ins, same-business-day support and a quarterly AI training session for the team.
+4. Custom builds (apps, dashboards, websites, bigger integrations): quoted per project at a fixed price with a written scope.
 
-### AI Voice Receptionist
-- Plans from $249 AUD/month (no lock-in, month to month)
-- Capture plan: $249/month + $1,500 one-time setup — for solo tradies and small crews
-- Convert plan: $499/month + $2,750 one-time setup — for established businesses wanting lead qualification
-- Command plan: $999/month + $4,500 one-time setup — for larger operations wanting a full admin replacement
-- All plans include: 24/7 call answering in a natural Aussie voice, caller detail capture, job booking into calendar, SMS and email summaries
-- AI receptionists go live in under a week
-- Integrations: ServiceM8, Tradify, Simpro, Xero, MYOB, Google Calendar, GoHighLevel (GHL)
+Month to month, no lock-in, no exit fees. Clients own every build, account and login. Nothing goes live without the client's sign-off.
 
-### Website Design for Australian Trades
-- Custom-built, cinematic, conversion-focused websites for Australian trades
-- Built in 30 days. No templates. No compromise.
-- Engineered for Google rankings and AI search citation
-- Quote on request — book a 30-minute discovery call
+## Fixes across the job cycle
+- Enquiries: AI receptionist, missed-call text-back, chat into the job system
+- Quotes: quote drafting from notes, automatic follow-up
+- Scheduling: booking into the calendar or job system, reminders
+- On site: job notes and forms straight into the system
+- Invoices: invoice on completion, automatic payment reminders
+- After the job: review requests and service reminders (consented SMS/email only)
+- Back office: receipt capture into Xero or MYOB, inbox triage, simple dashboards
+- Growth: websites built for Google and AI search
+- Team: hands-on AI training for owners and staff
+
+## The AI receptionist (one of the fixes)
+- Capture: $249 AUD/month + $1,500 one-time setup
+- Convert: ~$499 AUD/month + ~$2,750 one-time setup
+- Command: ~$999 AUD/month + ~$4,500 one-time setup
+- Answers calls 24/7 in a natural Australian voice, captures caller details, books jobs into the calendar, sends SMS and email summaries
+- It discloses that it is an AI assistant, and a real person is always reachable
+- Details: https://jackalai.app/ai-calls
 
 ## Who we serve
-Trade businesses and service companies across Australia: plumbers, electricians, builders, HVAC technicians, landscapers, cleaners, and other field service operators. Primary market: Perth, WA. Serves businesses nationally.
+Owner-operated trades and home service businesses with 1–20 staff: electricians, plumbers, HVAC, builders, roofers, landscapers, concreters, painters, cleaners, pest control and locksmiths. Also local service businesses with the same admin pain, such as physios and clinics. Perth metro first, then WA and Australia.
 
-## Why it's different
-Jackal AI was built by someone who spent a decade training real receptionists to handle trade business calls. The AI is configured to sound like a receptionist, not a bot — it asks the right questions, captures the right details, and books the job. Most callers do not realise they are speaking to an AI.
+## Works with
+ServiceM8, Tradify, Fergus, simPRO, Xero, MYOB, Google Calendar, Gmail, Outlook.
 
-## Location
-Perth, WA, Australia. Serves trade businesses nationally across Australia.
+## Founder
+Jack Alexander — a decade in customer experience and service operations, now building AI that does the repetitive work for Perth businesses. Runs every consult call. Based in Perth, WA, Australia.
+LinkedIn: https://www.linkedin.com/in/jack-alexander-0b898a192
 
 ## Contact
 - Email: hello@jackalai.app
-- Book a 15-minute call: https://jackalai.app/book
-- Phone: [see jackalai.app for current number]
-
-## Founder
-Jack Alexander — founded Jackal AI in 2024 after a decade training real receptionists for trade businesses and service operations. Based in Perth, WA, Australia.
-LinkedIn: https://www.linkedin.com/in/jack-alexander-0b898a192
+- Book the free Business Streamlining Consult: https://jackalai.app/consultation
+- Phone: (08) 5122 6302
 
 ## Key pages
 - Homepage: https://jackalai.app/
-- AI Receptionist: https://jackalai.app/ai-calls
-- Website Design: https://jackalai.app/websites
+- Free Business Streamlining Consult: https://jackalai.app/consultation
+- AI for electricians: https://jackalai.app/ai-for-electricians
+- AI for plumbers: https://jackalai.app/ai-for-plumbers
+- AI for HVAC businesses: https://jackalai.app/ai-for-hvac
+- AI for builders: https://jackalai.app/ai-for-builders
+- AI for landscapers: https://jackalai.app/ai-for-landscapers
+- AI for cleaning businesses: https://jackalai.app/ai-for-cleaners
+- AI for local service businesses: https://jackalai.app/ai-for-local-service-businesses
+- AI receptionist: https://jackalai.app/ai-calls
+- Websites: https://jackalai.app/websites
+- Admin and missed-work cost calculator: https://jackalai.app/calculator
 - About: https://jackalai.app/about
-- Book a call: https://jackalai.app/book
-- Missed call ROI calculator: https://jackalai.app/calculator
-- Sample AI call: https://jackalai.app/sample-call
+- Sample AI receptionist call: https://jackalai.app/sample-call
 
 ## Social profiles
 - Instagram: https://www.instagram.com/jackal.ai/

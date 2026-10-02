@@ -47,7 +47,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Plumbers",
-      "schemaAudience": "Plumbing businesses"
+      "schemaAudience": "Plumbing businesses",
+      "relatedIntegrationPage": "/ai-for-plumbers",
+      "relatedIntegrationLabel": "AI for plumbers"
     },
     {
       "slug": "electricians",
@@ -96,7 +98,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Electricians",
-      "schemaAudience": "Electrical contracting businesses"
+      "schemaAudience": "Electrical contracting businesses",
+      "relatedIntegrationPage": "/ai-for-electricians",
+      "relatedIntegrationLabel": "AI for electricians"
     },
     {
       "slug": "builders",
@@ -145,7 +149,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Builders",
-      "schemaAudience": "Building and construction businesses"
+      "schemaAudience": "Building and construction businesses",
+      "relatedIntegrationPage": "/ai-for-builders",
+      "relatedIntegrationLabel": "AI for builders"
     },
     {
       "slug": "landscapers",
@@ -194,7 +200,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Landscapers",
-      "schemaAudience": "Landscaping businesses"
+      "schemaAudience": "Landscaping businesses",
+      "relatedIntegrationPage": "/ai-for-landscapers",
+      "relatedIntegrationLabel": "AI for landscapers"
     },
     {
       "slug": "air-conditioning",
@@ -243,7 +251,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Air Conditioning Businesses",
-      "schemaAudience": "Air conditioning and HVAC businesses"
+      "schemaAudience": "Air conditioning and HVAC businesses",
+      "relatedIntegrationPage": "/ai-for-hvac",
+      "relatedIntegrationLabel": "AI for HVAC businesses"
     },
     {
       "slug": "roofers",
@@ -292,7 +302,9 @@
         }
       ],
       "schemaServiceName": "AI Voice Receptionist for Roofers",
-      "schemaAudience": "Roofing businesses"
+      "schemaAudience": "Roofing businesses",
+      "relatedIntegrationPage": "/#fixes",
+      "relatedIntegrationLabel": "Where trade businesses leak"
     }
   ],
   "locationPages": [
@@ -345,6 +357,8 @@
       ],
       "schemaServiceName": "AI Voice Receptionist for Perth Trade Businesses",
       "schemaAudience": "Trade businesses in Perth, Western Australia",
+      "relatedIntegrationPage": "/#fixes",
+      "relatedIntegrationLabel": "Where Perth businesses leak",
       "schemaCity": "Perth",
       "schemaRegion": "WA"
     }

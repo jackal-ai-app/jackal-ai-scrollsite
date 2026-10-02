@@ -10,7 +10,7 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Calls — AI Voice Receptionist for Australian Tradies | Jackal AI</title>
+  <title>AI Receptionist for Australian Trades | Jackal AI</title>
   <meta name="description" content="Jackal AI's voice receptionist answers your calls 24/7, books jobs, captures lead details, and sends you a full summary. Sounds human. Built for Australian trades. From $249/month.">
   <meta property="og:title" content="AI Calls — Never Miss Another Job | Jackal AI">
   <meta property="og:description" content="Your AI receptionist picks up every call, captures the details, and books the job. Sounds like a real person. Works 24/7/365.">
@@ -28,9 +28,10 @@
     "name": "Jackal AI",
     "url": "https://jackalai.app",
     "logo": "https://jackalai.app/logo.png",
-    "description": "AI voice receptionist for Australian trades and service businesses. Answers every call 24/7, books jobs, and sends SMS summaries. From $249/month. ABN 92 509 551 334.",
+    "description": "AI integration partner for trades and local service businesses, Perth WA. Jackal AI finds where a business leaks time and money and plugs AI into the tools it already uses. Free Business Streamlining Consult. ABN 92 509 551 334.",
     "foundingDate": "2024",
     "taxID": "92 509 551 334",
+    "telephone": "+61851226302",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Perth",
@@ -98,32 +99,32 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Will the AI receptionist sound like a robot?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. It sounds like a normal Aussie receptionist. Most callers don't realise they're talking to AI. We'll set up a demo call so you can hear it yourself." }
+        "name": "Will it sound like a robot?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. It sounds like a normal Aussie receptionist, it says it's an AI assistant if asked, and a real person is always reachable. Hear Jess answer a test call on this page before you decide." }
       },
       {
         "@type": "Question",
-        "name": "What if the AI says the wrong thing?",
+        "name": "What if it says the wrong thing?",
         "acceptedAnswer": { "@type": "Answer", "text": "It only says what you've configured. If a caller asks something outside its knowledge, it captures the details and passes them to you." }
       },
       {
         "@type": "Question",
-        "name": "Is an AI receptionist hard to set up?",
+        "name": "Is it hard to set up?",
         "acceptedAnswer": { "@type": "Answer", "text": "You don't set up anything. You give us your business info, we build and configure the agent. Takes days, not weeks." }
       },
       {
         "@type": "Question",
-        "name": "Can I cancel my AI receptionist plan anytime?",
+        "name": "Can I cancel anytime?",
         "acceptedAnswer": { "@type": "Answer", "text": "Month to month. No lock-in contracts. No exit fees." }
       },
       {
         "@type": "Question",
-        "name": "Is $249 per month expensive for an AI receptionist?",
+        "name": "$249 sounds expensive",
         "acceptedAnswer": { "@type": "Answer", "text": "Miss two $300 jobs this month and you've lost $600. Jackal costs $249 and catches every one of them. It pays for itself before the month is out." }
       },
       {
         "@type": "Question",
-        "name": "Does the AI receptionist handle after-hours calls?",
+        "name": "What about after hours calls?",
         "acceptedAnswer": { "@type": "Answer", "text": "That's where most tradies lose the most work. Jackal answers 24/7 including weekends and public holidays." }
       }
     ]
@@ -1579,6 +1580,72 @@
     .mobile-sticky-primary { background: var(--amber); color: #000; }
     .mobile-sticky-secondary { background: transparent; color: var(--amber); border: 1.5px solid var(--amber) !important; }
     @media (prefers-reduced-motion: reduce) { .mobile-sticky-btn { transition: none; } }
+    :focus-visible { outline: 2px solid var(--amber, #F59E0B); outline-offset: 3px; border-radius: 2px; }
+    /* ROI Calculator */
+    #specs .roi-wrap { margin-top: 8px; }
+    .roi-wrap { max-width: 680px; margin: 0 auto; padding: 0 48px; }
+    .roi-heading {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      color: var(--white); line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .roi-card {
+      background: rgba(42,42,40,0.5);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-lg);
+      padding: 36px 36px 32px;
+    }
+    .roi-fallback {
+      font: 400 0.88rem/1.6 'Outfit', sans-serif;
+      color: var(--text-muted); margin-bottom: 20px;
+    }
+    .roi-sliders { display: flex; flex-direction: column; gap: 26px; margin-bottom: 32px; }
+    .roi-slider-group { display: flex; flex-direction: column; gap: 10px; }
+    .roi-slider-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font: 400 0.85rem/1 'Outfit', sans-serif; color: var(--text-muted);
+    }
+    .roi-slider-label strong { font-size: 0.95rem; color: var(--white); font-weight: 600; }
+    .roi-slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 4px; border-radius: 2px;
+      background: linear-gradient(to right, var(--amber) 22%, rgba(255,255,255,0.1) 22%);
+      outline: none; cursor: pointer;
+    }
+    .roi-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--amber); border: 2px solid #111; cursor: pointer;
+    }
+    .roi-slider::-moz-range-thumb {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--amber); border: 2px solid #111; cursor: pointer; border: none;
+    }
+    .roi-output {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 28px; margin-bottom: 28px; text-align: center;
+    }
+    .roi-loss-label {
+      font: 400 0.78rem/1 'Outfit', sans-serif; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
+    }
+    .roi-loss-num {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--amber); letter-spacing: -0.02em;
+      line-height: 1; margin-bottom: 12px;
+    }
+    .roi-compare {
+      font: 400 0.85rem/1.5 'Outfit', sans-serif; color: var(--text-muted);
+    }
+    .roi-compare strong { color: var(--white); }
+    .roi-cta-wrap { display: flex; justify-content: center; }
+    @media (max-width: 580px) {
+      .roi-wrap { padding: 0 24px; }
+      .roi-card { padding: 24px 20px 22px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1601,12 +1668,12 @@
         <span class="nav-wordmark">JACKAL<sup>AI</sup></span>
       </a>
       <div class="nav-links">
-        <a href="ai-calls.html" class="active" style="color:var(--amber)">AI Calls</a>
+        <a href="ai-calls.html" class="active" style="color:var(--amber)">AI Receptionist</a>
         <a href="websites.html">Websites</a>
-        <a href="#faq">FAQ</a>
+        <a href="index.html#fixes">Fixes</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="javascript:void(0)" class="nav-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-nav">Book a free call</a>
+        <a href="consultation.html" class="nav-cta">Book your free consult</a>
       </div>
       <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1616,12 +1683,12 @@
 
   <!-- Mobile nav drawer -->
   <div class="nav-mobile" id="navMobile">
-    <a href="ai-calls.html" style="color:var(--amber)" onclick="closeMobileNav()">AI Calls</a>
+    <a href="ai-calls.html" style="color:var(--amber)" onclick="closeMobileNav()">AI Receptionist</a>
     <a href="websites.html" onclick="closeMobileNav()">Websites</a>
-    <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="index.html#fixes" onclick="closeMobileNav()">Fixes</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="javascript:void(0)" class="nav-mobile-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-nav" onclick="closeMobileNav()">Book a free call</a>
+    <a href="consultation.html" class="nav-mobile-cta" onclick="closeMobileNav()">Book your free consult</a>
   </div>
 
   <!-- ===================== HERO ===================== -->
@@ -1632,7 +1699,7 @@
       <div class="grid-overlay"></div>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow reveal">AI Voice Receptionist &middot; Australian Trades</div>
+      <div class="hero-eyebrow reveal">One of the fixes: Enquiries</div>
       <h1 class="hero-title reveal rd-1">
         STOP LOSING JOBS<br><span class="amber">TO VOICEMAIL</span>
       </h1>
@@ -1641,9 +1708,10 @@
         Sounds like a real person. Works 24/7. From $249/month.
       </p>
       <div class="hero-btns reveal rd-3">
-        <a href="javascript:void(0)" class="btn btn-amber" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-hero">Book a free call</a>
-        <a href="#" class="btn btn-ghost" onclick="openDemoModal();return false;">Hear a demo call &rarr;</a>
+        <a href="consultation.html" class="btn btn-amber">Book your free consult</a>
+        <a href="#" class="btn btn-ghost" onclick="openDemoModal();return false;">Hear Jess answer a test call &rarr;</a>
       </div>
+      <p class="hero-sub reveal rd-3" style="font-size:0.9rem;color:var(--dust);margin-top:-24px;">Not sure calls are your biggest leak? <a href="consultation.html" style="text-decoration:underline;text-underline-offset:3px;">Book the consult first.</a></p>
       <div class="scroll-hint reveal rd-4">
         <span>Scroll to explore</span>
         <div class="scroll-arrow"></div>
@@ -1655,24 +1723,35 @@
   <section id="specs">
     <div class="specs-head reveal">
       <span class="section-label">The Missed Call Maths</span>
-      <h2 class="section-title">EVERY MISSED CALL IS MONEY OUT THE DOOR</h2>
+      <h2 class="section-title">What are missed calls costing you?</h2>
+      <p style="max-width:620px;margin:0 auto;color:var(--text-muted);">Your numbers, not an industry average. Want the admin side too? <a href="calculator/" style="color:var(--white);text-decoration:underline;text-underline-offset:3px;">Work out what admin's costing you &rarr;</a></p>
     </div>
-    <div class="specs-grid" id="specsGrid">
-      <div class="spec-item reveal rd-1" data-target="5" data-prefix="$" data-suffix="K">
-        <span class="spec-num" id="sn0">$5K</span>
-        <span class="spec-label">per month from saved calls</span>
-      </div>
-      <div class="spec-item reveal rd-2" data-target="80" data-suffix="%">
-        <span class="spec-num" id="sn1">80%</span>
-        <span class="spec-label">of callers won't leave a voicemail</span>
-      </div>
-      <div class="spec-item reveal rd-3" data-target="12" data-suffix="+">
-        <span class="spec-num" id="sn2">12+</span>
-        <span class="spec-label">extra jobs booked per month</span>
-      </div>
-      <div class="spec-item reveal rd-4" data-target="24" data-suffix="/7">
-        <span class="spec-num" id="sn3">24/7</span>
-        <span class="spec-label">coverage all 365 days</span>
+    <div class="roi-wrap">
+      <div class="roi-card reveal rd-1">
+        <noscript><p class="roi-fallback">Calls missed a week &times; the share that would have booked &times; your average job value &times; 4.33 weeks = what voicemail costs you a month.</p></noscript>
+        <p class="roi-fallback">Example numbers to start. Drag them to yours.</p>
+        <div class="roi-sliders">
+          <div class="roi-slider-group">
+            <div class="roi-slider-label"><span>Average job value</span><strong id="roiJobVal">$300</strong></div>
+            <input type="range" class="roi-slider" id="roiJobSlider" min="100" max="3000" step="50" value="300" aria-label="Average job value">
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label"><span>Calls you miss a week</span><strong id="roiCallsVal">5 calls</strong></div>
+            <input type="range" class="roi-slider" id="roiCallsSlider" min="1" max="25" step="1" value="5" aria-label="Calls missed per week">
+          </div>
+          <div class="roi-slider-group">
+            <div class="roi-slider-label"><span>Share that would have booked</span><strong id="roiRateVal">40%</strong></div>
+            <input type="range" class="roi-slider" id="roiRateSlider" min="5" max="100" step="5" value="40" aria-label="Share of missed calls that would have booked">
+          </div>
+        </div>
+        <div class="roi-output">
+          <p class="roi-loss-label">Missed calls could be costing you about</p>
+          <p class="roi-loss-num" id="roiLossNum">$2,598/month</p>
+          <p class="roi-compare">The Capture plan is $249 a month plus setup. On your numbers, that's covered <strong id="roiMultiple">10&times;</strong> over.</p>
+        </div>
+        <div class="roi-cta-wrap">
+          <a href="consultation.html" class="btn btn-amber">Book your free consult</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1681,7 +1760,7 @@
   <section id="call-sequence">
     <div class="cs-label-wrap">
       <span class="section-label reveal">Real Call &middot; No Edits</span>
-      <h2 class="section-title cs-section-title reveal rd-1">THIS IS WHAT YOU'RE MISSING</h2>
+      <h2 class="section-title cs-section-title reveal rd-1">This is what you're missing</h2>
     </div>
 
     <div class="cs-outer">
@@ -1873,7 +1952,7 @@
           <li>Call summaries via SMS &amp; email</li>
           <li>Calendar booking</li>
         </ul>
-        <a href="javascript:void(0)" class="price-btn price-btn-amber" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=pricing-capture">Book a setup call</a>
+        <a href="consultation.html" class="price-btn price-btn-amber">Book your free consult</a>
         <a href="https://buy.stripe.com/5kQeV6aoxaBn3DJ0HA1Jm00" target="_blank" rel="noopener noreferrer" class="price-stripe-link">Ready to skip the call? Start checkout &rarr;</a>
       </div>
 
@@ -1891,7 +1970,7 @@
           <li>Call routing</li>
           <li>Priority handling</li>
         </ul>
-        <a href="javascript:void(0)" class="price-btn price-btn-amber" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=pricing-convert">Book a setup call</a>
+        <a href="consultation.html" class="price-btn price-btn-amber">Book your free consult</a>
         <a href="https://buy.stripe.com/28E7sE4099xj0rx4XQ1Jm01" target="_blank" rel="noopener noreferrer" class="price-stripe-link">Ready to skip the call? Start checkout &rarr;</a>
       </div>
 
@@ -1908,7 +1987,7 @@
           <li>Multi-calendar support</li>
           <li>Advanced integrations</li>
         </ul>
-        <a href="javascript:void(0)" class="price-btn price-btn-amber" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=pricing-command">Book a setup call</a>
+        <a href="consultation.html" class="price-btn price-btn-amber">Book your free consult</a>
         <a href="https://buy.stripe.com/14A3co8gpfVH3DJbme1Jm02" target="_blank" rel="noopener noreferrer" class="price-stripe-link">Ready to skip the call? Start checkout &rarr;</a>
       </div>
 
@@ -1990,7 +2069,7 @@
           <span class="faq-ico"></span>
         </button>
         <div class="faq-ans">
-          <div class="faq-ans-inner">No. It sounds like a normal Aussie receptionist. Most callers don't realise. We'll set up a demo call so you can hear it yourself.</div>
+          <div class="faq-ans-inner">No. It sounds like a normal Aussie receptionist, it says it's an AI assistant if asked, and a real person is always reachable. Hear Jess answer a test call on this page before you decide.</div>
         </div>
       </div>
 
@@ -2069,7 +2148,7 @@
                 <li>Fast on phones, where your customers find you</li>
                 <li>Looks $15K, costs a fraction</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2083,7 +2162,7 @@
                 <li>Your voice, not agency fluff</li>
                 <li>Month to month, no lock-in</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2097,7 +2176,7 @@
                 <li>Matched to your tools and crew size</li>
                 <li>A plan, not a pitch</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2111,7 +2190,7 @@
                 <li>No more double-handling between apps</li>
                 <li>Set once, runs forever</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2125,7 +2204,7 @@
                 <li>You own the code, no subscription trap</li>
                 <li>Built around how you actually work</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2139,7 +2218,7 @@
                 <li>Beats every other logo on a wrapped ute</li>
                 <li>Full kit ready to use everywhere</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2153,7 +2232,7 @@
                 <li>Each opportunity ranked by payoff</li>
                 <li>Clear roadmap, no fluff</li>
               </ul>
-              <a href="javascript:void(0)" class="card-cta" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-carousel">Book a free call</a>
+              <a href="consultation.html" class="card-cta">Book your free consult</a>
             </div>
           </div>
 
@@ -2188,10 +2267,10 @@
   <section id="cta">
     <div class="cta-glow"></div>
     <div class="cta-inner">
-      <h2 class="reveal">YOUR CALLS ANSWERED.<br><span class="amber">YOUR JOBS BOOKED.</span></h2>
-      <p class="reveal rd-1">Hear the AI in action. One demo call is all it takes.</p>
-      <a href="javascript:void(0)" class="btn btn-amber btn-lg reveal rd-2" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-final-cta">Book a free call</a>
-      <p class="cta-meta reveal rd-3">Or call us: <span class="cta-phone"><!-- TODO_PHONE: replace span with <a href="tel:XXXXXXXXXX">0X XXXX XXXX</a> --><span style="color:var(--dust)">Number coming soon</span></span></p>
+      <h2 class="reveal">Your calls answered.<br><span class="amber">Your jobs booked.</span></h2>
+      <p class="reveal rd-1">Not sure calls are your biggest leak? Book the consult first.</p>
+      <a href="consultation.html" class="btn btn-amber btn-lg reveal rd-2">Book your free consult</a>
+      <p class="cta-meta reveal rd-3">Or call us: <span class="cta-phone"><a href="tel:+61851226302">(08) 5122 6302</a></span></p>
     </div>
   </section>
 
@@ -2219,9 +2298,10 @@
         </div>
         <div class="foot-col">
           <h4>Navigate</h4>
-          <a href="ai-calls.html">AI Calls</a>
+          <a href="consultation.html">Free consult</a>
+          <a href="ai-calls.html">AI Receptionist</a>
           <a href="websites.html">Websites</a>
-          <a href="#faq">FAQ</a>
+          <a href="index.html#fixes">Fixes</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
         </div>
@@ -2467,7 +2547,36 @@
       });
     }, { threshold: 0.3 });
 
-    specObserver.observe(document.getElementById('specsGrid'));
+    const specsGridEl = document.getElementById('specsGrid');
+    if (specsGridEl) specObserver.observe(specsGridEl);
+    // ===========================
+    // MISSED-CALL CALCULATOR (moved from the homepage, Sep 2026)
+    // ===========================
+    (function () {
+      const jobSlider   = document.getElementById('roiJobSlider');
+      const callsSlider = document.getElementById('roiCallsSlider');
+      const rateSlider  = document.getElementById('roiRateSlider');
+      if (!jobSlider) return;
+      const CAPTURE_MONTHLY = 249;
+      const fmt = n => '$' + Math.round(n).toLocaleString('en-AU');
+      function setTrack(s) {
+        const pct = ((+s.value - +s.min) / (+s.max - +s.min)) * 100;
+        s.style.background = 'linear-gradient(to right, var(--amber) ' + pct + '%, rgba(255,255,255,0.1) ' + pct + '%)';
+      }
+      function update() {
+        const job = +jobSlider.value, calls = +callsSlider.value, rate = +rateSlider.value;
+        const monthly = job * calls * (rate / 100) * 4.33;
+        document.getElementById('roiJobVal').textContent   = fmt(job);
+        document.getElementById('roiCallsVal').textContent = calls + (calls === 1 ? ' call' : ' calls');
+        document.getElementById('roiRateVal').textContent  = rate + '%';
+        document.getElementById('roiLossNum').textContent  = fmt(monthly) + '/month';
+        document.getElementById('roiMultiple').textContent = Math.max(0, Math.round(monthly / CAPTURE_MONTHLY)) + '\u00d7';
+        [jobSlider, callsSlider, rateSlider].forEach(setTrack);
+      }
+      [jobSlider, callsSlider, rateSlider].forEach(s => s.addEventListener('input', update));
+      update();
+    })();
+
 
     // ===========================
     // SCROLL REVEAL (non-hero)
@@ -2689,13 +2798,13 @@
 
   <!-- ===================== MOBILE STICKY BAR ===================== -->
   <div class="mobile-sticky hidden" id="mobileStickyBar">
-    <a href="javascript:void(0)" class="mobile-sticky-btn mobile-sticky-primary" data-cal-namespace="15min" data-cal-link="jackal-ai/15min?utm_source=site&utm_content=aicalls-sticky">Book a free call</a>
+    <a href="consultation.html" class="mobile-sticky-btn mobile-sticky-primary">Book your free consult</a>
     <button class="mobile-sticky-btn mobile-sticky-secondary" onclick="openDemoModal()">Hear the AI</button>
   </div>
 
   <!-- ===================== CAL.COM EMBED ===================== -->
   <script type="text/javascript">
-  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.loaded = true; cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.handle = function (name, e) { p(cal, [name, e]); }; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
   Cal("init", "15min", {origin:"https://cal.com"});
   Cal.ns["15min"]("ui", {"theme":"dark","styles":{"branding":{"brandColor":"#F59E0B"}},"hideEventTypeDetails":false,"layout":"month_view"});
   </script>

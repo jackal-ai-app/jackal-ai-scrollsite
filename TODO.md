@@ -1,3 +1,16 @@
+# Pivot follow-ups (25 Sep 2026)
+
+- [x] Consult booking event live: https://cal.com/jackal-ai/discovery-call (wired into `consultation.html` and `book.html`)
+- [ ] Open availability on the Cal.com calendar — the 15-min event showed no availability for Sept–Oct 2026 when tested
+- [x] Calculator leads go to Comp AI CRM (`api/calculator-lead.js`, note with their numbers + consent)
+- [ ] Add `CRM_API_URL` and `CRM_API_KEY` to the Vercel project (create the key in Comp AI CRM's API keys settings)
+- [ ] Build `results.html` + nav link once 2 real, permissioned results exist
+- [ ] Deploy (nothing in this rework has been deployed)
+
+---
+
+_Everything below is pre-pivot sprint history._
+
 # Sprint 1 — Conversion Plumbing ✅ COMPLETE
 _Source: docs/website-review.md §6_
 
